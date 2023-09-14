@@ -4,19 +4,26 @@ import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class OmaMoottori extends Moottori{
 
 	private Saapumisprosessi saapumisprosessi;
 
 	private Palvelupiste[] palvelupisteet;
 
+	//private ArrayList<Double> testiLista = new ArrayList<>(); // testing
+
 	public OmaMoottori(){
 
-		palvelupisteet = new Palvelupiste[3];
+		palvelupisteet = new Palvelupiste[5];
 
-		palvelupisteet[0]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.DEP1);
-		palvelupisteet[1]=new Palvelupiste(new Normal(10,10), tapahtumalista, TapahtumanTyyppi.DEP2);
-		palvelupisteet[2]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP3);
+		palvelupisteet[0]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.DEP1, 10, "Tavallinen jono"); //tavallinen
+		palvelupisteet[1]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.DEP2, 6, "Grillijono"); //grilli
+		palvelupisteet[2]=new Palvelupiste(new Normal(10,10), tapahtumalista, TapahtumanTyyppi.DEP3, 2, "Maksupääte"); //maksupaate
+		palvelupisteet[3]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP4, 500, "Pöytä"); //poyta
+		palvelupisteet[4]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP5, 6, "Astioidenpalautus"); //astioidenpalautus
 
 		saapumisprosessi = new Saapumisprosessi(new Negexp(15,5), tapahtumalista, TapahtumanTyyppi.ARR1);
 
@@ -96,7 +103,12 @@ public class OmaMoottori extends Moottori{
 		// Tänne kaikki tulokset:
 		// Asiakas määrä, suoritustehot jne. Kaikki mitä halutaan tutkia simulaatiossa.
 		System.out.println("Simulointi päättyi kello " + Kello.getInstance().getAika());
-		System.out.println("Tulokset ... puuttuvat vielä");
+		System.out.println("Tulokset:");
+		for (Palvelupiste p : palvelupisteet) {
+			System.out.println(p.getPalvelupisteNimi() + ": " + p.getAsiakasLkm());
+		}
+		//System.out.println("RandomNum lista: " + testiLista);
+
 	}
 
 
