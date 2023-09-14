@@ -5,7 +5,7 @@ import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
 
 public class OmaMoottori extends Moottori{
-	
+
 	private Saapumisprosessi saapumisprosessi;
 
 	private Palvelupiste[] palvelupisteet;
@@ -33,20 +33,52 @@ public class OmaMoottori extends Moottori{
 
 		Asiakas a;
 		switch ((TapahtumanTyyppi)t.getTyyppi()){
+			case ARR1:
+				double randomNum = Math.random();
+				//testiLista.add(randomNum); // testing
+				// jos yli 0.7 niin asiakas menee grilli jonoon, muuten tavalliseen jonoon
+				if (randomNum > 0.7) {
+					// grilli jonoon
+					palvelupisteet[1].lisaaJonoon(new Asiakas());
+					System.out.println("Asiakas menee grilli jonoon");
+				} else {
+					// tavalliseen jonoon
+					palvelupisteet[0].lisaaJonoon(new Asiakas());
+					System.out.println("Asiakas menee tavalliseen jonoon");
+				}
+				saapumisprosessi.generoiSeuraava();
+				break;
 
-			case ARR1: palvelupisteet[0].lisaaJonoon(new Asiakas());
-				       saapumisprosessi.generoiSeuraava();
-				break;
+			// Asiakas otetaan pois tavallisesta jonosta ja laitetaan maksupäätteen jonoon
 			case DEP1: a = (Asiakas)palvelupisteet[0].otaJonosta();
-				   	   palvelupisteet[1].lisaaJonoon(a);
+				palvelupisteet[2].lisaaJonoon(a);
+				System.out.println("DEP1");
 				break;
+
+			// Asiakas otetaan pois grillin jonosta ja laitetaan maksupäätteen jonoon
 			case DEP2: a = (Asiakas)palvelupisteet[1].otaJonosta();
-				   	   palvelupisteet[2].lisaaJonoon(a);
+				palvelupisteet[2].lisaaJonoon(a);
+				System.out.println("DEP2");
 				break;
-			case DEP3:
-				       a = (Asiakas)palvelupisteet[2].otaJonosta();
-					   a.setPoistumisaika(Kello.getInstance().getAika());
-			           a.raportti();
+
+			// Asiakas otetaan pois maksupäätteen jonosta ja laitetaan pöytä jonoon
+			case DEP3: a = (Asiakas)palvelupisteet[2].otaJonosta();
+				palvelupisteet[3].lisaaJonoon(a);
+				System.out.println("DEP3");
+				break;
+
+			// Asiakas otetaan pois pöytä jonosta ja laitetaan astioiden palautus jonoon
+			case DEP4: a = (Asiakas)palvelupisteet[3].otaJonosta();
+				palvelupisteet[4].lisaaJonoon(a);
+				System.out.println("DEP4");
+				break;
+
+			// Asiakas otetaan pois astioiden palautus jonosta.
+			case DEP5:
+				a = (Asiakas)palvelupisteet[4].otaJonosta();
+				System.out.println("DEP5");
+				a.setPoistumisaika(Kello.getInstance().getAika());
+				a.raportti();
 		}
 	}
 
@@ -67,5 +99,5 @@ public class OmaMoottori extends Moottori{
 		System.out.println("Tulokset ... puuttuvat vielä");
 	}
 
-	
+
 }

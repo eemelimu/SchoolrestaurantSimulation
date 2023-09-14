@@ -37,14 +37,27 @@ public class Palvelupiste {
 		return jono.poll();
 	}
 
+	public String getPalvelupisteNimi() {
+		return palvelupisteNimi;
+	}
+
+	public int getAsiakasLkm() {
+		return this.asiakasLkm;
+	}
 
 	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
-		
-		Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
-		
-		varattu = true;
-		double palveluaika = generator.sample();
-		tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
+
+		try {
+			Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
+			varattu = true;
+			this.asiakasLkm++;
+			double palveluaika = generator.sample();
+			tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
+		} catch (NullPointerException e) {
+			//e.printStackTrace();
+			System.out.println("Jono tyhjä.");
+		}
+
 	}
 
 
