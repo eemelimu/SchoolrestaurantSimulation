@@ -15,11 +15,11 @@ public class Palvelupiste {
 	private final String palvelupisteNimi;
 	private final int maksimiAsiakasKapasiteetti; // kuinka monta asiakasta voi olla palvelupisteellä samaan aikaan
 	private int asiakasLkm; // kuinka monta asiakasta on käynyt palvelupisteellä
+	private double palvelupisteenKokonaisAika; // kuinka kauan palvelupiste on ollut käytössä
 	
 	//JonoStartegia strategia; //optio: asiakkaiden järjestys
 	
 	private boolean varattu = false;
-
 
 	public Palvelupiste(ContinuousGenerator generator, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi, int maksimiAsiakasKapasiteetti, String palvelupisteNimi){
 		this.tapahtumalista = tapahtumalista;
@@ -29,12 +29,10 @@ public class Palvelupiste {
 		this.palvelupisteNimi = palvelupisteNimi;
 	}
 
-
 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
 		jono.add(a);
 		
 	}
-
 
 	public Asiakas otaJonosta(){  // Poistetaan palvelussa ollut
 		varattu = false;
@@ -45,17 +43,22 @@ public class Palvelupiste {
 		return palvelupisteNimi;
 	}
 
+	public double getPalvelupisteenKokonaisAika() {
+		return palvelupisteenKokonaisAika;
+	}
+
 	public int getAsiakasLkm() {
 		return this.asiakasLkm;
 	}
 
-	public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
+	public void aloitaPalvelu(){  // Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		try {
 			Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
 			varattu = true;
 			this.asiakasLkm++;
 			double palveluaika = generator.sample();
+			palvelupisteenKokonaisAika += palveluaika;
 			tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
 		} catch (NullPointerException e) {
 			//e.printStackTrace();

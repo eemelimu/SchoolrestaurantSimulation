@@ -3,8 +3,7 @@ package simu.model;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
-
-import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Random;
 
 public class OmaMoottori extends Moottori{
@@ -19,14 +18,13 @@ public class OmaMoottori extends Moottori{
 
 		palvelupisteet = new Palvelupiste[5];
 
-		palvelupisteet[0]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.DEP1, 10, "Tavallinen jono"); //tavallinen
-		palvelupisteet[1]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.DEP2, 6, "Grillijono"); //grilli
-		palvelupisteet[2]=new Palvelupiste(new Normal(10,10), tapahtumalista, TapahtumanTyyppi.DEP3, 2, "Maksupääte"); //maksupaate
-		palvelupisteet[3]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP4, 500, "Pöytä"); //poyta
-		palvelupisteet[4]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP5, 6, "Astioidenpalautus"); //astioidenpalautus
+		palvelupisteet[0]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.DEP1, 10, "Tavallinen jono");
+		palvelupisteet[1]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.DEP2, 6, "Grillijono");
+		palvelupisteet[2]=new Palvelupiste(new Normal(10,10), tapahtumalista, TapahtumanTyyppi.DEP3, 2, "Maksupääte");
+		palvelupisteet[3]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP4, 500, "Pöytä");
+		palvelupisteet[4]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP5, 6, "Astioidenpalautus");
 
 		saapumisprosessi = new Saapumisprosessi(new Negexp(15,5), tapahtumalista, TapahtumanTyyppi.ARR1);
-
 	}
 
 
@@ -44,8 +42,8 @@ public class OmaMoottori extends Moottori{
 				double randomNum = Math.random();
 				//testiLista.add(randomNum); // testing
 				// jos yli 0.7 niin asiakas menee grilli jonoon, muuten tavalliseen jonoon
-				if (randomNum > 0.7) {
-					// grilli jonoon
+				
+				if (randomNum > 0.7) {	// grilli jonoon
 					palvelupisteet[1].lisaaJonoon(new Asiakas());
 					System.out.println("Asiakas menee grilli jonoon");
 				} else {
@@ -102,14 +100,14 @@ public class OmaMoottori extends Moottori{
 	protected void tulokset() {
 		// Tänne kaikki tulokset:
 		// Asiakas määrä, suoritustehot jne. Kaikki mitä halutaan tutkia simulaatiossa.
-		System.out.println("Simulointi päättyi kello " + Kello.getInstance().getAika());
-		System.out.println("Tulokset:");
+		System.out.println("\nSimulointi päättyi kello " + Kello.getInstance().getAika());
+		System.out.println("\nTulokset:");
 		for (Palvelupiste p : palvelupisteet) {
-			System.out.println(p.getPalvelupisteNimi() + ": " + p.getAsiakasLkm());
+			System.out.println(p.getPalvelupisteNimi());
+			System.out.println("Asiakasmäärä: " + p.getAsiakasLkm());
+			System.out.println("Palveluaika: " + p.getPalvelupisteenKokonaisAika() + "\n");
 		}
 		//System.out.println("RandomNum lista: " + testiLista);
 
 	}
-
-
 }

@@ -1,5 +1,6 @@
 package simu.model;
 
+import eduni.distributions.Normal;
 import simu.framework.*;
 
 // TODO:
