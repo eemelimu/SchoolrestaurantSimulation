@@ -103,9 +103,22 @@ public class OmaMoottori extends Moottori{
 		System.out.println("\nSimulointi päättyi kello " + Kello.getInstance().getAika());
 		System.out.println("\nTulokset:");
 		for (Palvelupiste p : palvelupisteet) {
-			System.out.println(p.getPalvelupisteNimi());
-			System.out.println("Asiakasmäärä: " + p.getAsiakasLkm());
-			System.out.println("Palveluaika: " + p.getPalvelupisteenKokonaisAika() + "\n");
+			System.out.println(p.getPalvelupisteNimi() + ":");
+
+			// Palvelupisteen asiakas lukumäärä: C(palveltujen asiakkaiden määrä)
+			System.out.println("AsiakasLkm: " + p.getAsiakasLkm());
+
+			// Palvelupisteen käyttöaste: U=B(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
+			System.out.format("Käyttöaste: %.1f", (p.getPalvelupisteenKokonaisAika()/Kello.getInstance().getAika()*100));
+			System.out.println("%");
+
+			// Palvelupisteen suoritusteho: X=C(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
+			System.out.format("Suoritusteho: %.1f", (p.getAsiakasLkm()/Kello.getInstance().getAika()*100));
+			System.out.println("%");
+
+			// Seuraava tähän
+			// Newline
+			System.out.println("\n");
 		}
 		//System.out.println("RandomNum lista: " + testiLista);
 

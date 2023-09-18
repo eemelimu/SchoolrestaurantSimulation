@@ -58,7 +58,7 @@ public class Palvelupiste {
 			varattu = true;
 			this.asiakasLkm++;
 			double palveluaika = generator.sample();
-			palvelupisteenKokonaisAika += palveluaika;
+			this.palvelupisteenKokonaisAika += palveluaika;
 			tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
 		} catch (NullPointerException e) {
 			//e.printStackTrace();
