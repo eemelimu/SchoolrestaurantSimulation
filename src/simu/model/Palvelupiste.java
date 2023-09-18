@@ -15,11 +15,13 @@ public class Palvelupiste {
 	private final String palvelupisteNimi;
 	private final int maksimiAsiakasKapasiteetti; // kuinka monta asiakasta voi olla palvelupisteellä samaan aikaan
 	private int asiakasLkm; // kuinka monta asiakasta on käynyt palvelupisteellä
+	private int nykyisetAsiakkaat; // kuinka monta asiakasta on tällä hetkellä palvelupisteellä
 	private double palvelupisteenKokonaisAika; // kuinka kauan palvelupiste on ollut käytössä
-	
+
 	//JonoStartegia strategia; //optio: asiakkaiden järjestys
-	
+
 	private boolean varattu = false;
+	private int suurinJono = 0;
 
 	public Palvelupiste(ContinuousGenerator generator, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi, int maksimiAsiakasKapasiteetti, String palvelupisteNimi){
 		this.tapahtumalista = tapahtumalista;
@@ -31,10 +33,25 @@ public class Palvelupiste {
 
 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
 		jono.add(a);
-		
+		checkSuurinJono();
+	}
+
+	public void checkSuurinJono() {
+		if (jono.size() > this.suurinJono) {
+			this.suurinJono = jono.size();
+		}
+	}
+
+	public int getSuurinJono() {
+		return this.suurinJono;
 	}
 
 	public Asiakas otaJonosta(){  // Poistetaan palvelussa ollut
+		if (this.nykyisetAsiakkaat >= this.maksimiAsiakasKapasiteetti) {
+			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
+			return null;
+		}
+		this.nykyisetAsiakkaat++;
 		varattu = false;
 		return jono.poll();
 	}
@@ -51,12 +68,17 @@ public class Palvelupiste {
 		return this.asiakasLkm;
 	}
 
+	public int getJonoSize() {
+		return this.jono.size();
+	}
+
 	public void aloitaPalvelu(){  // Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		try {
 			Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
 			varattu = true;
 			this.asiakasLkm++;
+			this.nykyisetAsiakkaat--;
 			double palveluaika = generator.sample();
 			this.palvelupisteenKokonaisAika += palveluaika;
 			tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
