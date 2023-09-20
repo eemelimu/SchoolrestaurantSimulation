@@ -63,6 +63,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="SchoolRestaurantSimulation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="SchoolRestaurantSimulation" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Simulaattori" />
@@ -86,6 +99,7 @@
       <workItem from="1695015891804" duration="51000" />
       <workItem from="1695022093441" duration="15000" />
       <workItem from="1695102670952" duration="23000" />
+      <workItem from="1695206301772" duration="23000" />
     </task>
     <servers />
   </component>
