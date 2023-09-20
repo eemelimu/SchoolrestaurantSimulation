@@ -38,6 +38,7 @@ public class OmaMoottori extends Moottori{
 
 		Asiakas a;
 		switch ((TapahtumanTyyppi)t.getTyyppi()){
+			// Asiakas saapuu ruokalaan
 			case ARR1:
 				double randomNum = Math.random();
 				//testiLista.add(randomNum); // testing
@@ -65,6 +66,7 @@ public class OmaMoottori extends Moottori{
 				palvelupisteet[2].lisaaJonoon(a);
 				System.out.println("DEP2");
 				break;
+
 
 			// Asiakas otetaan pois maksupäätteen jonosta ja laitetaan pöytä jonoon
 			case DEP3: a = (Asiakas)palvelupisteet[2].otaJonosta();
@@ -103,9 +105,34 @@ public class OmaMoottori extends Moottori{
 		System.out.println("\nSimulointi päättyi kello " + Kello.getInstance().getAika());
 		System.out.println("\nTulokset:");
 		for (Palvelupiste p : palvelupisteet) {
-			System.out.println(p.getPalvelupisteNimi());
-			System.out.println("Asiakasmäärä: " + p.getAsiakasLkm());
-			System.out.println("Palveluaika: " + p.getPalvelupisteenKokonaisAika() + "\n");
+			System.out.println(p.getPalvelupisteNimi() + ":");
+
+			// Palveluaika
+			System.out.println("Palveluaika: " + p.getPalvelupisteenKokonaisAika());
+
+			// Palvelupisteen asiakas lukumäärä: C(palveltujen asiakkaiden määrä)
+			System.out.println("AsiakasLkm: " + p.getAsiakasLkm());
+
+			// Palvelupisteen käyttöaste: U=B(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
+			System.out.format("Käyttöaste: %.1f", (p.getPalvelupisteenKokonaisAika()/Kello.getInstance().getAika()*100));
+			System.out.println("%");
+
+			// Palvelupisteen suoritusteho: X=C(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
+			System.out.format("Suoritusteho: %.1f", (p.getAsiakasLkm()/Kello.getInstance().getAika()*100));
+			System.out.println("%");
+
+			// Palvelupisteen asiakkaiden määrä joita ei ole palveltu
+			System.out.println("Ei palvellut asiakkaat: " + p.getJonoSize());
+
+			// Palvelupisteen suurin jono
+			System.out.println("Suurin jono simun aikana: " + p.getSuurinJono());
+
+			// Nykyiset asiakkaat
+			//System.out.println("Nykyiset asiakkaat: " + p.getNykyisetAsiakkaat());
+
+			// Seuraava tähän
+			// Newline
+			System.out.println("\n");
 		}
 		//System.out.println("RandomNum lista: " + testiLista);
 
