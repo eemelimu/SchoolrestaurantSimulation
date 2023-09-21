@@ -5,21 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90e02e42-6c4c-43b0-a219-10d72abe1eb6" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/controller/IControllerForM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/controller/IControllerForV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/IMoottori.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/view/ISimulaattoriUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/view/IVisualisointi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/view/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/simu/view/SimulaattorinGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/Asiakas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/Asiakas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/OmaMoottori$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/OmaMoottori$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/OmaMoottori.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/OmaMoottori.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/Palvelupiste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/Palvelupiste.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/TapahtumanTyyppi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/simu/model/TapahtumanTyyppi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/testi/Simulaattori.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolRestaurantSimulation/testi/Simulaattori.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simu/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/simu/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/simu/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simu/framework/Moottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/framework/Moottori.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simu/model/OmaMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/model/OmaMoottori.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,10 +65,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Ohjelmointi/SchoolrestaurantSimulation",
+    "last_opened_file_path": "C:/Users/Pieta/Documents/GitHub/SchoolRestaurantSimulation",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,7 +77,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="simu.view.Main" />
+      <module name="SchoolrestaurantSimulation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simu.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Simulaattori" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testi.Simulaattori" />
       <module name="SchoolRestaurantSimulation" />
@@ -91,6 +119,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Simulaattori" />
       </list>
     </recent_temporary>
@@ -117,6 +146,7 @@
       <workItem from="1695284162856" duration="54000" />
       <workItem from="1695284231563" duration="235000" />
       <workItem from="1695284509483" duration="91000" />
+      <workItem from="1695294892814" duration="1585000" />
     </task>
     <servers />
   </component>

@@ -1,14 +1,19 @@
 package simu.framework;
 
-public abstract class Moottori {
+import simu.controller.IControllerForM;
+
+public abstract class Moottori extends Thread implements IMoottori {
 	
 	private double simulointiaika = 0;
 	
 	private Kello kello;
+	protected IControllerForM controller;
 	
 	protected Tapahtumalista tapahtumalista;
 
-	public Moottori(){
+	public Moottori(IControllerForM controller) {
+
+		this.controller = controller;
 
 		kello = Kello.getInstance(); // Otetaan kello muuttujaan yksinkertaistamaan koodia
 		

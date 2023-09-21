@@ -1,5 +1,6 @@
 package simu.model;
 
+import simu.controller.IControllerForM;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
@@ -14,7 +15,9 @@ public class OmaMoottori extends Moottori{
 
 	//private ArrayList<Double> testiLista = new ArrayList<>(); // testing
 
-	public OmaMoottori(){
+	public OmaMoottori(IControllerForM controller) {
+
+		super(controller);
 
 		palvelupisteet = new Palvelupiste[5];
 
@@ -136,5 +139,17 @@ public class OmaMoottori extends Moottori{
 		}
 		//System.out.println("RandomNum lista: " + testiLista);
 
+	}
+
+
+	// UUDET
+	@Override
+	public void setViive(long aika) {
+
+	}
+
+	@Override
+	public long getViive() {
+		return 0;
 	}
 }
