@@ -6,6 +6,10 @@ public interface ISimulaattoriUI {
     public double getAika();
     public long getViive();
 
+    // Aseta syötteet, joita kontrolleri tarvitsee
+    public void setAika(double aika);
+    public void setViive(long viive);
+
     //Kontrolleri antaa käyttöliittymälle tuloksia, joita Moottori tuottaa
     public void setLoppuaika(double aika);
 

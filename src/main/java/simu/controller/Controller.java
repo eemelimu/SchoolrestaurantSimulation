@@ -20,6 +20,7 @@ public class Controller implements IControllerForV, IControllerForM{
         moottori = new OmaMoottori(this);
         moottori.setSimulointiaika(ui.getAika());
         moottori.setViive(ui.getViive());
+        System.out.println("Simulaatio käynnistetty");
         ui.getVisualisointi().tyhjennaNaytto();
         ((Thread)moottori).start();
     }
