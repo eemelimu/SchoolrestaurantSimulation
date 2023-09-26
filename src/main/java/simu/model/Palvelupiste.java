@@ -74,11 +74,13 @@ public class Palvelupiste {
 
 	public void aloitaPalvelu(){  // Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
-		try {
-			Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
+		try  {
+			//Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
+            assert jono.peek() != null;
+			System.out.println("Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
 			varattu = true;
 			this.asiakasLkm++;
-			this.nykyisetAsiakkaat--;
+			//this.nykyisetAsiakkaat--;
 			double palveluaika = generator.sample();
 			this.palvelupisteenKokonaisAika += palveluaika;
 			tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));

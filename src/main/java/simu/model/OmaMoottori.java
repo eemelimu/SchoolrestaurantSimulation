@@ -1,6 +1,6 @@
 package simu.model;
 
-import simu.controller.IControllerForM;
+import controller.IControllerForM;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
@@ -12,6 +12,7 @@ public class OmaMoottori extends Moottori{
 	private Saapumisprosessi saapumisprosessi;
 
 	private Palvelupiste[] palvelupisteet;
+	private long viive;
 
 	//private ArrayList<Double> testiLista = new ArrayList<>(); // testing
 
@@ -21,10 +22,15 @@ public class OmaMoottori extends Moottori{
 
 		palvelupisteet = new Palvelupiste[5];
 
+		// tavallinen jono
 		palvelupisteet[0]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.DEP1, 10, "Tavallinen jono");
+		// grilli jono
 		palvelupisteet[1]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.DEP2, 6, "Grillijono");
+		// maksupääte
 		palvelupisteet[2]=new Palvelupiste(new Normal(10,10), tapahtumalista, TapahtumanTyyppi.DEP3, 2, "Maksupääte");
-		palvelupisteet[3]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP4, 500, "Pöytä");
+		// pöytä
+		palvelupisteet[3]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP4, 1, "Pöytä");
+		// astioiden palautus
 		palvelupisteet[4]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.DEP5, 6, "Astioidenpalautus");
 
 		saapumisprosessi = new Saapumisprosessi(new Negexp(15,5), tapahtumalista, TapahtumanTyyppi.ARR1);
@@ -44,6 +50,7 @@ public class OmaMoottori extends Moottori{
 			// Asiakas saapuu ruokalaan
 			case ARR1:
 				double randomNum = Math.random();
+				System.out.println("Asiakas saapui ruokalaan.");
 				//testiLista.add(randomNum); // testing
 				// jos yli 0.7 niin asiakas menee grilli jonoon, muuten tavalliseen jonoon
 				
@@ -60,16 +67,17 @@ public class OmaMoottori extends Moottori{
 
 			// Asiakas otetaan pois tavallisesta jonosta ja laitetaan maksupäätteen jonoon
 			case DEP1: a = (Asiakas)palvelupisteet[0].otaJonosta();
+				System.out.println("Asiakas poistuu tavallisesta jonosta.");
 				palvelupisteet[2].lisaaJonoon(a);
 				System.out.println("DEP1");
 				break;
 
 			// Asiakas otetaan pois grillin jonosta ja laitetaan maksupäätteen jonoon
 			case DEP2: a = (Asiakas)palvelupisteet[1].otaJonosta();
+				System.out.println("Asiakas poistuu grillijonosta.");
 				palvelupisteet[2].lisaaJonoon(a);
 				System.out.println("DEP2");
 				break;
-
 
 			// Asiakas otetaan pois maksupäätteen jonosta ja laitetaan pöytä jonoon
 			case DEP3: a = (Asiakas)palvelupisteet[2].otaJonosta();
@@ -145,11 +153,11 @@ public class OmaMoottori extends Moottori{
 	// UUDET
 	@Override
 	public void setViive(long aika) {
-
+		this.viive = aika;
 	}
 
 	@Override
 	public long getViive() {
-		return 0;
+		return this.viive;
 	}
 }

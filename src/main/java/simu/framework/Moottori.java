@@ -1,6 +1,6 @@
 package simu.framework;
 
-import simu.controller.IControllerForM;
+import controller.IControllerForM;
 
 public abstract class Moottori extends Thread implements IMoottori {
 	
@@ -29,22 +29,21 @@ public abstract class Moottori extends Thread implements IMoottori {
 	}
 	
 	
-	public void aja(){
+	public void run(){
 		alustukset(); // luodaan mm. ensimmäinen tapahtuma
 		while (simuloidaan()){
-			
-			Trace.out(Trace.Level.INFO, "\nA-vaihe: kello on " + nykyaika());
+
+			//Trace.out(Trace.Level.INFO, "\nA-vaihe: kello on " + nykyaika());
 			kello.setAika(nykyaika());
-			
-			Trace.out(Trace.Level.INFO, "\nB-vaihe:" );
+
+			//Trace.out(Trace.Level.INFO, "\nB-vaihe:" );
 			suoritaBTapahtumat();
-			
-			Trace.out(Trace.Level.INFO, "\nC-vaihe:" );
+
+			//Trace.out(Trace.Level.INFO, "\nC-vaihe:" );
 			yritaCTapahtumat();
 
 		}
 		tulokset();
-		
 	}
 	
 	private void suoritaBTapahtumat(){

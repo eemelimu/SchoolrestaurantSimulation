@@ -1,0 +1,36 @@
+/*
+
+.root {
+    -fx-background-color: #3d3d3d;
+}
+
+#label1 {
+    -fx-label-padding: 10px 0 2px 0;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #303030;
+    -fx-text-fill: black;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #888888;
+}
+
+.text {
+    -fx-fill: white;
+}
+
+.button {
+    -fx-background-color: #303030;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #4f4f4f;
+}
+
+.spinner {
+    -fx-background-color: #303030;
+    -fx-text-fill: white;
+}

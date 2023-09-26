@@ -4,157 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90e02e42-6c4c-43b0-a219-10d72abe1eb6" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simu/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simu/controller/IControllerForM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simu/controller/IControllerForV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simu/framework/IMoottori.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simu/view/ISimulaattoriUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simu/view/IVisualisointi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simu/view/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simu/view/SimulaattorinGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simu/framework/Moottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/framework/Moottori.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simu/model/OmaMoottori.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simu/model/OmaMoottori.java" afterDir="false" />
-    </list>
+    <list default="true" id="3687e519-0545-420a-80ea-afa9e3547202" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="Interface" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;salopietari&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="37bc937b-f016-4913-8a10-83a59df2bc76" />
-        <option name="url" value="https://github.com/eemelimu/SchoolrestaurantSimulation" />
-      </UrlAndAccount>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2VL5JOCcVFMTqHM3jkDu2grpTdu" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2VkH48LkVXdSVx6uBG5H1jIdFWv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Pieta/Documents/GitHub/SchoolRestaurantSimulation",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="simu.view.Main" />
-      <module name="SchoolrestaurantSimulation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="simu.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Simulaattori" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testi.Simulaattori" />
-      <module name="SchoolRestaurantSimulation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testi.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="SchoolRestaurantSimulation" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="SchoolRestaurantSimulation" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Simulaattori" />
-      </list>
-    </recent_temporary>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="90e02e42-6c4c-43b0-a219-10d72abe1eb6" name="Changes" comment="" />
-      <created>1694602448099</created>
+      <changelist id="3687e519-0545-420a-80ea-afa9e3547202" name="Changes" comment="" />
+      <created>1695372967908</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1694602448099</updated>
-      <workItem from="1694602449612" duration="3879000" />
-      <workItem from="1694684614436" duration="2165000" />
-      <workItem from="1695011336935" duration="124000" />
-      <workItem from="1695013876617" duration="1510000" />
-      <workItem from="1695015415154" duration="379000" />
-      <workItem from="1695015812319" duration="54000" />
-      <workItem from="1695015891804" duration="51000" />
-      <workItem from="1695022093441" duration="15000" />
-      <workItem from="1695102670952" duration="23000" />
-      <workItem from="1695206301772" duration="23000" />
-      <workItem from="1695220422123" duration="6000" />
-      <workItem from="1695284162856" duration="54000" />
-      <workItem from="1695284231563" duration="235000" />
-      <workItem from="1695284509483" duration="91000" />
-      <workItem from="1695294892814" duration="1585000" />
+      <updated>1695372967908</updated>
+      <workItem from="1695372968978" duration="177000" />
+      <workItem from="1695626491291" duration="9000" />
+      <workItem from="1695661412293" duration="52000" />
+      <workItem from="1695708766402" duration="544000" />
+      <workItem from="1695718160068" duration="87000" />
+      <workItem from="1695718287252" duration="373000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>

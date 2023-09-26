@@ -10,12 +10,14 @@ public class Tapahtumalista {
 	}
 	
 	public Tapahtuma poista(){
-		Trace.out(Trace.Level.INFO,"Tapahtumalistasta poisto " + lista.peek().getTyyppi() + " " + lista.peek().getAika() );
+		//Trace.out(Trace.Level.INFO,"Tapahtumalistasta poisto " + lista.peek().getTyyppi() + " " + lista.peek().getAika() );
+		System.out.println("Tapahtumalistasta poisto " + lista.peek().getTyyppi() + " " + lista.peek().getAika());
 		return lista.remove();
 	}
 	
 	public void lisaa(Tapahtuma t){
-		Trace.out(Trace.Level.INFO,"Tapahtumalistaan lisätään uusi " + t.getTyyppi() + " " + t.getAika());
+		//Trace.out(Trace.Level.INFO,"Tapahtumalistaan lisätään uusi " + t.getTyyppi() + " " + t.getAika());
+		System.out.println("Tapahtumalistaan lisätään uusi " + t.getTyyppi() + " " + t.getAika());
 		lista.add(t);
 	}
 	
