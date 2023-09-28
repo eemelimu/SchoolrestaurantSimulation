@@ -1,16 +1,48 @@
 package controller;
 
+import javafx.fxml.FXML;
 import simu.framework.IMoottori;
 import simu.model.OmaMoottori;
 import view.ISimulaattoriUI;
+import javafx.scene.control.*;
+import view.SimulaattorinGUI;
 
 public class Controller implements IControllerForV, IControllerForM{
 
-    private IMoottori moottori;
-    private ISimulaattoriUI ui;
+    @FXML
+    private TextField aikaTextField;
 
-    public Controller(ISimulaattoriUI ui) {
-        this.ui = ui;
+    @FXML
+    private TextField viiveTextField;
+
+    @FXML
+    private Button nopeutaButton;
+
+    @FXML
+    private Button hidastaButton;
+
+    @FXML
+    private TextField tavallinenJonoTextField;
+
+    @FXML
+    private TextField grillijonoTextField;
+
+    @FXML
+    private TextField maksupaateTextField;
+
+    @FXML
+    private TextField poytaTextField;
+
+    @FXML
+    private TextField astioidenpalautusTextField;
+
+    @FXML
+    private Button kaynnistaButton;
+
+    private IMoottori moottori;
+    private ISimulaattoriUI ui = new SimulaattorinGUI();
+
+    public Controller() {
     }
 
     @Override
@@ -23,6 +55,25 @@ public class Controller implements IControllerForV, IControllerForM{
         System.out.println("Simulaatio käynnistetty"); // testi
         //ui.getVisualisointi().tyhjennaNaytto();
         ((Thread)moottori).start();
+    }
+
+    @FXML
+    private void isNumeric() {
+        TextField[] textFields = new TextField[]{aikaTextField, viiveTextField, tavallinenJonoTextField, grillijonoTextField, maksupaateTextField, poytaTextField, astioidenpalautusTextField};
+        for (TextField textField : textFields) {
+            String character = textField.getText();
+            if (!character.matches("\\d*")) {
+                textField.setText(character.replaceAll("[^\\d]", ""));
+            }
+        }
+    }
+
+
+    @FXML
+    private void kaynnista(){
+        ui.setAika(Double.parseDouble(aikaTextField.getText()));
+        ui.setViive(Long.parseLong(viiveTextField.getText()));
+        kaynnistaSimulointi();
     }
 
     @Override

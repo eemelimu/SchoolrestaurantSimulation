@@ -129,8 +129,7 @@ public class OmaMoottori extends Moottori{
 			System.out.println("%");
 
 			// Palvelupisteen suoritusteho: X=C(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
-			System.out.format("Suoritusteho: %.1f", (p.getAsiakasLkm()/Kello.getInstance().getAika()*100));
-			System.out.println("%");
+			System.out.format("Suoritusteho: %.5f\n", (p.getAsiakasLkm()/Kello.getInstance().getAika()));
 
 			// Palvelupisteen asiakkaiden määrä joita ei ole palveltu
 			System.out.println("Ei palvellut asiakkaat: " + p.getJonoSize());
