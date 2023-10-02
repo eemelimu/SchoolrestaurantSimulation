@@ -42,6 +42,13 @@ public class Palvelupiste {
 		}
 	}
 
+	public boolean isVarattu() {
+		if (jono.size() >= this.maksimiAsiakasKapasiteetti) {
+			return true;
+		}
+		return false;
+	}
+
 	public int getSuurinJono() {
 		return this.suurinJono;
 	}
@@ -51,8 +58,8 @@ public class Palvelupiste {
 			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
 			return null;
 		}
-		this.nykyisetAsiakkaat++;
 		varattu = false;
+		this.nykyisetAsiakkaat++;
 		return jono.poll();
 	}
 
@@ -78,8 +85,9 @@ public class Palvelupiste {
 			//Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
             assert jono.peek() != null;
 			System.out.println("Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
-			varattu = true;
 			this.asiakasLkm++;
+			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
+			varattu = true;
 			this.nykyisetAsiakkaat--;
 			double palveluaika = generator.sample();
 			this.palvelupisteenKokonaisAika += palveluaika;
