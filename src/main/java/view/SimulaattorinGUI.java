@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import controller.Controller;
 import controller.IControllerForM;
 import org.w3c.dom.Text;
+import javafx.scene.image.Image;
 
 import java.io.IOException;
 
@@ -35,6 +36,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/simulation_view.fxml"));
         Parent root = loader.load();
 
+        stage.getIcons().add(new Image("/iconimage.png"));
         stage.setScene(new Scene(root));
         stage.setTitle("Simulaattori");
         stage.show();
@@ -109,7 +111,6 @@ public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
     public void setAika(double aika) {
         this.simulointiAika = aika;
     }
-
 
     @Override
     public void setViive(long viive) {

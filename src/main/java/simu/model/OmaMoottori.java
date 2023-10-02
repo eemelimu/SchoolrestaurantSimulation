@@ -1,5 +1,6 @@
 package simu.model;
 
+import controller.Controller;
 import controller.IControllerForM;
 import simu.framework.*;
 import eduni.distributions.Negexp;
@@ -16,6 +17,8 @@ public class OmaMoottori extends Moottori{
 
 	private Palvelupiste[] palvelupisteet;
 	private long viive;
+	private SimulaattorinGUI ui;
+	private Controller ctrl;
 
 	//private ArrayList<Double> testiLista = new ArrayList<>(); // testing
 
@@ -27,7 +30,7 @@ public class OmaMoottori extends Moottori{
 		palvelupisteet = new Palvelupiste[5];
 
 		// tavallinen jono
-		palvelupisteet[0]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP1, 10, "Tavallinen jono");
+		palvelupisteet[0]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP1, this.ui.getTavallinenAsiakasKapasiteetti(), "Tavallinen jono");
 		// grilli jono
 		palvelupisteet[1]=new Palvelupiste(new Normal(8,5), tapahtumalista, TapahtumanTyyppi.DEP2, this.ui.getGrilliAsiakasKapasiteetti(), "Grillijono");
 		// maksupääte
@@ -37,7 +40,7 @@ public class OmaMoottori extends Moottori{
 		// astioiden palautus
 		palvelupisteet[4]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP5, this.ui.getAstioidenpalautusKapasiteetti(), "Astioidenpalautus");
 
-		saapumisprosessi = new Saapumisprosessi(new Negexp(15,5), tapahtumalista, TapahtumanTyyppi.ARR1);
+		saapumisprosessi = new Saapumisprosessi(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.ARR1);
 	}
 
 	@Override
@@ -131,12 +134,15 @@ public class OmaMoottori extends Moottori{
 		System.out.println("\nTulokset:");
 		for (Palvelupiste p : palvelupisteet) {
 			System.out.println(p.getPalvelupisteNimi() + ":");
+			ctrl.setTulostukset(p.getPalvelupisteNimi() + ":");
 
 			// Palveluaika
 			System.out.println("Palveluaika: " + p.getPalvelupisteenKokonaisAika());
+			ctrl.setTulostukset("Palveluaika: " + String.valueOf(p.getPalvelupisteenKokonaisAika()));
 
 			// Palvelupisteen asiakas lukumäärä: C(palveltujen asiakkaiden määrä)
 			System.out.println("AsiakasLkm: " + p.getAsiakasLkm());
+			ctrl.setTulostukset("Asiakas lukumäärä: " + String.valueOf(p.getAsiakasLkm()));
 
 			// Palvelupisteen käyttöaste: U=B(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
 			System.out.format("Käyttöaste: %.1f", (p.getPalvelupisteenKokonaisAika()/Kello.getInstance().getAika()*100));
@@ -148,6 +154,7 @@ public class OmaMoottori extends Moottori{
 
 			// Palvelupisteen asiakkaiden määrä joita ei ole palveltu
 			System.out.println("Ei palvellut asiakkaat: " + p.getJonoSize());
+			ctrl.setTulostukset("Ei palvellut asiakkaat: " + String.valueOf(p.getJonoSize()));
 
 			// Palvelupisteen suurin jono
 			System.out.println("Suurin jono simun aikana: " + p.getSuurinJono());

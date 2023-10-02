@@ -42,22 +42,36 @@ public class Controller implements IControllerForV, IControllerForM{
     @FXML
     private TextArea tuloksetTextArea;
 
+    @FXML
+    private Label errorLabel;
+
     private IMoottori moottori;
     private ISimulaattoriUI ui = new SimulaattorinGUI();
+    private SimulaattorinGUI simuUI = new SimulaattorinGUI();
 
     public Controller() {
     }
 
+    public void clearTulostukset() {
+        tuloksetTextArea.setText("");
+    }
+
+    @FXML
+    public void setTulostukset(String tulostus) {
+        tuloksetTextArea.appendText(tulostus + "\n");
+    }
+
     @Override
     public void kaynnistaSimulointi() {
-        moottori = new OmaMoottori(this);
+        clearTulostukset();
+        moottori = new OmaMoottori(this, simuUI, this);
         moottori.setSimulointiaika(ui.getAika());
         moottori.setViive(ui.getViive());
         System.out.println("controller aika: " + ui.getAika());
         System.out.println("controller viive: " + ui.getViive());
         System.out.println("Simulaatio käynnistetty"); // testi
         //ui.getVisualisointi().tyhjennaNaytto();
-        ((Thread)moottori).start();
+        ((Thread) moottori).start();
     }
 
     @FXML
@@ -71,12 +85,27 @@ public class Controller implements IControllerForV, IControllerForM{
         }
     }
 
-
     @FXML
     private void kaynnista(){
-        ui.setAika(Double.parseDouble(aikaTextField.getText()));
-        ui.setViive(Long.parseLong(viiveTextField.getText()));
-        kaynnistaSimulointi();
+        if (aikaTextField.getText().isEmpty() || viiveTextField.getText().isEmpty() || tavallinenJonoTextField.getText().isEmpty() || grillijonoTextField.getText().isEmpty() || maksupaateTextField.getText().isEmpty() || poytaTextField.getText().isEmpty() || astioidenpalautusTextField.getText().isEmpty()) {
+            errorLabel.setOpacity(1);
+            errorLabel.setText("Aika ja viive kentät eivät voi olla tyhjiä!");
+        } else {
+            ui.setAika(Double.parseDouble(aikaTextField.getText()));
+            ui.setViive(Long.parseLong(viiveTextField.getText()));
+            ui.setTavallinenAsiakasKapasiteetti(Integer.parseInt(tavallinenJonoTextField.getText()));
+            ui.setGrilliAsiakasKapasiteetti(Integer.parseInt(grillijonoTextField.getText()));
+            ui.setMaksupaateAsiakasKapasiteetti(Integer.parseInt(maksupaateTextField.getText()));
+            ui.setPoytaAsiakasKapasiteetti(Integer.parseInt(poytaTextField.getText()));
+            ui.setAstioidenpalautusKapasiteetti(Integer.parseInt(astioidenpalautusTextField.getText()));
+            kaynnistaSimulointi();
+            errorLabel.setOpacity(0);
+        }
+
+    }
+
+    public TextField getTavallinenJonoTextField() {
+        return tavallinenJonoTextField;
     }
 
     @Override

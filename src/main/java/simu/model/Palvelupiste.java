@@ -56,6 +56,7 @@ public class Palvelupiste {
 		return jono.poll();
 	}
 
+
 	public String getPalvelupisteNimi() {
 		return palvelupisteNimi;
 	}
