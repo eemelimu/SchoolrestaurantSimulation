@@ -88,16 +88,11 @@ public class Palvelupiste {
 			//e.printStackTrace();
 			System.out.println("Jono tyhjä.");
 		}
-
 	}
-
-
 
 	public boolean onVarattu(){
 		return varattu;
 	}
-
-
 
 	public boolean onJonossa(){
 		return jono.size() != 0;

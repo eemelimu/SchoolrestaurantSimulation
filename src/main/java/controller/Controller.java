@@ -39,6 +39,9 @@ public class Controller implements IControllerForV, IControllerForM{
     @FXML
     private Button kaynnistaButton;
 
+    @FXML
+    private TextArea tuloksetTextArea;
+
     private IMoottori moottori;
     private ISimulaattoriUI ui = new SimulaattorinGUI();
 
