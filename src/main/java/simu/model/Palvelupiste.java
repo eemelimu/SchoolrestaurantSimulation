@@ -42,13 +42,6 @@ public class Palvelupiste {
 		}
 	}
 
-	public boolean isVarattu() {
-		if (jono.size() >= this.maksimiAsiakasKapasiteetti) {
-			return true;
-		}
-		return false;
-	}
-
 	public int getSuurinJono() {
 		return this.suurinJono;
 	}

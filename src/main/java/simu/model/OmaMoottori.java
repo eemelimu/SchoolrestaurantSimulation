@@ -4,6 +4,9 @@ import controller.IControllerForM;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
+import view.ISimulaattoriUI;
+import view.SimulaattorinGUI;
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -16,22 +19,23 @@ public class OmaMoottori extends Moottori{
 
 	//private ArrayList<Double> testiLista = new ArrayList<>(); // testing
 
-	public OmaMoottori(IControllerForM controller) {
-
+	public OmaMoottori(IControllerForM controller, SimulaattorinGUI ui, Controller ctrl) {
 		super(controller);
+		this.ui = ui;
+		this.ctrl = ctrl;
 
 		palvelupisteet = new Palvelupiste[5];
 
 		// tavallinen jono
 		palvelupisteet[0]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP1, 10, "Tavallinen jono");
 		// grilli jono
-		palvelupisteet[1]=new Palvelupiste(new Normal(8,5), tapahtumalista, TapahtumanTyyppi.DEP2, 6, "Grillijono");
+		palvelupisteet[1]=new Palvelupiste(new Normal(8,5), tapahtumalista, TapahtumanTyyppi.DEP2, this.ui.getGrilliAsiakasKapasiteetti(), "Grillijono");
 		// maksupääte
-		palvelupisteet[2]=new Palvelupiste(new Normal(1,1), tapahtumalista, TapahtumanTyyppi.DEP3, 2, "Maksupääte");
+		palvelupisteet[2]=new Palvelupiste(new Normal(1,1), tapahtumalista, TapahtumanTyyppi.DEP3, this.ui.getMaksupaateAsiakasKapasiteetti(), "Maksupääte");
 		// pöytä
-		palvelupisteet[3]=new Palvelupiste(new Normal(20,10), tapahtumalista, TapahtumanTyyppi.DEP4, 500, "Pöytä");
+		palvelupisteet[3]=new Palvelupiste(new Normal(15,5), tapahtumalista, TapahtumanTyyppi.DEP4, this.ui.getPoytaAsiakasKapasiteetti(), "Pöytä");
 		// astioiden palautus
-		palvelupisteet[4]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP5, 6, "Astioidenpalautus");
+		palvelupisteet[4]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP5, this.ui.getAstioidenpalautusKapasiteetti(), "Astioidenpalautus");
 
 		saapumisprosessi = new Saapumisprosessi(new Negexp(15,5), tapahtumalista, TapahtumanTyyppi.ARR1);
 	}
@@ -137,6 +141,7 @@ public class OmaMoottori extends Moottori{
 			// Palvelupisteen käyttöaste: U=B(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
 			System.out.format("Käyttöaste: %.1f", (p.getPalvelupisteenKokonaisAika()/Kello.getInstance().getAika()*100));
 			System.out.println("%");
+			ctrl.setTulostukset(String.valueOf("Käyttöaste: " + p.getPalvelupisteenKokonaisAika()/Kello.getInstance().getAika()));
 
 			// Palvelupisteen suoritusteho: X=C(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
 			System.out.format("Suoritusteho: %.5f\n", (p.getAsiakasLkm()/Kello.getInstance().getAika()));
@@ -146,6 +151,7 @@ public class OmaMoottori extends Moottori{
 
 			// Palvelupisteen suurin jono
 			System.out.println("Suurin jono simun aikana: " + p.getSuurinJono());
+			ctrl.setTulostukset(String.valueOf("Suurin jono simun aikana: " + p.getSuurinJono()) + "\n");
 
 			// Nykyiset asiakkaat
 			//System.out.println("Nykyiset asiakkaat: " + p.getNykyisetAsiakkaat());
