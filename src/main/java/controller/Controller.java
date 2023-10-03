@@ -52,6 +52,7 @@ public class Controller implements IControllerForV, IControllerForM{
     public Controller() {
     }
 
+    @FXML
     public void clearTulostukset() {
         tuloksetTextArea.setText("");
     }
@@ -104,6 +105,7 @@ public class Controller implements IControllerForV, IControllerForM{
 
     }
 
+    @FXML
     public TextField getTavallinenJonoTextField() {
         return tavallinenJonoTextField;
     }
