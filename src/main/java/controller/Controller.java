@@ -1,11 +1,18 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import simu.framework.IMoottori;
 import simu.model.OmaMoottori;
 import view.ISimulaattoriUI;
 import javafx.scene.control.*;
+import view.IVisualisointi;
 import view.SimulaattorinGUI;
+import view.Visualisointi;
+import javafx.scene.canvas.Canvas;
 
 public class Controller implements IControllerForV, IControllerForM{
 
@@ -45,6 +52,22 @@ public class Controller implements IControllerForV, IControllerForM{
     @FXML
     private Label errorLabel;
 
+    @FXML
+    private IVisualisointi visualisointi = null;
+
+    @FXML
+    private Canvas visu;
+
+    /*
+    public void handleStart() {
+        if (visualisointi == null) {
+            visualisointi = new Visualisointi(visu);
+            visualisointi.tyhjennaNaytto();
+        }
+    }
+
+     */
+
     private IMoottori moottori;
     private ISimulaattoriUI ui = new SimulaattorinGUI();
     private SimulaattorinGUI simuUI = new SimulaattorinGUI();
@@ -64,6 +87,7 @@ public class Controller implements IControllerForV, IControllerForM{
 
     @Override
     public void kaynnistaSimulointi() {
+        //handleStart();
         clearTulostukset();
         moottori = new OmaMoottori(this, simuUI, this);
         moottori.setSimulointiaika(ui.getAika());
@@ -71,7 +95,7 @@ public class Controller implements IControllerForV, IControllerForM{
         System.out.println("controller aika: " + ui.getAika());
         System.out.println("controller viive: " + ui.getViive());
         System.out.println("Simulaatio käynnistetty"); // testi
-        //ui.getVisualisointi().tyhjennaNaytto();
+        ui.getVisualisointi().tyhjennaNaytto();
         ((Thread) moottori).start();
     }
 

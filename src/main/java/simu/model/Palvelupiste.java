@@ -1,8 +1,10 @@
 package simu.model;
 
+import javafx.application.Platform;
 import simu.framework.*;
 import java.util.LinkedList;
 import eduni.distributions.ContinuousGenerator;
+import view.Visualisointi;
 
 // TODO:
 // Palvelupistekohtaiset toiminnallisuudet, laskutoimitukset (+ tarvittavat muuttujat) ja raportointi koodattava
@@ -56,6 +58,9 @@ public class Palvelupiste {
 		return jono.poll();
 	}
 
+	public int getNykyisetAsiakkaat() {
+		return this.nykyisetAsiakkaat;
+	}
 
 	public String getPalvelupisteNimi() {
 		return palvelupisteNimi;

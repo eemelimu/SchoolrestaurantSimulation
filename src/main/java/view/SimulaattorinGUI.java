@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -119,6 +120,7 @@ public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
 
     @Override
     public IVisualisointi getVisualisointi() {
-        return null;
+        Visualisointi visualisointi = new Visualisointi(new Canvas(400,400));
+        return visualisointi;
     }
 }

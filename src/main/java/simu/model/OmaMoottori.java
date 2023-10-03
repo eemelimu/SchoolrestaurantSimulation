@@ -8,6 +8,7 @@ import eduni.distributions.Normal;
 import view.ISimulaattoriUI;
 import view.SimulaattorinGUI;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -124,6 +125,14 @@ public class OmaMoottori extends Moottori{
 				p.aloitaPalvelu();
 			}
 		}
+	}
+
+	public int getNykyisetAsiakkaat(int i) {
+		return palvelupisteet[i].getNykyisetAsiakkaat();
+	}
+
+	public Palvelupiste[] getPalvelupisteet(){
+		return palvelupisteet;
 	}
 
 	@Override
