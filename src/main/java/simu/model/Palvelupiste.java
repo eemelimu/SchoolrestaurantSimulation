@@ -86,8 +86,8 @@ public class Palvelupiste {
 			System.out.println("Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
 			this.asiakasLkm++;
 			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
-			varattu = true;
 			this.nykyisetAsiakkaat--;
+			varattu = true;
 			double palveluaika = generator.sample();
 			this.palvelupisteenKokonaisAika += palveluaika;
 			tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));

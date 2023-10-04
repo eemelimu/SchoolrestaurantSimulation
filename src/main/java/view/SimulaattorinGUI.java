@@ -109,6 +109,11 @@ public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
     }
 
     @Override
+    public IVisualisointi getVisualisointi() {
+        return null;
+    }
+
+    @Override
     public void setAika(double aika) {
         this.simulointiAika = aika;
     }

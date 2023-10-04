@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import simu.model.Palvelupiste;
 import simu.model.OmaMoottori;
 
-public class Visualisointi implements IVisualisointi{
+public class Visualisointi implements IVisualisointi {
     private GraphicsContext gc;
     private Canvas canvas;
     private Palvelupiste[] palvelupisteet;
