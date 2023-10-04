@@ -37,6 +37,8 @@ public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/simulation_view.fxml"));
         Parent root = loader.load();
 
+
+
         stage.getIcons().add(new Image("/iconimage.png"));
         stage.setScene(new Scene(root));
         stage.setTitle("Simulaattori");
@@ -121,11 +123,5 @@ public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
     @Override
     public void setViive(long viive) {
         this.simulointiViive = viive;
-    }
-
-    @Override
-    public IVisualisointi getVisualisointi() {
-        Visualisointi visualisointi = new Visualisointi(new Canvas(400,400));
-        return visualisointi;
     }
 }

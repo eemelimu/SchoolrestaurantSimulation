@@ -31,6 +31,7 @@ public class Palvelupiste {
 		this.skeduloitavanTapahtumanTyyppi = tyyppi;
 		this.maksimiAsiakasKapasiteetti = maksimiAsiakasKapasiteetti;
 		this.palvelupisteNimi = palvelupisteNimi;
+		this.nykyisetAsiakkaat = 0;
 	}
 
 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
@@ -51,11 +52,16 @@ public class Palvelupiste {
 	public Asiakas otaJonosta(){  // Poistetaan palvelussa ollut
 		if (this.nykyisetAsiakkaat >= this.maksimiAsiakasKapasiteetti) {
 			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
+			//varattu = true;
 			return null;
 		}
 		varattu = false;
 		this.nykyisetAsiakkaat++;
 		return jono.poll();
+	}
+
+	public int getMaksimiAsiakasKapasiteetti() {
+		return this.maksimiAsiakasKapasiteetti;
 	}
 
 	public int getNykyisetAsiakkaat() {

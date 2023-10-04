@@ -71,6 +71,7 @@ public class Controller implements IControllerForV, IControllerForM{
     private IMoottori moottori;
     private ISimulaattoriUI ui = new SimulaattorinGUI();
     private SimulaattorinGUI simuUI = new SimulaattorinGUI();
+    private Visualisointi visualisointi1;
 
     public Controller() {
     }
@@ -95,7 +96,9 @@ public class Controller implements IControllerForV, IControllerForM{
         System.out.println("controller aika: " + ui.getAika());
         System.out.println("controller viive: " + ui.getViive());
         System.out.println("Simulaatio käynnistetty"); // testi
-        ui.getVisualisointi().tyhjennaNaytto();
+        visualisointi1 = new Visualisointi(visu);
+        visualisointi1.tyhjennaNaytto(); // uus
+        //ui.getVisualisointi().tyhjennaNaytto();
         ((Thread) moottori).start();
     }
 
@@ -151,6 +154,11 @@ public class Controller implements IControllerForV, IControllerForM{
     @Override
     public void visualisoiAsiakas() {
 
+    }
+
+    @Override
+    public IVisualisointi getVisualisointi() {
+        return visualisointi1;
     }
 
 }

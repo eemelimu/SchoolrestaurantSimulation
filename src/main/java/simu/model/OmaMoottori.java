@@ -21,7 +21,7 @@ public class OmaMoottori extends Moottori{
 	private SimulaattorinGUI ui;
 	private Controller ctrl;
 
-	//private ArrayList<Double> testiLista = new ArrayList<>(); // testing
+	//private ArrayList<Palvelupiste> testiLista = new ArrayList<>(); // testing
 
 	public OmaMoottori(IControllerForM controller, SimulaattorinGUI ui, Controller ctrl) {
 		super(controller);
@@ -42,6 +42,12 @@ public class OmaMoottori extends Moottori{
 		palvelupisteet[4]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP5, this.ui.getAstioidenpalautusKapasiteetti(), "Astioidenpalautus");
 
 		saapumisprosessi = new Saapumisprosessi(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.ARR1);
+
+		/*testiLista.add(palvelupisteet[0]);
+		testiLista.add(palvelupisteet[1]);
+		testiLista.add(palvelupisteet[2]);
+		testiLista.add(palvelupisteet[3]);
+		testiLista.add(palvelupisteet[4]);*/
 	}
 
 	@Override
@@ -59,6 +65,7 @@ public class OmaMoottori extends Moottori{
 			switch ((TapahtumanTyyppi) t.getTyyppi()) {
 				// Asiakas saapuu ruokalaan
 				case ARR1:
+					controller.getVisualisointi().uusiAsiakas(palvelupisteet);
 					double randomNum = Math.random();
 					System.out.println("Asiakas saapui ruokalaan.");
 					//testiLista.add(randomNum); // testing
