@@ -41,7 +41,7 @@ public abstract class Moottori extends Thread implements IMoottori {
 
 	public void viive() {
 		try {
-			Thread.sleep(viive);
+			Thread.sleep(this.getViive());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

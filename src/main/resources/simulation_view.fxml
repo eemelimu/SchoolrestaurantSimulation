@@ -118,8 +118,8 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Button fx:id="hidastaButton" mnemonicParsing="false" prefHeight="47.0" prefWidth="62.0" text="Hidasta" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <Button fx:id="nopeutaButton" alignment="CENTER" mnemonicParsing="false" prefHeight="49.0" prefWidth="72.0" text="Nopeuta" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                          <Button fx:id="hidastaButton" mnemonicParsing="false" onAction="#hidasta" prefHeight="47.0" prefWidth="62.0" text="Hidasta" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <Button fx:id="nopeutaButton" alignment="CENTER" mnemonicParsing="false" onAction="#nopeuta" prefHeight="49.0" prefWidth="72.0" text="Nopeuta" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                                        </children>
                                     </GridPane>
                                     <Button fx:id="kaynnistaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#kaynnista" prefHeight="29.0" prefWidth="162.0" text="Käynnistä" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />

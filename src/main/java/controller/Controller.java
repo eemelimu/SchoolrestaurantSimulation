@@ -91,10 +91,8 @@ public class Controller implements IControllerForV, IControllerForM{
         //handleStart();
         clearTulostukset();
         moottori = new OmaMoottori(this, simuUI, this);
-        moottori.setSimulointiaika(ui.getAika());
-        moottori.setViive(ui.getViive());
-        System.out.println("controller aika: " + ui.getAika());
-        System.out.println("controller viive: " + ui.getViive());
+        moottori.setSimulointiaika(Double.parseDouble(aikaTextField.getText()));
+        moottori.setViive(Long.parseLong((viiveTextField.getText())));
         System.out.println("Simulaatio käynnistetty"); // testi
         visualisointi1 = new Visualisointi(visu);
         visualisointi1.tyhjennaNaytto(); // uus
@@ -132,8 +130,6 @@ public class Controller implements IControllerForV, IControllerForM{
         }
 
     }
-
-    @Override
 
     @Override
     public void nopeuta() {

@@ -28,72 +28,17 @@ public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
         Parent root = loader.load();
 
 
-
         stage.getIcons().add(new Image("/iconimage.png"));
         stage.setScene(new Scene(root));
         stage.setTitle("Simulaattori");
         stage.show();
     }
 
+    /*
     @Override
     public double getAika() {
         return this.simulointiAika;
-    }
-
-    @Override
-    public int getTavallinenAsiakasKapasiteetti() {
-        return this.tavallinenAsiakasKapasiteetti;
-    }
-
-    @Override
-    public int getGrilliAsiakasKapasiteetti() {
-        return this.grilliAsiakasKapasiteetti;
-    }
-
-    @Override
-    public int getMaksupaateAsiakasKapasiteetti() {
-        return this.maksupaateAsiakasKapasiteetti;
-    }
-
-    @Override
-    public int getPoytaAsiakasKapasiteetti() {
-        return this.poytaAsiakasKapasiteetti;
-    }
-
-    @Override
-    public int getAstioidenpalautusKapasiteetti() {
-        return this.astioidenpalautusKapasiteetti;
-    }
-
-    @Override
-    public void setTavallinenAsiakasKapasiteetti(int tavallinenAsiakasKapasiteetti) {
-        this.tavallinenAsiakasKapasiteetti = tavallinenAsiakasKapasiteetti;
-    }
-
-    @Override
-    public void setGrilliAsiakasKapasiteetti(int grilliAsiakasKapasiteetti) {
-        this.grilliAsiakasKapasiteetti = grilliAsiakasKapasiteetti;
-    }
-
-    @Override
-    public void setMaksupaateAsiakasKapasiteetti(int maksupaateAsiakasKapasiteetti) {
-        this.maksupaateAsiakasKapasiteetti = maksupaateAsiakasKapasiteetti;
-    }
-
-    @Override
-    public void setPoytaAsiakasKapasiteetti(int poytaAsiakasKapasiteetti) {
-        this.poytaAsiakasKapasiteetti = poytaAsiakasKapasiteetti;
-    }
-
-    @Override
-    public void setAstioidenpalautusKapasiteetti(int astioidenpalautusKapasiteetti) {
-        this.astioidenpalautusKapasiteetti = astioidenpalautusKapasiteetti;
-    }
-
-    @Override
-    public long getViive() {
-        return this.simulointiViive;
-    }
+    }*/
 
     @Override
     public void setLoppuaika(double aika) {
