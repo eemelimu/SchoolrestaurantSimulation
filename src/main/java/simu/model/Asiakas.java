@@ -8,6 +8,7 @@ import simu.framework.*;
 public class Asiakas {
 	private double saapumisaika;
 	private double poistumisaika;
+	protected double palvelunPaattymisAika;
 	private int id;
 	private static int i = 1;
 	private static long sum = 0;

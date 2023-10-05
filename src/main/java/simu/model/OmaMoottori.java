@@ -85,6 +85,7 @@ public class OmaMoottori extends Moottori{
 				// Asiakas otetaan pois tavallisesta jonosta ja laitetaan maksupäätteen jonoon
 				case DEP1:
 					a = (Asiakas) palvelupisteet[0].otaJonosta();
+					palvelupisteet[0].lisaaPalveltavienJonoon(a); // lisätään asiakas palveltavien jonoon (tällöin asiakas on palveltavana)
 					System.out.println("Asiakas poistuu tavallisesta jonosta.");
 					palvelupisteet[2].lisaaJonoon(a);
 					System.out.println("DEP1");
@@ -93,6 +94,7 @@ public class OmaMoottori extends Moottori{
 				// Asiakas otetaan pois grillin jonosta ja laitetaan maksupäätteen jonoon
 				case DEP2:
 					a = (Asiakas) palvelupisteet[1].otaJonosta();
+					palvelupisteet[1].lisaaPalveltavienJonoon(a);
 					System.out.println("Asiakas poistuu grillijonosta.");
 					palvelupisteet[2].lisaaJonoon(a);
 					System.out.println("DEP2");
@@ -101,6 +103,7 @@ public class OmaMoottori extends Moottori{
 				// Asiakas otetaan pois maksupäätteen jonosta ja laitetaan pöytä jonoon
 				case DEP3:
 					a = (Asiakas) palvelupisteet[2].otaJonosta();
+					palvelupisteet[2].lisaaPalveltavienJonoon(a);
 					palvelupisteet[3].lisaaJonoon(a);
 					System.out.println("DEP3");
 					break;
@@ -108,6 +111,7 @@ public class OmaMoottori extends Moottori{
 				// Asiakas otetaan pois pöytä jonosta ja laitetaan astioiden palautus jonoon
 				case DEP4:
 					a = (Asiakas) palvelupisteet[3].otaJonosta();
+					palvelupisteet[3].lisaaPalveltavienJonoon(a);
 					palvelupisteet[4].lisaaJonoon(a);
 					System.out.println("DEP4");
 					break;

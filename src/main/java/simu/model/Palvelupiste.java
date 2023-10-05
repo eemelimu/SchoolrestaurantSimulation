@@ -3,6 +3,9 @@ package simu.model;
 import javafx.application.Platform;
 import simu.framework.*;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.*;
+
 import eduni.distributions.ContinuousGenerator;
 import view.Visualisointi;
 
@@ -11,6 +14,7 @@ import view.Visualisointi;
 public class Palvelupiste {
 
 	private final LinkedList<Asiakas> jono = new LinkedList<>(); // Tietorakennetoteutus
+	private final PriorityQueue<Asiakas> palveltavienJono = new PriorityQueue<>(new AsiakasComparator()); // Tietorakennetoteutus
 	private final ContinuousGenerator generator;
 	private final Tapahtumalista tapahtumalista;
 	private final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
@@ -35,8 +39,12 @@ public class Palvelupiste {
 	}
 
 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
-		jono.add(a);
+		jono.add(palveltavienJono.poll());
 		checkSuurinJono();
+	}
+
+	public void lisaaPalveltavienJonoon(Asiakas a){
+		palveltavienJono.add(a);
 	}
 
 	public void checkSuurinJono() {
@@ -50,13 +58,13 @@ public class Palvelupiste {
 	}
 
 	public Asiakas otaJonosta(){  // Poistetaan palvelussa ollut
-		if (this.nykyisetAsiakkaat >= this.maksimiAsiakasKapasiteetti) {
+		if (this.palveltavienJono.size() >= this.maksimiAsiakasKapasiteetti) {
 			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
-			//varattu = true;
+			varattu = true;
 			return null;
 		}
 		varattu = false;
-		this.nykyisetAsiakkaat++;
+		//this.nykyisetAsiakkaat++; turha, tän tilalla käytetään palveltavienJono.size(). PalveltavienJono sisältää asiakkaat jotka ovat palvelupisteellä palveltavina
 		return jono.poll();
 	}
 
@@ -92,7 +100,7 @@ public class Palvelupiste {
 			System.out.println("Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
 			this.asiakasLkm++;
 			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
-			this.nykyisetAsiakkaat--;
+			//this.nykyisetAsiakkaat--;
 			varattu = true;
 			double palveluaika = generator.sample();
 			this.palvelupisteenKokonaisAika += palveluaika;
@@ -109,6 +117,19 @@ public class Palvelupiste {
 
 	public boolean onJonossa(){
 		return jono.size() != 0;
+	}
+
+	class AsiakasComparator implements Comparator<Asiakas>{
+
+		// Overriding compare()method of Comparator
+		// for descending order of cgpa
+		public int compare(Asiakas a1, Asiakas a2) {
+			if (a1.palvelunPaattymisAika < a2.palvelunPaattymisAika)
+				return -1;
+			else if (a1.palvelunPaattymisAika > a2.palvelunPaattymisAika)
+				return 1;
+			return 0;
+		}
 	}
 
 }
