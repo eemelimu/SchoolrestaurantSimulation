@@ -133,10 +133,7 @@ public class Controller implements IControllerForV, IControllerForM{
 
     }
 
-    @FXML
-    public TextField getTavallinenJonoTextField() {
-        return tavallinenJonoTextField;
-    }
+    @Override
 
     @Override
     public void nopeuta() {

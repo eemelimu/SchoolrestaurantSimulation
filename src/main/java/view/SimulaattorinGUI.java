@@ -22,16 +22,6 @@ import java.io.IOException;
 
 public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
 
-    //private ISimulaattoriUI ui = this;
-    //private Controller controller = new Controller(ui);
-    private double simulointiAika; // Simulointi aika jonka käyttäjä antaa
-    private long simulointiViive; // Simulointi viive jonka käyttäjä antaa
-    private int tavallinenAsiakasKapasiteetti;
-    private int grilliAsiakasKapasiteetti;
-    private int maksupaateAsiakasKapasiteetti;
-    private int poytaAsiakasKapasiteetti;
-    private int astioidenpalautusKapasiteetti;
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/simulation_view.fxml"));
@@ -113,15 +103,5 @@ public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
     @Override
     public IVisualisointi getVisualisointi() {
         return null;
-    }
-
-    @Override
-    public void setAika(double aika) {
-        this.simulointiAika = aika;
-    }
-
-    @Override
-    public void setViive(long viive) {
-        this.simulointiViive = viive;
     }
 }
