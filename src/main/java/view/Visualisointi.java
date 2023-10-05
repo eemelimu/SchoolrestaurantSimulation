@@ -46,16 +46,16 @@ public class Visualisointi implements IVisualisointi {
         try {
             tyhjennaNaytto();
             System.out.println("PÄIVITETTY");
-            System.out.println(palvelupisteet[0].getNykyisetAsiakkaat());
-            System.out.println(palvelupisteet[1].getNykyisetAsiakkaat());
-            System.out.println(palvelupisteet[2].getNykyisetAsiakkaat());
-            System.out.println(palvelupisteet[3].getNykyisetAsiakkaat());
-            System.out.println(palvelupisteet[4].getNykyisetAsiakkaat());
-            gc.fillText(String.valueOf(palvelupisteet[0].getNykyisetAsiakkaat()), 250, 50);
-            gc.fillText(String.valueOf(palvelupisteet[1].getNykyisetAsiakkaat()), 250, 75);
-            gc.fillText(String.valueOf(palvelupisteet[2].getNykyisetAsiakkaat()), 250, 100);
-            gc.fillText(String.valueOf(palvelupisteet[3].getNykyisetAsiakkaat()), 250, 125);
-            gc.fillText(String.valueOf(palvelupisteet[4].getNykyisetAsiakkaat()), 250, 150);
+            System.out.println(palvelupisteet[0].getPalveltavienJonoSize());
+            System.out.println(palvelupisteet[1].getPalveltavienJonoSize());
+            System.out.println(palvelupisteet[2].getPalveltavienJonoSize());
+            System.out.println(palvelupisteet[3].getPalveltavienJonoSize());
+            System.out.println(palvelupisteet[4].getPalveltavienJonoSize());
+            gc.fillText(String.valueOf(palvelupisteet[0].getPalveltavienJonoSize()), 250, 50);
+            gc.fillText(String.valueOf(palvelupisteet[1].getPalveltavienJonoSize()), 250, 75);
+            gc.fillText(String.valueOf(palvelupisteet[2].getPalveltavienJonoSize()), 250, 100);
+            gc.fillText(String.valueOf(palvelupisteet[3].getPalveltavienJonoSize()), 250, 125);
+            gc.fillText(String.valueOf(palvelupisteet[4].getPalveltavienJonoSize()), 250, 150);
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }

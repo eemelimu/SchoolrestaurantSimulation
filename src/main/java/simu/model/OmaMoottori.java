@@ -39,7 +39,7 @@ public class OmaMoottori extends Moottori{
 		// pöytä
 		palvelupisteet[3]=new Palvelupiste(new Normal(15,5), tapahtumalista, TapahtumanTyyppi.DEP4, this.ui.getPoytaAsiakasKapasiteetti(), "Pöytä");
 		// astioiden palautus
-		palvelupisteet[4]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP5, this.ui.getAstioidenpalautusKapasiteetti(), "Astioidenpalautus");
+		palvelupisteet[4]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP5, 6 /*this.ui.getAstioidenpalautusKapasiteetti()*/, "Astioidenpalautus");
 
 		saapumisprosessi = new Saapumisprosessi(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.ARR1);
 

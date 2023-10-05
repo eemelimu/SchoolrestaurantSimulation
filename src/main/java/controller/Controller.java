@@ -119,6 +119,7 @@ public class Controller implements IControllerForV, IControllerForM{
             errorLabel.setOpacity(1);
             errorLabel.setText("Aika ja viive kentät eivät voi olla tyhjiä!");
         } else {
+            System.out.println("482938424932: " + tavallinenJonoTextField.getText());
             ui.setAika(Double.parseDouble(aikaTextField.getText()));
             ui.setViive(Long.parseLong(viiveTextField.getText()));
             ui.setTavallinenAsiakasKapasiteetti(Integer.parseInt(tavallinenJonoTextField.getText()));
