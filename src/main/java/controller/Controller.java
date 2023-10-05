@@ -140,12 +140,12 @@ public class Controller implements IControllerForV, IControllerForM{
 
     @Override
     public void nopeuta() {
-
+        ui.setViive((long) (ui.getViive()*0.9));
     }
 
     @Override
     public void hidasta() {
-
+        ui.setViive((long) (ui.getViive()*1.1));
     }
 
     @Override
