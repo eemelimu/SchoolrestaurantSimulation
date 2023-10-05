@@ -39,12 +39,8 @@ public class Palvelupiste {
 	}
 
 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
-		jono.add(palveltavienJono.poll());
+		jono.add(a);
 		checkSuurinJono();
-	}
-
-	public void lisaaPalveltavienJonoon(Asiakas a){
-		palveltavienJono.add(a);
 	}
 
 	public void checkSuurinJono() {
@@ -58,14 +54,21 @@ public class Palvelupiste {
 	}
 
 	public Asiakas otaJonosta(){  // Poistetaan palvelussa ollut
-		if (this.palveltavienJono.size() >= this.maksimiAsiakasKapasiteetti) {
+		/*if (this.palveltavienJono.size() >= this.maksimiAsiakasKapasiteetti) {
 			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
-			varattu = true;
 			return null;
-		}
-		varattu = false;
+		}*/
 		//this.nykyisetAsiakkaat++; turha, tän tilalla käytetään palveltavienJono.size(). PalveltavienJono sisältää asiakkaat jotka ovat palvelupisteellä palveltavina
 		return jono.poll();
+	}
+
+	public Asiakas otaPalveltavienJonosta() {
+		varattu = false;
+		return this.palveltavienJono.poll();
+	}
+
+	public int getPalveltavienJonoSize() {
+		return this.palveltavienJono.size();
 	}
 
 	public int getMaksimiAsiakasKapasiteetti() {
@@ -95,13 +98,16 @@ public class Palvelupiste {
 	public void aloitaPalvelu(){  // Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
 
 		try  {
+			palveltavienJono.add(otaJonosta());
 			//Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
             assert jono.peek() != null;
-			System.out.println("Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
+			System.out.println("Aloitetaan uusi palvelu asiakkaalle " + palveltavienJono.peek().getId());
 			this.asiakasLkm++;
 			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
 			//this.nykyisetAsiakkaat--;
-			varattu = true;
+			if (palveltavienJono.size() >= getMaksimiAsiakasKapasiteetti()) {
+				varattu = true;
+			}
 			double palveluaika = generator.sample();
 			this.palvelupisteenKokonaisAika += palveluaika;
 			tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));

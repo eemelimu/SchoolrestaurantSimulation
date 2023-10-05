@@ -31,13 +31,13 @@ public class OmaMoottori extends Moottori{
 		palvelupisteet = new Palvelupiste[5];
 
 		// tavallinen jono
-		palvelupisteet[0]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP1, this.ui.getTavallinenAsiakasKapasiteetti(), "Tavallinen jono");
+		palvelupisteet[0]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP1, 20/*this.ui.getTavallinenAsiakasKapasiteetti()*/, "Tavallinen jono");
 		// grilli jono
-		palvelupisteet[1]=new Palvelupiste(new Normal(8,5), tapahtumalista, TapahtumanTyyppi.DEP2, this.ui.getGrilliAsiakasKapasiteetti(), "Grillijono");
+		palvelupisteet[1]=new Palvelupiste(new Normal(8,5), tapahtumalista, TapahtumanTyyppi.DEP2, 8/*this.ui.getGrilliAsiakasKapasiteetti()*/, "Grillijono");
 		// maksupääte
-		palvelupisteet[2]=new Palvelupiste(new Normal(1,1), tapahtumalista, TapahtumanTyyppi.DEP3, this.ui.getMaksupaateAsiakasKapasiteetti(), "Maksupääte");
+		palvelupisteet[2]=new Palvelupiste(new Normal(1,1), tapahtumalista, TapahtumanTyyppi.DEP3, 2/*this.ui.getMaksupaateAsiakasKapasiteetti()*/, "Maksupääte");
 		// pöytä
-		palvelupisteet[3]=new Palvelupiste(new Normal(15,5), tapahtumalista, TapahtumanTyyppi.DEP4, this.ui.getPoytaAsiakasKapasiteetti(), "Pöytä");
+		palvelupisteet[3]=new Palvelupiste(new Normal(15,5), tapahtumalista, TapahtumanTyyppi.DEP4, 500/*this.ui.getPoytaAsiakasKapasiteetti()*/, "Pöytä");
 		// astioiden palautus
 		palvelupisteet[4]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP5, 6 /*this.ui.getAstioidenpalautusKapasiteetti()*/, "Astioidenpalautus");
 
@@ -84,8 +84,7 @@ public class OmaMoottori extends Moottori{
 
 				// Asiakas otetaan pois tavallisesta jonosta ja laitetaan maksupäätteen jonoon
 				case DEP1:
-					a = (Asiakas) palvelupisteet[0].otaJonosta();
-					palvelupisteet[0].lisaaPalveltavienJonoon(a); // lisätään asiakas palveltavien jonoon (tällöin asiakas on palveltavana)
+					a = (Asiakas) palvelupisteet[0].otaPalveltavienJonosta();
 					System.out.println("Asiakas poistuu tavallisesta jonosta.");
 					palvelupisteet[2].lisaaJonoon(a);
 					System.out.println("DEP1");
@@ -93,8 +92,7 @@ public class OmaMoottori extends Moottori{
 
 				// Asiakas otetaan pois grillin jonosta ja laitetaan maksupäätteen jonoon
 				case DEP2:
-					a = (Asiakas) palvelupisteet[1].otaJonosta();
-					palvelupisteet[1].lisaaPalveltavienJonoon(a);
+					a = (Asiakas) palvelupisteet[1].otaPalveltavienJonosta();
 					System.out.println("Asiakas poistuu grillijonosta.");
 					palvelupisteet[2].lisaaJonoon(a);
 					System.out.println("DEP2");
@@ -102,23 +100,23 @@ public class OmaMoottori extends Moottori{
 
 				// Asiakas otetaan pois maksupäätteen jonosta ja laitetaan pöytä jonoon
 				case DEP3:
-					a = (Asiakas) palvelupisteet[2].otaJonosta();
-					palvelupisteet[2].lisaaPalveltavienJonoon(a);
+					a = (Asiakas) palvelupisteet[2].otaPalveltavienJonosta();
 					palvelupisteet[3].lisaaJonoon(a);
+
 					System.out.println("DEP3");
 					break;
 
 				// Asiakas otetaan pois pöytä jonosta ja laitetaan astioiden palautus jonoon
 				case DEP4:
-					a = (Asiakas) palvelupisteet[3].otaJonosta();
-					palvelupisteet[3].lisaaPalveltavienJonoon(a);
+					a = (Asiakas) palvelupisteet[3].otaPalveltavienJonosta();
 					palvelupisteet[4].lisaaJonoon(a);
+
 					System.out.println("DEP4");
 					break;
 
 				// Asiakas otetaan pois astioiden palautus jonosta.
 				case DEP5:
-					a = (Asiakas) palvelupisteet[4].otaJonosta();
+					a = (Asiakas) palvelupisteet[4].otaPalveltavienJonosta();
 					System.out.println("DEP5");
 					a.setPoistumisaika(Kello.getInstance().getAika());
 					a.raportti();
@@ -136,14 +134,6 @@ public class OmaMoottori extends Moottori{
 				p.aloitaPalvelu();
 			}
 		}
-	}
-
-	public int getNykyisetAsiakkaat(int i) {
-		return palvelupisteet[i].getNykyisetAsiakkaat();
-	}
-
-	public Palvelupiste[] getPalvelupisteet(){
-		return palvelupisteet;
 	}
 
 	@Override
