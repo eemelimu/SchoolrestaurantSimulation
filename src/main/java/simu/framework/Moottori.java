@@ -44,6 +44,12 @@ public abstract class Moottori extends Thread implements IMoottori {
 		alustukset(); // luodaan mm. ensimmäinen tapahtuma
 		while (simuloidaan()){
 
+			try {
+				Thread.sleep(viive);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
 			//Trace.out(Trace.Level.INFO, "\nA-vaihe: kello on " + nykyaika());
 			kello.setAika(nykyaika());
 
