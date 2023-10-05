@@ -118,13 +118,13 @@ public class Controller implements IControllerForV, IControllerForM{
             errorLabel.setText("Aika ja viive kentät eivät voi olla tyhjiä!");
         } else {
             System.out.println("482938424932: " + tavallinenJonoTextField.getText());
-            ui.setAika(Double.parseDouble(aikaTextField.getText()));
-            ui.setViive(Long.parseLong(viiveTextField.getText()));
-            ui.setTavallinenAsiakasKapasiteetti(Integer.parseInt(tavallinenJonoTextField.getText()));
-            ui.setGrilliAsiakasKapasiteetti(Integer.parseInt(grillijonoTextField.getText()));
-            ui.setMaksupaateAsiakasKapasiteetti(Integer.parseInt(maksupaateTextField.getText()));
-            ui.setPoytaAsiakasKapasiteetti(Integer.parseInt(poytaTextField.getText()));
-            ui.setAstioidenpalautusKapasiteetti(Integer.parseInt(astioidenpalautusTextField.getText()));
+            //moottori.setSimulointiaika((Double.parseDouble(aikaTextField.getText())));
+            //moottori.setViive(Long.parseLong(viiveTextField.getText()));
+            //ui.setTavallinenAsiakasKapasiteetti(Integer.parseInt(tavallinenJonoTextField.getText()));
+            //ui.setGrilliAsiakasKapasiteetti(Integer.parseInt(grillijonoTextField.getText()));
+            //ui.setMaksupaateAsiakasKapasiteetti(Integer.parseInt(maksupaateTextField.getText()));
+            //ui.setPoytaAsiakasKapasiteetti(Integer.parseInt(poytaTextField.getText()));
+            //ui.setAstioidenpalautusKapasiteetti(Integer.parseInt(astioidenpalautusTextField.getText()));
             kaynnistaSimulointi();
             errorLabel.setOpacity(0);
         }
