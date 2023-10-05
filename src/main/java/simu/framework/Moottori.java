@@ -5,6 +5,7 @@ import controller.IControllerForM;
 public abstract class Moottori extends Thread implements IMoottori {
 	
 	private double simulointiaika = 0;
+	private long viive = 0;
 	
 	private Kello kello;
 	protected IControllerForM controller;
@@ -26,6 +27,16 @@ public abstract class Moottori extends Thread implements IMoottori {
 
 	public void setSimulointiaika(double aika) {
 		simulointiaika = aika;
+	}
+
+	@Override
+	public void setViive(long aika) {
+		this.viive = aika;
+	}
+
+	@Override
+	public long getViive() {
+		return this.viive;
 	}
 	
 	
