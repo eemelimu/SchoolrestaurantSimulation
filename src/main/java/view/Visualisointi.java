@@ -25,11 +25,11 @@ public class Visualisointi implements IVisualisointi {
         gc.drawImage(image, 0, 190, 800, 400);
 
         Image kehys = new Image("/images/palkit/palkki0.png");
-        gc.drawImage(kehys, 290,13, 100, 20);
-        gc.drawImage(kehys, 290,43, 100, 20);
-        gc.drawImage(kehys, 290,73, 100, 20);
-        gc.drawImage(kehys, 290,103, 100, 20);
-        gc.drawImage(kehys, 290,133, 100, 20);
+        gc.drawImage(kehys, 290,12, 100, 20);
+        gc.drawImage(kehys, 290,42, 100, 20);
+        gc.drawImage(kehys, 290,72, 100, 20);
+        gc.drawImage(kehys, 290,102, 100, 20);
+        gc.drawImage(kehys, 290,132, 100, 20);
 
         gc.setFill(Color.rgb(93, 173, 213));
         gc.setFont(javafx.scene.text.Font.font(20)); // Set the font size
@@ -72,13 +72,13 @@ public class Visualisointi implements IVisualisointi {
                 if (progress  == 1) {
                     String p = "/images/palkit/palkki100.png";
                     Image palkki = new Image(p);
-                    gc.drawImage(palkki, 290, (13 + (i*30)), 100, 20);
+                    gc.drawImage(palkki, 290, (12 + (i*30)), 100, 20);
                 } else {
                     String path = "/images/palkit/palkki" + (Math.round(progress / 10.0) * 10 + ".png");
                     System.out.println("math round: " + Math.round(progress / 10.0) * 10);
                     System.out.println("path: " + path);
                     Image palkki = new Image(path);
-                    gc.drawImage(palkki, 290, (13 + (i * 30)), 100, 20);
+                    gc.drawImage(palkki, 290, (12 + (i * 30)), 100, 20);
                 }
             }
 
