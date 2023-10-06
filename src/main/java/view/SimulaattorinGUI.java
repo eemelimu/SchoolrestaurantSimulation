@@ -27,7 +27,6 @@ public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/simulation_view.fxml"));
         Parent root = loader.load();
 
-
         stage.getIcons().add(new Image("/iconimage.png"));
         stage.setScene(new Scene(root));
         stage.setTitle("Simulaattori");

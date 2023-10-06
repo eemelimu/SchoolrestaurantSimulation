@@ -31,17 +31,19 @@ public class OmaMoottori extends Moottori{
 		palvelupisteet = new Palvelupiste[5];
 
 		// tavallinen jono
-		palvelupisteet[0]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP1, 20/*this.ui.getTavallinenAsiakasKapasiteetti()*/, "Tavallinen jono");
+		palvelupisteet[0]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP1, ctrl.tavallinenKapasiteetti(), "Tavallinen jono");
 		// grilli jono
-		palvelupisteet[1]=new Palvelupiste(new Normal(8,5), tapahtumalista, TapahtumanTyyppi.DEP2, 8/*this.ui.getGrilliAsiakasKapasiteetti()*/, "Grillijono");
+		palvelupisteet[1]=new Palvelupiste(new Normal(8,5), tapahtumalista, TapahtumanTyyppi.DEP2, ctrl.grilliKapasiteetti(), "Grillijono");
 		// maksupääte
-		palvelupisteet[2]=new Palvelupiste(new Normal(1,1), tapahtumalista, TapahtumanTyyppi.DEP3, 2/*this.ui.getMaksupaateAsiakasKapasiteetti()*/, "Maksupääte");
+		palvelupisteet[2]=new Palvelupiste(new Normal(1,1), tapahtumalista, TapahtumanTyyppi.DEP3, ctrl.maksupaateKapasiteetti(), "Maksupääte");
 		// pöytä
-		palvelupisteet[3]=new Palvelupiste(new Normal(15,5), tapahtumalista, TapahtumanTyyppi.DEP4, 500/*this.ui.getPoytaAsiakasKapasiteetti()*/, "Pöytä");
+		palvelupisteet[3]=new Palvelupiste(new Normal(15,5), tapahtumalista, TapahtumanTyyppi.DEP4, ctrl.poytaKapasiteetti(), "Pöytä");
 		// astioiden palautus
-		palvelupisteet[4]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP5, 6 /*this.ui.getAstioidenpalautusKapasiteetti()*/, "Astioidenpalautus");
+		palvelupisteet[4]=new Palvelupiste(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.DEP5, ctrl.astioidenpalautusKapasiteetti(), "Astioidenpalautus");
 
 		saapumisprosessi = new Saapumisprosessi(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.ARR1);
+
+
 
 		/*testiLista.add(palvelupisteet[0]);
 		testiLista.add(palvelupisteet[1]);

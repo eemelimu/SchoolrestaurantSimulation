@@ -117,7 +117,7 @@ public class Controller implements IControllerForV, IControllerForM{
             errorLabel.setOpacity(1);
             errorLabel.setText("Aika ja viive kentät eivät voi olla tyhjiä!");
         } else {
-            System.out.println("482938424932: " + tavallinenJonoTextField.getText());
+            //System.out.println("482938424932: " + tavallinenJonoTextField.getText());
             //moottori.setSimulointiaika((Double.parseDouble(aikaTextField.getText())));
             //moottori.setViive(Long.parseLong(viiveTextField.getText()));
             //ui.setTavallinenAsiakasKapasiteetti(Integer.parseInt(tavallinenJonoTextField.getText()));
@@ -128,7 +128,6 @@ public class Controller implements IControllerForV, IControllerForM{
             kaynnistaSimulointi();
             errorLabel.setOpacity(0);
         }
-
     }
 
     @Override
@@ -147,12 +146,31 @@ public class Controller implements IControllerForV, IControllerForM{
 
     @Override
     public void visualisoiAsiakas() {
-
     }
 
     @Override
     public IVisualisointi getVisualisointi() {
         return visualisointi1;
+    }
+
+    public int tavallinenKapasiteetti() {
+        return Integer.parseInt(tavallinenJonoTextField.getText());
+    }
+
+    public int grilliKapasiteetti() {
+        return Integer.parseInt(grillijonoTextField.getText());
+    }
+
+    public int maksupaateKapasiteetti() {
+        return Integer.parseInt(maksupaateTextField.getText());
+    }
+
+    public int poytaKapasiteetti() {
+        return Integer.parseInt(poytaTextField.getText());
+    }
+
+    public int astioidenpalautusKapasiteetti() {
+        return Integer.parseInt(astioidenpalautusTextField.getText());
     }
 
 }
