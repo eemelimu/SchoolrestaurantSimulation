@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="1004.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="1253.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
-      <GridPane prefHeight="647.0" prefWidth="1004.0">
+      <GridPane prefHeight="647.0" prefWidth="1253.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="178.14437344340593" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="583.8762530727114" minWidth="10.0" prefWidth="583.8762530727114" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="423.58767090103265" minWidth="10.0" prefWidth="225.60831515879534" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="814.5155711977281" minWidth="10.0" prefWidth="806.6083192585111" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="423.58767090103265" minWidth="10.0" prefWidth="248.42264998885344" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -56,7 +56,7 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="52.0" prefWidth="99.0" text="Viive" />
-                                          <TextField fx:id="viiveTextField" onKeyTyped="#isNumeric">
+                                          <TextField fx:id="viiveTextField" onKeyTyped="#isNumeric" promptText="ms.">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -131,7 +131,7 @@
                      </children>
                   </VBox>
                </children></VBox>
-            <GridPane prefHeight="645.0" prefWidth="307.0" GridPane.columnIndex="2">
+            <GridPane prefHeight="627.0" prefWidth="388.0" GridPane.columnIndex="2">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -147,7 +147,7 @@
                   <Insets />
                </GridPane.margin>
             </GridPane>
-            <GridPane fx:id="pohja" GridPane.columnIndex="1">
+            <GridPane fx:id="pohja" prefHeight="627.0" prefWidth="669.0" GridPane.columnIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -156,7 +156,7 @@
                 <RowConstraints maxHeight="592.8247929671486" minHeight="10.0" prefHeight="592.8247929671486" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Canvas fx:id="visu" height="594.0" width="583.0" GridPane.rowIndex="1" />
+                  <Canvas fx:id="visu" height="589.0" width="800.0" GridPane.rowIndex="1" />
                   <Label text="Ruokalasimulaatio" textAlignment="CENTER" GridPane.halignment="CENTER">
                      <font>
                         <Font size="18.0" />

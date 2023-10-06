@@ -22,8 +22,16 @@ public class Visualisointi implements IVisualisointi {
         gc.setFill(Color.rgb(61,61,61));
         Image image = new Image("/images/simulator_dark.png");
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        gc.drawImage(image, 0, 190, 800, 400);
 
-        gc.setFill(Color.RED);
+        Image kehys = new Image("/images/palkit/palkki0.png");
+        gc.drawImage(kehys, 600,0);
+        gc.drawImage(kehys, 600,30);
+        gc.drawImage(kehys, 600,60);
+        gc.drawImage(kehys, 600,90);
+        gc.drawImage(kehys, 600,120);
+
+        gc.setFill(Color.rgb(93, 173, 213));
         gc.setFont(javafx.scene.text.Font.font(20)); // Set the font size
         gc.fillText("Tavallinen jono: ", 10, 30);
         gc.fillText("", 350, 0);

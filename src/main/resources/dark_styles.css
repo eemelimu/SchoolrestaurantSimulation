@@ -1,7 +1,11 @@
-/*
-
 .root {
     -fx-background-color: #3d3d3d;
+}
+
+
+#tuloksetTextArea {
+    -fx-background-color: #303030;
+    -fx-text-fill: black;
 }
 
 #label1 {
@@ -30,7 +34,16 @@
     -fx-background-color: #4f4f4f;
 }
 
-.spinner {
+/* Text fields */
+#textField1, #textField2 {
     -fx-background-color: #303030;
     -fx-text-fill: white;
+    -fx-prompt-text-fill: #888888; /* Placeholder text color */
+}
+
+/* Text areas */
+#textArea1, #textArea2 {
+    -fx-background-color: #303030;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #888888; /* Placeholder text color */
 }
