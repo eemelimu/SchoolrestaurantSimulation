@@ -37,9 +37,10 @@
                           <rowConstraints>
                             <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="109.80410573940918" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="297.0" minHeight="10.0" prefHeight="29.63919910678635" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="502.8350239835929" minHeight="10.0" prefHeight="353.2268312989195" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="395.99999590677237" minHeight="10.0" prefHeight="43.40207383047073" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="109.71133535399144" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="502.8350239835929" minHeight="10.0" prefHeight="322.6185848865723" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="395.99999590677237" minHeight="10.0" prefHeight="24.721635116072832" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="212.47420003921218" minHeight="10.0" prefHeight="103.8969268004185" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="46.49483184863118" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
@@ -118,7 +119,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Button fx:id="hidastaButton" mnemonicParsing="false" onAction="#hidasta" prefHeight="47.0" prefWidth="62.0" text="Hidasta" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <Button fx:id="hidastaButton" mnemonicParsing="false" onAction="#hidasta" prefHeight="48.0" prefWidth="74.0" text="Hidasta" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                                           <Button fx:id="nopeutaButton" alignment="CENTER" mnemonicParsing="false" onAction="#nopeuta" prefHeight="49.0" prefWidth="72.0" text="Nopeuta" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                                        </children>
                                     </GridPane>
@@ -126,6 +127,7 @@
                                  </children>
                               </GridPane>
                               <Label fx:id="errorLabel" opacity="0.0" textAlignment="CENTER" textFill="RED" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Button fx:id="keskittymisNappi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openKeskittymisNakyma" prefHeight="25.0" prefWidth="161.0" text="Keskittymisavustaja" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                            </children>
                         </GridPane>
                      </children>

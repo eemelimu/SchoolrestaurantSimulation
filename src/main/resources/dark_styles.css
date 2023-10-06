@@ -8,6 +8,14 @@
     -fx-border-radius: 1px;
 }
 
+.text-field {
+    -fx-border-width: 0,5px;
+    -fx-border-color: #ffffff;
+    -fx-border-radius: 1px;
+    -fx-control-inner-background: #303030;
+    -fx-text-fill: white;
+}
+
 #tuloksetTextArea {
     -fx-control-inner-background: #303030;
     -fx-text-fill: white;
