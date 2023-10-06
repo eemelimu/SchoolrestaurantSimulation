@@ -5,7 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import simu.model.Palvelupiste;
 import simu.model.OmaMoottori;
-
+import javafx.scene.image.Image;
 import java.util.ArrayList;
 
 public class Visualisointi implements IVisualisointi {
@@ -19,25 +19,26 @@ public class Visualisointi implements IVisualisointi {
     }
 
     public void tyhjennaNaytto() {
-        gc.setFill(Color.YELLOW);
+        gc.setFill(Color.rgb(61,61,61));
+        Image image = new Image("/images/simulator_dark.png");
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         gc.setFill(Color.RED);
         gc.setFont(javafx.scene.text.Font.font(20)); // Set the font size
-        gc.fillText("Tavallinen jono: ", 10, 50);
-        gc.fillText("", 250, 50);
+        gc.fillText("Tavallinen jono: ", 10, 30);
+        gc.fillText("", 350, 0);
 
-        gc.fillText("Grillijono: ", 10, 75);
-        gc.fillText("", 250, 75);
+        gc.fillText("Grillijono: ", 10, 60);
+        gc.fillText("", 350, 30);
 
-        gc.fillText("Maksupääte: ", 10, 100);
-        gc.fillText("", 250, 100);
+        gc.fillText("Maksupääte: ", 10, 90);
+        gc.fillText("", 350, 60);
 
-        gc.fillText("Pöytä: ", 10, 125);
-        gc.fillText("", 250, 125);
+        gc.fillText("Pöytä: ", 10, 120);
+        gc.fillText("", 350, 90);
 
         gc.fillText("Astioidenpalautus: ", 10, 150);
-        gc.fillText("", 250, 150);
+        gc.fillText("", 350, 120);
     }
 
     public void uusiAsiakas(Palvelupiste[] palvelupisteet) {
@@ -51,11 +52,28 @@ public class Visualisointi implements IVisualisointi {
             System.out.println(palvelupisteet[2].getPalveltavienJonoSize());
             System.out.println(palvelupisteet[3].getPalveltavienJonoSize());
             System.out.println(palvelupisteet[4].getPalveltavienJonoSize());
-            gc.fillText(String.valueOf(palvelupisteet[0].getPalveltavienJonoSize()), 250, 50);
-            gc.fillText(String.valueOf(palvelupisteet[1].getPalveltavienJonoSize()), 250, 75);
-            gc.fillText(String.valueOf(palvelupisteet[2].getPalveltavienJonoSize()), 250, 100);
-            gc.fillText(String.valueOf(palvelupisteet[3].getPalveltavienJonoSize()), 250, 125);
+            gc.fillText(String.valueOf(palvelupisteet[0].getPalveltavienJonoSize()), 250, 30);
+            gc.fillText(String.valueOf(palvelupisteet[1].getPalveltavienJonoSize()), 250, 60);
+            gc.fillText(String.valueOf(palvelupisteet[2].getPalveltavienJonoSize()), 250, 90);
+            gc.fillText(String.valueOf(palvelupisteet[3].getPalveltavienJonoSize()), 250, 120);
             gc.fillText(String.valueOf(palvelupisteet[4].getPalveltavienJonoSize()), 250, 150);
+
+            for (int i = 0; i < palvelupisteet.length; i++) {
+                int progress = palvelupisteet[i].getMaksimiAsiakasKapasiteetti() / palvelupisteet[i].getPalveltavienJonoSize();
+                System.out.println("p: " + palvelupisteet[i].getPalvelupisteNimi() + " progress: " + progress);
+                if (progress  == 1) {
+                    String p = "/images/palkit/palkki100.png";
+                    Image palkki = new Image(p);
+                    gc.drawImage(palkki, 600, (0 + (i*30)));
+                } else {
+                    String path = "/images/palkit/palkki" + (Math.round(progress / 10.0) * 10 + ".png");
+                    System.out.println("math round: " + Math.round(progress / 10.0) * 10);
+                    System.out.println("path: " + path);
+                    Image palkki = new Image(path);
+                    gc.drawImage(palkki, 600, (0 + (i * 30)));
+                }
+            }
+
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
