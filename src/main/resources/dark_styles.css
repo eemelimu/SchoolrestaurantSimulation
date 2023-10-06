@@ -2,14 +2,9 @@
     -fx-background-color: #3d3d3d;
 }
 
-
 #tuloksetTextArea {
-    -fx-background-color: #303030;
-    -fx-text-fill: black;
-}
-
-#label1 {
-    -fx-label-padding: 10px 0 2px 0;
+    -fx-control-inner-background: #303030;
+    -fx-text-fill: white;
 }
 
 .combo-box .list-cell {
@@ -34,16 +29,6 @@
     -fx-background-color: #4f4f4f;
 }
 
-/* Text fields */
-#textField1, #textField2 {
-    -fx-background-color: #303030;
-    -fx-text-fill: white;
-    -fx-prompt-text-fill: #888888; /* Placeholder text color */
-}
-
-/* Text areas */
-#textArea1, #textArea2 {
-    -fx-background-color: #303030;
-    -fx-text-fill: white;
-    -fx-prompt-text-fill: #888888; /* Placeholder text color */
+.button:pressed {
+    -fx-background-color: #4f4f4f;
 }
