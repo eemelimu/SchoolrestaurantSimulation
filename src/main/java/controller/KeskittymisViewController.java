@@ -28,6 +28,9 @@ public class KeskittymisViewController {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaView.setMediaPlayer(mediaPlayer);
         mediaPlayer.setVolume(0);
+        mediaPlayer.setOnEndOfMedia(() -> {
+            mediaPlayer.seek(mediaPlayer.getStartTime());
+        });
         mediaPlayer.play();
     }
 
