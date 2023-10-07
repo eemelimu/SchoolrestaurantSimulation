@@ -1,10 +1,16 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import simu.framework.IMoottori;
 import simu.model.OmaMoottori;
 import view.ISimulaattoriUI;
@@ -13,6 +19,8 @@ import view.IVisualisointi;
 import view.SimulaattorinGUI;
 import view.Visualisointi;
 import javafx.scene.canvas.Canvas;
+
+import java.io.IOException;
 
 public class Controller implements IControllerForV, IControllerForM{
 
@@ -45,6 +53,9 @@ public class Controller implements IControllerForV, IControllerForM{
 
     @FXML
     private Button kaynnistaButton;
+
+    @FXML
+    private Button keskittymisNappi;
 
     @FXML
     private TextArea tuloksetTextArea;
@@ -171,6 +182,19 @@ public class Controller implements IControllerForV, IControllerForM{
 
     public int astioidenpalautusKapasiteetti() {
         return Integer.parseInt(astioidenpalautusTextField.getText());
+    }
+
+
+    @FXML
+    public void openKeskittymisNakyma() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/keskittymis_view.fxml"));
+        Parent root = loader.load();
+        Stage keskittymisStage = new Stage();
+        keskittymisStage.setTitle("Simulaattori");
+        KeskittymisViewController keskittymisViewController = loader.getController();
+        keskittymisStage.getIcons().add(new Image("/images/iconimage.png"));
+        keskittymisStage.setScene(new Scene(root));
+        keskittymisStage.show();
     }
 
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.KeskittymisViewController">
+   <children>
+      <MediaView fx:id="mediaView" fitHeight="310.0" fitWidth="610.0">
+         <viewport>
+            <Rectangle2D height="600.0" width="1200.0" />
+         </viewport>
+      </MediaView>
+   </children>
+</AnchorPane>
