@@ -2,7 +2,7 @@
 
 ## Projekti Kuvaus
 
-Tämä Java-ohjelmointikielellä toteutettu simulaatioprojekti on osa Metropolian ohjelmistotuotannon Java-kurssia. Siinä simuloidaan Metropolian kouluravintolan toimintaa Myllypurossa.
+Tämä simulaatioprojekti on toteutettu ryhmätyönä osana Metropolian ohjelmistotuotannon Java-kurssia. Simulaation kohteena on Metropolian kouluravintolan toiminta Myllypuron kampuksella.
 
 ## Toiminnallisuus
 Sovelluksessa on käytetty seuraavia ohjelmointikieliä: Java, SQL ja CSS.
