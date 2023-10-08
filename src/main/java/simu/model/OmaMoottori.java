@@ -37,7 +37,7 @@ public class OmaMoottori extends Moottori{
 		// maksupääte
 		palvelupisteet[2]=new Palvelupiste(new Normal(3,1), tapahtumalista, TapahtumanTyyppi.DEP3, ctrl.maksupaateKapasiteetti(), "Maksupääte");
 		// pöytä
-		palvelupisteet[3]=new Palvelupiste(new Normal(30,5), tapahtumalista, TapahtumanTyyppi.DEP4, ctrl.poytaKapasiteetti(), "Pöytä");
+		palvelupisteet[3]=new Palvelupiste(new Normal(200,25), tapahtumalista, TapahtumanTyyppi.DEP4, ctrl.poytaKapasiteetti(), "Pöytä");
 		// astioiden palautus
 		palvelupisteet[4]=new Palvelupiste(new Normal(3,1), tapahtumalista, TapahtumanTyyppi.DEP5, ctrl.astioidenpalautusKapasiteetti(), "Astioidenpalautus");
 
