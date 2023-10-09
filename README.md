@@ -29,7 +29,7 @@ Projektin tarkoituksena on simuloida näiden palvelupisteiden toimintaa ja vuoro
 
 Sovelluksen käynnistäessä avautuu simulaation käyttöliittymän, jossa on erilaisia toimintoja joilla voidaan muokata simulaation toimintaa:
 - **Aika**: Tällä toiminnolla asetetaan simulaatiolle aika.
-- **viive**: Tällä toiminnolla asetetaan viive, mikä kuvaa asiakkaiden sisääntulofrekvenssiä simulaation.
+- **Viive**: Tällä toiminnolla asetetaan viive, mikä kuvaa asiakkaiden sisääntulofrekvenssiä simulaation.
 - **Palvelupisteiden kapasiteetit**: Tässä toiminnossa voidaan asettaa ja muokata palvelupisteiden kapasiteetteja.
 - **Nopeuta ja hidasta**: Tällä toiminnolla voidaan nopeuttaa ja hidastaa simulaation kulkua (viivettä).
 - **Keskittymisavustaja**: Tämä toiminto auttaa käyttäjää keskittymään simulaation seuraamiseen.
