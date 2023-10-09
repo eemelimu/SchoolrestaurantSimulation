@@ -65,11 +65,17 @@ public class Visualisointi implements IVisualisointi {
             // Käydään läpi kaikki palvelupisteet ja lasketaan prosentteina kuinka täynnä palvelupiste on
             // Prosenttiarvoa käytetään valitsemaan kuva joka kuvastaa kuinka täynnä palvelupiste on
             for (int i = 0; i < palvelupisteet.length; i++) {
+
+                // Laske kuinka täynnä palvelupiste on prosentteina
                 double progress = (double) palvelupisteet[i].getPalveltavienJonoSize() / palvelupisteet[i].getMaksimiAsiakasKapasiteetti();
-                double value = (double) Math.round((progress) * 10) / 10 * 100;
+
+                // Muuta arvo muotoon jolla sitä voi etsiä
+                double value = (double) Math.round((progress) * 10) / 10;
+
+                // Path kuvaan
                 String path = "/images/palkit/palkki" + value + ".png";
-                System.out.println("math round: " + Math.round(progress * 100));
-                System.out.println("path: " + path);
+
+                // Luo kuva ja päivitä näytölle
                 Image palkki = new Image(path);
                 gc.drawImage(palkki, 290, (12 + (i * 30)), 100, 20);
             }

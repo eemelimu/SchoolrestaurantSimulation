@@ -38,16 +38,46 @@ public class Controller implements IControllerForV, IControllerForM{
     private TextField tavallinenJonoTextField;
 
     @FXML
+    private TextField tavallinenJonoKeskiarvo;
+
+    @FXML
+    private TextField tavallinenJonoMuutos;
+
+    @FXML
     private TextField grillijonoTextField;
+
+    @FXML
+    private TextField grillijonoKeskiarvo;
+
+    @FXML
+    private TextField grillijonoMuutos;
 
     @FXML
     private TextField maksupaateTextField;
 
     @FXML
+    private TextField maksupaateKeskiarvo;
+
+    @FXML
+    private TextField maksupaateMuutos;
+
+    @FXML
     private TextField poytaTextField;
 
     @FXML
+    private TextField poytaKeskiarvo;
+
+    @FXML
+    private TextField poytaMuutos;
+
+    @FXML
     private TextField astioidenpalautusTextField;
+
+    @FXML
+    private TextField astioidenpalautusKeskiarvo;
+
+    @FXML
+    private TextField astioidenpalautusMuutos;
 
     @FXML
     private Button kaynnistaButton;

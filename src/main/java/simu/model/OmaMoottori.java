@@ -70,7 +70,6 @@ public class OmaMoottori extends Moottori{
 					a = (Asiakas) palvelupisteet[0].otaPalveltavienJonosta();
 					System.out.println("Asiakas poistuu tavallisesta jonosta.");
 					palvelupisteet[2].lisaaJonoon(a);
-					System.out.println("DEP1");
 					break;
 
 				// Asiakas otetaan pois grillin jonosta ja laitetaan maksupäätteen jonoon
@@ -78,7 +77,6 @@ public class OmaMoottori extends Moottori{
 					a = (Asiakas) palvelupisteet[1].otaPalveltavienJonosta();
 					System.out.println("Asiakas poistuu grillijonosta.");
 					palvelupisteet[2].lisaaJonoon(a);
-					System.out.println("DEP2");
 					break;
 
 				// Asiakas otetaan pois maksupäätteen jonosta ja laitetaan pöytä jonoon
