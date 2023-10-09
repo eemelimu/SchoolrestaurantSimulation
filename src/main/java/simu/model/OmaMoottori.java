@@ -53,8 +53,10 @@ public class OmaMoottori extends Moottori{
 					double randomNum = Math.random();
 					System.out.println("Asiakas saapui ruokalaan.");
 
-					// Jos yli 0.7 niin asiakas menee grilli jonoon, muuten tavalliseen jonoon
-					if (randomNum >= 0.7) {    // grilli jonoon
+					// Jos arvottu luku on yli 0.9 niin asiakas menee grilli jonoon, muuten tavalliseen jonoon
+					// Eli noin 10% asiakkaista simulaation aikana pitäisi mennä grilli jonoon
+					// Loppujen 90% pitäisi mennä tavalliseen.
+					if (randomNum >= 0.9) {    // grilli jonoon
 						palvelupisteet[1].lisaaJonoon(new Asiakas());
 						System.out.println("Asiakas menee grilli jonoon");
 					} else {
