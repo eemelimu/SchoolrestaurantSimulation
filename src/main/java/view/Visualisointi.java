@@ -4,9 +4,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import simu.model.Palvelupiste;
-import simu.model.OmaMoottori;
 import javafx.scene.image.Image;
-import java.util.ArrayList;
 
 public class Visualisointi implements IVisualisointi {
     private GraphicsContext gc;
@@ -24,7 +22,7 @@ public class Visualisointi implements IVisualisointi {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.drawImage(image, 0, 190, 800, 400);
 
-        Image kehys = new Image("/images/palkit/palkki0.png");
+        Image kehys = new Image("/images/palkit/palkki0.0.png");
         gc.drawImage(kehys, 290,12, 100, 20);
         gc.drawImage(kehys, 290,42, 100, 20);
         gc.drawImage(kehys, 290,72, 100, 20);

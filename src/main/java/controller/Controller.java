@@ -10,11 +10,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import simu.framework.IMoottori;
 import simu.model.OmaMoottori;
 import view.ISimulaattoriUI;
-import javafx.scene.control.*;
 import view.IVisualisointi;
 import view.SimulaattorinGUI;
 import view.Visualisointi;
@@ -69,15 +67,6 @@ public class Controller implements IControllerForV, IControllerForM{
     @FXML
     private Canvas visu;
 
-    /*
-    public void handleStart() {
-        if (visualisointi == null) {
-            visualisointi = new Visualisointi(visu);
-            visualisointi.tyhjennaNaytto();
-        }
-    }
-
-     */
 
     private IMoottori moottori;
     private ISimulaattoriUI ui = new SimulaattorinGUI();
@@ -99,15 +88,13 @@ public class Controller implements IControllerForV, IControllerForM{
 
     @Override
     public void kaynnistaSimulointi() {
-        //handleStart();
         clearTulostukset();
         moottori = new OmaMoottori(this, simuUI, this);
         moottori.setSimulointiaika(Double.parseDouble(aikaTextField.getText()));
         moottori.setViive(Long.parseLong((viiveTextField.getText())));
-        System.out.println("Simulaatio käynnistetty"); // testi
+        System.out.println("Simulaatio käynnistetty");
         visualisointi1 = new Visualisointi(visu);
-        visualisointi1.tyhjennaNaytto(); // uus
-        //ui.getVisualisointi().tyhjennaNaytto();
+        visualisointi1.tyhjennaNaytto();
         ((Thread) moottori).start();
     }
 
@@ -128,14 +115,6 @@ public class Controller implements IControllerForV, IControllerForM{
             errorLabel.setOpacity(1);
             errorLabel.setText("Aika ja viive kentät eivät voi olla tyhjiä!");
         } else {
-            //System.out.println("482938424932: " + tavallinenJonoTextField.getText());
-            //moottori.setSimulointiaika((Double.parseDouble(aikaTextField.getText())));
-            //moottori.setViive(Long.parseLong(viiveTextField.getText()));
-            //ui.setTavallinenAsiakasKapasiteetti(Integer.parseInt(tavallinenJonoTextField.getText()));
-            //ui.setGrilliAsiakasKapasiteetti(Integer.parseInt(grillijonoTextField.getText()));
-            //ui.setMaksupaateAsiakasKapasiteetti(Integer.parseInt(maksupaateTextField.getText()));
-            //ui.setPoytaAsiakasKapasiteetti(Integer.parseInt(poytaTextField.getText()));
-            //ui.setAstioidenpalautusKapasiteetti(Integer.parseInt(astioidenpalautusTextField.getText()));
             kaynnistaSimulointi();
             errorLabel.setOpacity(0);
         }

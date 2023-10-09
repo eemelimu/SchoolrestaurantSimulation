@@ -1,13 +1,11 @@
 package simu.model;
 
-import javafx.application.Platform;
 import simu.framework.*;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.*;
 
 import eduni.distributions.ContinuousGenerator;
-import view.Visualisointi;
 
 // TODO:
 // Palvelupistekohtaiset toiminnallisuudet, laskutoimitukset (+ tarvittavat muuttujat) ja raportointi koodattava
@@ -23,8 +21,6 @@ public class Palvelupiste {
 	private int asiakasLkm; // kuinka monta asiakasta on käynyt palvelupisteellä
 	private int nykyisetAsiakkaat; // kuinka monta asiakasta on tällä hetkellä palvelupisteellä
 	private double palvelupisteenKokonaisAika; // kuinka kauan palvelupiste on ollut käytössä
-
-	//JonoStartegia strategia; //optio: asiakkaiden järjestys
 
 	private boolean varattu = false;
 	private int suurinJono = 0;
@@ -54,11 +50,6 @@ public class Palvelupiste {
 	}
 
 	public Asiakas otaJonosta(){  // Poistetaan palvelussa ollut
-		/*if (this.palveltavienJono.size() >= this.maksimiAsiakasKapasiteetti) {
-			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
-			return null;
-		}*/
-		//this.nykyisetAsiakkaat++; turha, tän tilalla käytetään palveltavienJono.size(). PalveltavienJono sisältää asiakkaat jotka ovat palvelupisteellä palveltavina
 		return jono.poll();
 	}
 
@@ -99,12 +90,10 @@ public class Palvelupiste {
 
 		try  {
 			palveltavienJono.add(otaJonosta());
-			//Trace.out(Trace.Level.INFO, "Aloitetaan uusi palvelu asiakkaalle " + jono.peek().getId());
             assert jono.peek() != null;
 			System.out.println("Aloitetaan uusi palvelu asiakkaalle " + palveltavienJono.peek().getId());
 			this.asiakasLkm++;
 			System.out.println("Palvelupiste " + this.palvelupisteNimi + " on täynnä.");
-			//this.nykyisetAsiakkaat--;
 			if (palveltavienJono.size() >= getMaksimiAsiakasKapasiteetti()) {
 				varattu = true;
 			}

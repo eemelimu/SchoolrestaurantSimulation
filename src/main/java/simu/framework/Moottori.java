@@ -49,20 +49,13 @@ public abstract class Moottori extends Thread implements IMoottori {
 	
 	
 	public void run(){
-		alustukset(); // luodaan mm. ensimmäinen tapahtuma
+		alustukset(); // Luodaan mm. ensimmäinen tapahtuma
 		while (simuloidaan()){
 
 			viive();
-
-			//Trace.out(Trace.Level.INFO, "\nA-vaihe: kello on " + nykyaika());
 			kello.setAika(nykyaika());
-
-			//Trace.out(Trace.Level.INFO, "\nB-vaihe:" );
 			suoritaBTapahtumat();
-
-			//Trace.out(Trace.Level.INFO, "\nC-vaihe:" );
 			yritaCTapahtumat();
-
 		}
 		tulokset();
 	}

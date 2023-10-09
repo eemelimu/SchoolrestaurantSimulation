@@ -21,8 +21,6 @@ public class OmaMoottori extends Moottori{
 	private SimulaattorinGUI ui;
 	private Controller ctrl;
 
-	//private ArrayList<Palvelupiste> testiLista = new ArrayList<>(); // testing
-
 	public OmaMoottori(IControllerForM controller, SimulaattorinGUI ui, Controller ctrl) {
 		super(controller);
 		this.ui = ui;
@@ -42,14 +40,6 @@ public class OmaMoottori extends Moottori{
 		palvelupisteet[4]=new Palvelupiste(new Normal(3,1), tapahtumalista, TapahtumanTyyppi.DEP5, ctrl.astioidenpalautusKapasiteetti(), "Astioidenpalautus");
 
 		saapumisprosessi = new Saapumisprosessi(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.ARR1);
-
-
-
-		/*testiLista.add(palvelupisteet[0]);
-		testiLista.add(palvelupisteet[1]);
-		testiLista.add(palvelupisteet[2]);
-		testiLista.add(palvelupisteet[3]);
-		testiLista.add(palvelupisteet[4]);*/
 	}
 
 	@Override
@@ -70,9 +60,8 @@ public class OmaMoottori extends Moottori{
 					controller.getVisualisointi().uusiAsiakas(palvelupisteet);
 					double randomNum = Math.random();
 					System.out.println("Asiakas saapui ruokalaan.");
-					//testiLista.add(randomNum); // testing
-					// jos yli 0.7 niin asiakas menee grilli jonoon, muuten tavalliseen jonoon
 
+					// Jos yli 0.7 niin asiakas menee grilli jonoon, muuten tavalliseen jonoon
 					if (randomNum >= 0.7) {    // grilli jonoon
 						palvelupisteet[1].lisaaJonoon(new Asiakas());
 						System.out.println("Asiakas menee grilli jonoon");
@@ -124,7 +113,6 @@ public class OmaMoottori extends Moottori{
 					a.raportti();
 			}
 		} catch (Exception e) {
-			//e.printStackTrace();
 			System.out.println("Exception e suoritaTapahtuma");
 		}
 	}
@@ -172,15 +160,8 @@ public class OmaMoottori extends Moottori{
 			System.out.println("Suurin jono simun aikana: " + p.getSuurinJono());
 			ctrl.setTulostukset(String.valueOf("Suurin jono simun aikana: " + p.getSuurinJono()) + "\n");
 
-			// Nykyiset asiakkaat
-			//System.out.println("Nykyiset asiakkaat: " + p.getNykyisetAsiakkaat());
-
-			// Seuraava tähän
-			// Newline
 			System.out.println("\n");
 		}
-		//System.out.println("RandomNum lista: " + testiLista);
-
 	}
 
 
