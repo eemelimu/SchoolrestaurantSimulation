@@ -67,6 +67,15 @@ public class Controller implements IControllerForV, IControllerForM{
     @FXML
     private Canvas visu;
 
+    @FXML
+    private TextField saapumisKeskiarvo;
+
+    @FXML
+    private TextField saapumisMuutos;
+
+    @FXML
+    private Label viiveDisplay;
+
 
     private IMoottori moottori;
     private ISimulaattoriUI ui = new SimulaattorinGUI();
@@ -95,6 +104,7 @@ public class Controller implements IControllerForV, IControllerForM{
         System.out.println("Simulaatio käynnistetty");
         visualisointi1 = new Visualisointi(visu);
         visualisointi1.tyhjennaNaytto();
+        viewViive();
         ((Thread) moottori).start();
     }
 
@@ -120,14 +130,21 @@ public class Controller implements IControllerForV, IControllerForM{
         }
     }
 
+    @FXML
+    public void viewViive() {
+    	viiveDisplay.setText(String.valueOf(moottori.getViive()));
+    }
+
     @Override
     public void nopeuta() {
         moottori.setViive((long) (moottori.getViive()*0.9));
+        viewViive();
     }
 
     @Override
     public void hidasta() {
         moottori.setViive((long) (moottori.getViive()*1.1));
+        viewViive();
     }
 
     @Override
@@ -163,6 +180,74 @@ public class Controller implements IControllerForV, IControllerForM{
         return Integer.parseInt(astioidenpalautusTextField.getText());
     }
 
+
+    public int getTavallinenJonoKeskiarvo() {
+        return Integer.parseInt(tavallinenJonoKeskiarvo.getText());
+    }
+
+    public int getGrillijonoKeskiarvo() {
+        return Integer.parseInt(grillijonoKeskiarvo.getText());
+    }
+
+    public int getMaksupaateKeskiarvo() {
+        return Integer.parseInt(maksupaateKeskiarvo.getText());
+    }
+
+    public int getPoytaKeskiarvo() {
+        return Integer.parseInt(poytaKeskiarvo.getText());
+    }
+
+    public int getAstioidenpalautusKeskiarvo() {
+        return Integer.parseInt(astioidenpalautusKeskiarvo.getText());
+    }
+
+    public int getTavallinenJonoMuutos() {
+        return Integer.parseInt(tavallinenJonoMuutos.getText());
+    }
+
+    public int getGrillijonoMuutos() {
+        return Integer.parseInt(grillijonoMuutos.getText());
+    }
+
+    public int getMaksupaateMuutos() {
+        return Integer.parseInt(maksupaateMuutos.getText());
+    }
+
+    public int getPoytaMuutos() {
+        return Integer.parseInt(poytaMuutos.getText());
+    }
+
+    public int getAstioidenpalautusMuutos() {
+        return Integer.parseInt(astioidenpalautusMuutos.getText());
+    }
+
+    public int getSaapumisKeskiarvo() {
+        return Integer.parseInt(saapumisKeskiarvo.getText());
+    }
+
+    public int getSaapumisMuutos() {
+        return Integer.parseInt(saapumisMuutos.getText());
+    }
+
+    public void setTavallinenJonoKeskiarvo(int tavallinenJonoKeskiarvo) {
+        this.tavallinenJonoKeskiarvo.setText(String.valueOf(tavallinenJonoKeskiarvo));
+    }
+
+    public void setGrillijonoKeskiarvo(int grillijonoKeskiarvo) {
+        this.grillijonoKeskiarvo.setText(String.valueOf(grillijonoKeskiarvo));
+    }
+
+    public void setMaksupaateKeskiarvo(int maksupaateKeskiarvo) {
+        this.maksupaateKeskiarvo.setText(String.valueOf(maksupaateKeskiarvo));
+    }
+
+    public void setPoytaKeskiarvo(int poytaKeskiarvo) {
+        this.poytaKeskiarvo.setText(String.valueOf(poytaKeskiarvo));
+    }
+
+    public void setAstioidenpalautusKeskiarvo(int astioidenpalautusKeskiarvo) {
+        this.astioidenpalautusKeskiarvo.setText(String.valueOf(astioidenpalautusKeskiarvo));
+    }
 
     @FXML
     public void openKeskittymisNakyma() throws IOException {

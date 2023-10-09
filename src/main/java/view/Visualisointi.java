@@ -53,10 +53,8 @@ public class Visualisointi implements IVisualisointi {
     // Päivittää myös palkki visualisoinnin joka esittää kuinka täynnä kyseinen palvelupiste on
     public void uusiAsiakas(Palvelupiste[] palvelupisteet) {
         try {
-
             // Tyhjennetään canva vanhoista tuloksista
             tyhjennaNaytto();
-
             // Asetetaan uudet tulokset
             gc.fillText(String.valueOf(palvelupisteet[0].getPalveltavienJonoSize()), 250, 30);
             gc.fillText(String.valueOf(palvelupisteet[1].getPalveltavienJonoSize()), 250, 60);

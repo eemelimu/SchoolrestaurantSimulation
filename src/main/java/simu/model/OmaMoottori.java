@@ -5,12 +5,7 @@ import controller.IControllerForM;
 import simu.framework.*;
 import eduni.distributions.Negexp;
 import eduni.distributions.Normal;
-import view.ISimulaattoriUI;
 import view.SimulaattorinGUI;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Random;
 
 public class OmaMoottori extends Moottori{
 
@@ -28,18 +23,18 @@ public class OmaMoottori extends Moottori{
 
 		palvelupisteet = new Palvelupiste[5];
 
-		// tavallinen jono
-		palvelupisteet[0]=new Palvelupiste(new Normal(4,1), tapahtumalista, TapahtumanTyyppi.DEP1, ctrl.tavallinenKapasiteetti(), "Tavallinen jono");
-		// grilli jono
-		palvelupisteet[1]=new Palvelupiste(new Normal(15,5), tapahtumalista, TapahtumanTyyppi.DEP2, ctrl.grilliKapasiteetti(), "Grillijono");
-		// maksupääte
-		palvelupisteet[2]=new Palvelupiste(new Normal(3,1), tapahtumalista, TapahtumanTyyppi.DEP3, ctrl.maksupaateKapasiteetti(), "Maksupääte");
-		// pöytä
-		palvelupisteet[3]=new Palvelupiste(new Normal(200,25), tapahtumalista, TapahtumanTyyppi.DEP4, ctrl.poytaKapasiteetti(), "Pöytä");
-		// astioiden palautus
-		palvelupisteet[4]=new Palvelupiste(new Normal(3,1), tapahtumalista, TapahtumanTyyppi.DEP5, ctrl.astioidenpalautusKapasiteetti(), "Astioidenpalautus");
+		// Tavallinen jono
+		palvelupisteet[0]=new Palvelupiste(new Normal(ctrl.getTavallinenJonoKeskiarvo(), ctrl.getTavallinenJonoMuutos()), tapahtumalista, TapahtumanTyyppi.DEP1, ctrl.tavallinenKapasiteetti(), "Tavallinen jono");
+		// Grilli jono
+		palvelupisteet[1]=new Palvelupiste(new Normal(ctrl.getGrillijonoKeskiarvo(),ctrl.getGrillijonoMuutos()), tapahtumalista, TapahtumanTyyppi.DEP2, ctrl.grilliKapasiteetti(), "Grillijono");
+		// Maksupääte
+		palvelupisteet[2]=new Palvelupiste(new Normal(ctrl.getMaksupaateKeskiarvo(), ctrl.getGrillijonoMuutos()), tapahtumalista, TapahtumanTyyppi.DEP3, ctrl.maksupaateKapasiteetti(), "Maksupääte");
+		// Pöytä
+		palvelupisteet[3]=new Palvelupiste(new Normal(ctrl.getPoytaKeskiarvo(), ctrl.getPoytaMuutos()), tapahtumalista, TapahtumanTyyppi.DEP4, ctrl.poytaKapasiteetti(), "Pöytä");
+		// Astioiden palautus
+		palvelupisteet[4]=new Palvelupiste(new Normal(ctrl.getAstioidenpalautusKeskiarvo(), ctrl.getAstioidenpalautusMuutos()), tapahtumalista, TapahtumanTyyppi.DEP5, ctrl.astioidenpalautusKapasiteetti(), "Astioidenpalautus");
 
-		saapumisprosessi = new Saapumisprosessi(new Normal(2,1), tapahtumalista, TapahtumanTyyppi.ARR1);
+		saapumisprosessi = new Saapumisprosessi(new Normal(ctrl.getSaapumisKeskiarvo(),ctrl.getSaapumisMuutos()), tapahtumalista, TapahtumanTyyppi.ARR1);
 	}
 
 	@Override
@@ -49,11 +44,8 @@ public class OmaMoottori extends Moottori{
 
 	@Override
 	protected void suoritaTapahtuma(Tapahtuma t){  // B-vaiheen tapahtumat
-
 		try {
-
 			Asiakas a;
-
 			switch ((TapahtumanTyyppi) t.getTyyppi()) {
 				// Asiakas saapuu ruokalaan
 				case ARR1:
@@ -93,22 +85,17 @@ public class OmaMoottori extends Moottori{
 				case DEP3:
 					a = (Asiakas) palvelupisteet[2].otaPalveltavienJonosta();
 					palvelupisteet[3].lisaaJonoon(a);
-
-					System.out.println("DEP3");
 					break;
 
 				// Asiakas otetaan pois pöytä jonosta ja laitetaan astioiden palautus jonoon
 				case DEP4:
 					a = (Asiakas) palvelupisteet[3].otaPalveltavienJonosta();
 					palvelupisteet[4].lisaaJonoon(a);
-
-					System.out.println("DEP4");
 					break;
 
 				// Asiakas otetaan pois astioiden palautus jonosta.
 				case DEP5:
 					a = (Asiakas) palvelupisteet[4].otaPalveltavienJonosta();
-					System.out.println("DEP5");
 					a.setPoistumisaika(Kello.getInstance().getAika());
 					a.raportti();
 			}

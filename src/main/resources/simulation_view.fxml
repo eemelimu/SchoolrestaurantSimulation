@@ -14,12 +14,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="1253.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1253.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
-      <GridPane prefHeight="647.0" prefWidth="1253.0">
+      <GridPane prefHeight="804.0" prefWidth="1254.0">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="178.14437344340593" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="814.5155711977281" minWidth="10.0" prefWidth="806.6083192585111" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.60820979222672" minWidth="10.0" prefWidth="207.83501643285172" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="814.5155711977281" minWidth="10.0" prefWidth="778.8866718562671" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="423.58767090103265" minWidth="10.0" prefWidth="248.42264998885344" />
         </columnConstraints>
         <rowConstraints>
@@ -28,16 +28,16 @@
          <children>
             <VBox prefHeight="678.0" prefWidth="165.0">
                <children>
-                  <VBox prefHeight="700.0" prefWidth="165.0">
+                  <VBox prefHeight="801.0" prefWidth="179.0">
                      <children>
-                        <GridPane prefHeight="712.0" prefWidth="165.0">
+                        <GridPane prefHeight="786.0" prefWidth="209.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="109.80410573940918" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="297.0" minHeight="10.0" prefHeight="29.63919910678635" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="502.8350239835929" minHeight="10.0" prefHeight="322.6185848865723" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="67.56699588243316" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="297.0" minHeight="10.0" prefHeight="33.82473746936388" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="502.8350239835929" minHeight="10.0" prefHeight="443.5567232663686" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="395.99999590677237" minHeight="10.0" prefHeight="24.721635116072832" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="212.47420003921218" minHeight="10.0" prefHeight="103.8969268004185" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="46.49483184863118" vgrow="SOMETIMES" />
@@ -72,10 +72,10 @@
                                     <Insets />
                                  </GridPane.margin>
                               </HBox>
-                              <GridPane prefHeight="360.0" prefWidth="165.0" GridPane.rowIndex="2">
+                              <GridPane prefHeight="473.0" prefWidth="169.0" GridPane.rowIndex="2">
                                 <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="109.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" prefWidth="69.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="90.01027647414352" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" prefWidth="79.12375118917694" />
                                 </columnConstraints>
                                 <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -83,18 +83,121 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label prefHeight="25.0" prefWidth="113.0" text="Tavallinen jono" />
-                                    <Label prefHeight="25.0" prefWidth="113.0" text="Maksupääte" GridPane.rowIndex="2" />
-                                    <Label prefHeight="25.0" prefWidth="113.0" text="Grillijono" GridPane.rowIndex="1" />
-                                    <Label prefHeight="25.0" prefWidth="113.0" text="Pöytä" GridPane.rowIndex="3" />
-                                    <Label prefHeight="25.0" prefWidth="113.0" text="Astioiden palautus" GridPane.rowIndex="4" />
-                                    <TextField fx:id="tavallinenJonoTextField" onKeyTyped="#isNumeric" text="20" GridPane.columnIndex="1" />
-                                    <TextField fx:id="grillijonoTextField" onKeyTyped="#isNumeric" text="6" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField fx:id="maksupaateTextField" onKeyTyped="#isNumeric" text="4" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <TextField fx:id="poytaTextField" onKeyTyped="#isNumeric" text="500" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <TextField fx:id="astioidenpalautusTextField" onKeyTyped="#isNumeric" text="6" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Label prefHeight="25.0" prefWidth="113.0" text="Tavallinen jono" />
+                                          <Label prefHeight="26.0" prefWidth="143.0" text="Keskiarvo - Muutos">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <padding>
+                                                <Insets top="8.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label prefHeight="25.0" prefWidth="113.0" text="Maksupääte" />
+                                          <Label prefHeight="26.0" prefWidth="123.0" text="Keskiarvo - Muutos">
+                                             <padding>
+                                                <Insets top="8.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label prefHeight="25.0" prefWidth="113.0" text="Grillijono" />
+                                          <Label prefHeight="26.0" prefWidth="127.0" text="Keskiarvo - Muutos">
+                                             <padding>
+                                                <Insets top="8.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label prefHeight="25.0" prefWidth="113.0" text="Pöytä" />
+                                          <Label prefHeight="18.0" prefWidth="114.0" text="Keskiarvo - Muutos" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label prefHeight="25.0" prefWidth="113.0" text="Astioiden palautus" />
+                                          <Label prefHeight="18.0" prefWidth="122.0" text="Keskiarvo - Muutos" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.columnIndex="1">
+                                       <children>
+                                          <TextField fx:id="tavallinenJonoTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="20" />
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <TextField fx:id="tavallinenJonoKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" prefWidth="46.5" text="60" />
+                                                <TextField fx:id="tavallinenJonoMuutos" alignment="CENTER" onKeyTyped="#isNumeric" prefWidth="46.5" text="20" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <TextField fx:id="grillijonoTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="6" />
+                                          <HBox>
+                                             <children>
+                                                <TextField fx:id="grillijonoKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="720" />
+                                                <TextField fx:id="grillijonoMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="600" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <TextField fx:id="maksupaateTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="4" />
+                                          <HBox>
+                                             <children>
+                                                <TextField fx:id="maksupaateKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="60" />
+                                                <TextField fx:id="maksupaateMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="30" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <children>
+                                          <TextField fx:id="poytaTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="500" />
+                                          <HBox>
+                                             <children>
+                                                <TextField fx:id="poytaKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="1200" />
+                                                <TextField fx:id="poytaMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="600" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                       <children>
+                                          <TextField fx:id="astioidenpalautusTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="6" />
+                                          <HBox>
+                                             <children>
+                                                <TextField fx:id="astioidenpalautusKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="60" />
+                                                <TextField fx:id="astioidenpalautusMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="20" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BASELINE">
+                                       <children>
+                                          <TextField fx:id="saapumisKeskiarvo" alignment="CENTER" text="2" />
+                                          <TextField fx:id="saapumisMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="1" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="127.0" text="Saapumisprosessi" />
+                                          <Label prefHeight="18.0" prefWidth="122.0" text="Keskiarvo - Muutos" />
+                                       </children>
+                                    </VBox>
                                  </children>
                                  <GridPane.margin>
                                     <Insets left="5.0" right="5.0" />
@@ -106,11 +209,11 @@
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                    <RowConstraints maxHeight="61.360804668584294" minHeight="10.0" prefHeight="52.45360862366242" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="50.47423047570403" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="61.360804668584294" minHeight="10.0" prefHeight="54.49487007587906" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="68.35051622937073" minHeight="10.0" prefHeight="61.42265978405822" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <GridPane alignment="CENTER_LEFT" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -119,15 +222,15 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Button fx:id="hidastaButton" mnemonicParsing="false" onAction="#hidasta" prefHeight="48.0" prefWidth="74.0" text="Hidasta" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                          <Button fx:id="nopeutaButton" alignment="CENTER" mnemonicParsing="false" onAction="#nopeuta" prefHeight="49.0" prefWidth="72.0" text="Nopeuta" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                          <Button fx:id="hidastaButton" alignment="CENTER" mnemonicParsing="false" onAction="#hidasta" prefHeight="50.0" prefWidth="70.0" text="Hidasta" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <Button fx:id="nopeutaButton" alignment="CENTER" mnemonicParsing="false" onAction="#nopeuta" prefHeight="50.0" prefWidth="70.0" text="Nopeuta" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                                        </children>
                                     </GridPane>
-                                    <Button fx:id="kaynnistaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#kaynnista" prefHeight="29.0" prefWidth="162.0" text="Käynnistä" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                    <Button fx:id="kaynnistaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#kaynnista" prefHeight="31.0" prefWidth="175.0" text="Käynnistä" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                                  </children>
                               </GridPane>
                               <Label fx:id="errorLabel" opacity="0.0" textAlignment="CENTER" textFill="RED" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                              <Button fx:id="keskittymisNappi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openKeskittymisNakyma" prefHeight="25.0" prefWidth="161.0" text="Keskittymisavustaja" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <Button fx:id="keskittymisNappi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openKeskittymisNakyma" prefHeight="26.0" prefWidth="175.0" text="Keskittymisavustaja" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                            </children>
                         </GridPane>
                      </children>
@@ -138,12 +241,12 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="319.73198828472704" minHeight="10.0" prefHeight="35.35050313882492" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="657.1546889106564" minHeight="10.0" prefHeight="607.3917923030403" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="319.73198828472704" minHeight="10.0" prefHeight="77.18555868114152" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="709.6082793446715" minHeight="10.0" prefHeight="707.6185959726694" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Tulokset" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <TextArea fx:id="tuloksetTextArea" editable="false" prefHeight="616.0" prefWidth="267.0" GridPane.rowIndex="1" />
+                  <TextArea fx:id="tuloksetTextArea" editable="false" prefHeight="681.0" prefWidth="249.0" GridPane.rowIndex="1" />
                </children>
                <GridPane.margin>
                   <Insets />
@@ -154,16 +257,23 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="308.73198828472704" minHeight="10.0" prefHeight="34.63914923475845" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="592.8247929671486" minHeight="10.0" prefHeight="592.8247929671486" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="308.73198828472704" minHeight="10.0" prefHeight="109.48455931040877" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="743.2577644807914" minHeight="10.0" prefHeight="705.6494881136039" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="674.9690736520693" minHeight="10.0" prefHeight="68.28870930501012" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Canvas fx:id="visu" height="589.0" width="800.0" GridPane.rowIndex="1" />
+                  <Canvas fx:id="visu" height="668.0" width="778.0" GridPane.rowIndex="1" />
                   <Label text="Ruokalasimulaatio" textAlignment="CENTER" GridPane.halignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
+                  <HBox alignment="CENTER" prefHeight="23.0" prefWidth="780.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label prefHeight="19.0" prefWidth="35.0" text="Viive:" />
+                        <Label fx:id="viiveDisplay" />
+                     </children>
+                  </HBox>
                </children>
             </GridPane>
          </children>

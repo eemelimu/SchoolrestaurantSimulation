@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
-
 import java.io.IOException;
 
 public class SimulaattorinGUI extends Application implements ISimulaattoriUI {

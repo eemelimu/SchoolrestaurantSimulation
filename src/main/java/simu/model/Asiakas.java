@@ -17,7 +17,7 @@ public class Asiakas {
 	    id = i++;
 	    
 		saapumisaika = Kello.getInstance().getAika();
-		System.out.println("Uusi asiakas nro " + id + " saapui klo "+saapumisaika);
+		System.out.println("Uusi asiakas nro " + id + " saapui klo " + saapumisaika);
 	}
 
 	public double getPoistumisaika() {
@@ -47,7 +47,7 @@ public class Asiakas {
 		System.out.println("Asiakas "+id+ " viipyi: " +(poistumisaika-saapumisaika));
 		sum += (poistumisaika-saapumisaika);
 		double keskiarvo = sum/id;
-		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti "+ keskiarvo);
+		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti " + keskiarvo);
 	}
 
 }
