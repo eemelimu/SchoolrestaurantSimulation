@@ -16,6 +16,7 @@ public class Visualisointi implements IVisualisointi {
         tyhjennaNaytto();
     }
 
+    // Resetoi tulokset, jotta uudet saadaan näkyviin
     public void tyhjennaNaytto() {
         gc.setFill(Color.rgb(61,61,61));
         Image image = new Image("/images/simulator_dark.png");
@@ -47,37 +48,32 @@ public class Visualisointi implements IVisualisointi {
         gc.fillText("", 350, 120);
     }
 
+    // Kutsutaan OmaMoottorin suoritaTapahtuma funktiossa.
+    // Päivittää kuinka monta asiakasta on jokaisella palvelupisteellä
+    // Päivittää myös palkki visualisoinnin joka esittää kuinka täynnä kyseinen palvelupiste on
     public void uusiAsiakas(Palvelupiste[] palvelupisteet) {
-        // TODO implement here
-        //System.out.println("uusiAsiakas: " + palvelupisteet.get(0).getNykyisetAsiakkaat());
         try {
+
+            // Tyhjennetään canva vanhoista tuloksista
             tyhjennaNaytto();
-            System.out.println("PÄIVITETTY");
-            System.out.println(palvelupisteet[0].getPalveltavienJonoSize());
-            System.out.println(palvelupisteet[1].getPalveltavienJonoSize());
-            System.out.println(palvelupisteet[2].getPalveltavienJonoSize());
-            System.out.println(palvelupisteet[3].getPalveltavienJonoSize());
-            System.out.println(palvelupisteet[4].getPalveltavienJonoSize());
+
+            // Asetetaan uudet tulokset
             gc.fillText(String.valueOf(palvelupisteet[0].getPalveltavienJonoSize()), 250, 30);
             gc.fillText(String.valueOf(palvelupisteet[1].getPalveltavienJonoSize()), 250, 60);
             gc.fillText(String.valueOf(palvelupisteet[2].getPalveltavienJonoSize()), 250, 90);
             gc.fillText(String.valueOf(palvelupisteet[3].getPalveltavienJonoSize()), 250, 120);
             gc.fillText(String.valueOf(palvelupisteet[4].getPalveltavienJonoSize()), 250, 150);
 
+            // Käydään läpi kaikki palvelupisteet ja lasketaan prosentteina kuinka täynnä palvelupiste on
+            // Prosenttiarvoa käytetään valitsemaan kuva joka kuvastaa kuinka täynnä palvelupiste on
             for (int i = 0; i < palvelupisteet.length; i++) {
-                int progress = palvelupisteet[i].getMaksimiAsiakasKapasiteetti() / palvelupisteet[i].getPalveltavienJonoSize();
-                System.out.println("p: " + palvelupisteet[i].getPalvelupisteNimi() + " progress: " + progress);
-                if (progress  == 1) {
-                    String p = "/images/palkit/palkki100.png";
-                    Image palkki = new Image(p);
-                    gc.drawImage(palkki, 290, (12 + (i*30)), 100, 20);
-                } else {
-                    String path = "/images/palkit/palkki" + (Math.round(progress / 10.0) * 10 + ".png");
-                    System.out.println("math round: " + Math.round(progress / 10.0) * 10);
-                    System.out.println("path: " + path);
-                    Image palkki = new Image(path);
-                    gc.drawImage(palkki, 290, (12 + (i * 30)), 100, 20);
-                }
+                double progress = (double) palvelupisteet[i].getPalveltavienJonoSize() / palvelupisteet[i].getMaksimiAsiakasKapasiteetti();
+                double value = (double) Math.round((progress) * 10) / 10 * 100;
+                String path = "/images/palkit/palkki" + value + ".png";
+                System.out.println("math round: " + Math.round(progress * 100));
+                System.out.println("path: " + path);
+                Image palkki = new Image(path);
+                gc.drawImage(palkki, 290, (12 + (i * 30)), 100, 20);
             }
 
         } catch (Exception e) {
