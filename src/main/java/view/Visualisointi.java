@@ -31,7 +31,7 @@ public class Visualisointi implements IVisualisointi {
         gc.drawImage(kehys, 290,132, 100, 20);
 
         gc.setFill(Color.rgb(93, 173, 213));
-        gc.setFont(javafx.scene.text.Font.font(20)); // Set the font size
+        gc.setFont(javafx.scene.text.Font.font(20));
         gc.fillText("Tavallinen jono: ", 10, 30);
         gc.fillText("", 350, 0);
 

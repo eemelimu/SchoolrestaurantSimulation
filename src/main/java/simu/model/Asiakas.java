@@ -1,10 +1,7 @@
 package simu.model;
 
-import eduni.distributions.Normal;
 import simu.framework.*;
 
-// TODO:
-// Asiakas koodataan simulointimallin edellyttämällä tavalla (data!)
 public class Asiakas {
 	private double saapumisaika;
 	private double poistumisaika;
@@ -12,10 +9,10 @@ public class Asiakas {
 	private int id;
 	private static int i = 1;
 	private static long sum = 0;
-	
+
 	public Asiakas(){
 	    id = i++;
-	    
+
 		saapumisaika = Kello.getInstance().getAika();
 		System.out.println("Uusi asiakas nro " + id + " saapui klo " + saapumisaika);
 	}
@@ -39,7 +36,7 @@ public class Asiakas {
 	public int getId() {
 		return id;
 	}
-	
+
 	public void raportti(){
 		System.out.println("\nAsiakas "+id+" valmis!");
 		System.out.println("Asiakas "+id+ " saapui: " +saapumisaika);
@@ -49,5 +46,4 @@ public class Asiakas {
 		double keskiarvo = sum/id;
 		System.out.println("Asiakkaiden läpimenoaikojen keskiarvo tähän asti " + keskiarvo);
 	}
-
 }

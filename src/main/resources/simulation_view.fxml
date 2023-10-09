@@ -94,7 +94,7 @@
                                                 <Insets />
                                              </VBox.margin>
                                              <padding>
-                                                <Insets top="8.0" />
+                                                <Insets top="5.0" />
                                              </padding>
                                           </Label>
                                        </children>
@@ -104,7 +104,7 @@
                                           <Label prefHeight="25.0" prefWidth="113.0" text="Maksupääte" />
                                           <Label prefHeight="26.0" prefWidth="123.0" text="Keskiarvo - Muutos">
                                              <padding>
-                                                <Insets top="8.0" />
+                                                <Insets top="5.0" />
                                              </padding>
                                           </Label>
                                        </children>
@@ -114,7 +114,7 @@
                                           <Label prefHeight="25.0" prefWidth="113.0" text="Grillijono" />
                                           <Label prefHeight="26.0" prefWidth="127.0" text="Keskiarvo - Muutos">
                                              <padding>
-                                                <Insets top="8.0" />
+                                                <Insets top="5.0" />
                                              </padding>
                                           </Label>
                                        </children>
@@ -133,11 +133,11 @@
                                     </VBox>
                                     <VBox alignment="CENTER" GridPane.columnIndex="1">
                                        <children>
-                                          <TextField fx:id="tavallinenJonoTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="20" />
+                                          <TextField fx:id="tavallinenJonoTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="30" />
                                           <HBox alignment="CENTER">
                                              <children>
-                                                <TextField fx:id="tavallinenJonoKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" prefWidth="46.5" text="60" />
-                                                <TextField fx:id="tavallinenJonoMuutos" alignment="CENTER" onKeyTyped="#isNumeric" prefWidth="46.5" text="20" />
+                                                <TextField fx:id="tavallinenJonoKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" prefWidth="46.5" text="40" />
+                                                <TextField fx:id="tavallinenJonoMuutos" alignment="CENTER" onKeyTyped="#isNumeric" prefWidth="46.5" text="10" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -147,29 +147,29 @@
                                           <TextField fx:id="grillijonoTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="6" />
                                           <HBox>
                                              <children>
-                                                <TextField fx:id="grillijonoKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="720" />
-                                                <TextField fx:id="grillijonoMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="600" />
+                                                <TextField fx:id="grillijonoKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="480" />
+                                                <TextField fx:id="grillijonoMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="60" />
                                              </children>
                                           </HBox>
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                        <children>
-                                          <TextField fx:id="maksupaateTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="4" />
+                                          <TextField fx:id="maksupaateTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="6" />
                                           <HBox>
                                              <children>
-                                                <TextField fx:id="maksupaateKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="60" />
-                                                <TextField fx:id="maksupaateMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="30" />
+                                                <TextField fx:id="maksupaateKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="15" />
+                                                <TextField fx:id="maksupaateMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="5" />
                                              </children>
                                           </HBox>
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                        <children>
-                                          <TextField fx:id="poytaTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="500" />
+                                          <TextField fx:id="poytaTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="350" />
                                           <HBox>
                                              <children>
-                                                <TextField fx:id="poytaKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="1200" />
+                                                <TextField fx:id="poytaKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="1500" />
                                                 <TextField fx:id="poytaMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="600" />
                                              </children>
                                           </HBox>
@@ -177,11 +177,11 @@
                                     </VBox>
                                     <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                                        <children>
-                                          <TextField fx:id="astioidenpalautusTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="6" />
+                                          <TextField fx:id="astioidenpalautusTextField" alignment="CENTER" onKeyTyped="#isNumeric" text="8" />
                                           <HBox>
                                              <children>
-                                                <TextField fx:id="astioidenpalautusKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="60" />
-                                                <TextField fx:id="astioidenpalautusMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="20" />
+                                                <TextField fx:id="astioidenpalautusKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="30" />
+                                                <TextField fx:id="astioidenpalautusMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="10" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -195,7 +195,11 @@
                                     <VBox alignment="CENTER" GridPane.rowIndex="5">
                                        <children>
                                           <Label prefHeight="18.0" prefWidth="127.0" text="Saapumisprosessi" />
-                                          <Label prefHeight="18.0" prefWidth="122.0" text="Keskiarvo - Muutos" />
+                                          <Label alignment="CENTER" prefHeight="18.0" prefWidth="122.0" text="Muutos">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </Label>
                                        </children>
                                     </VBox>
                                  </children>
@@ -203,7 +207,12 @@
                                     <Insets left="5.0" right="5.0" />
                                  </GridPane.margin>
                               </GridPane>
-                              <Label alignment="CENTER" prefHeight="48.0" prefWidth="178.0" text="Palvelupisteet" GridPane.rowIndex="1" />
+                              <VBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="47.0" prefWidth="216.0" text="Aseta maksimiasiakaskapasiteetit," />
+                                    <Label text="palveluajan keskiarvo ja muutos." />
+                                 </children>
+                              </VBox>
                               <GridPane prefHeight="112.0" prefWidth="175.0" GridPane.rowIndex="4">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

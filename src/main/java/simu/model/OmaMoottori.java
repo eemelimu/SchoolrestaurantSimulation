@@ -132,9 +132,9 @@ public class OmaMoottori extends Moottori{
 			ctrl.setTulostukset("Asiakas lukumäärä: " + String.valueOf(p.getAsiakasLkm()));
 
 			// Palvelupisteen käyttöaste: U=B(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
-			System.out.format("Käyttöaste: %.1f", (p.getPalvelupisteenKokonaisAika()/Kello.getInstance().getAika()*100));
+			System.out.format("Käyttöaste: %.1f", (p.getAsiakasLkm()/Kello.getInstance().getAika()*100));
 			System.out.println("%");
-			ctrl.setTulostukset(String.valueOf("Käyttöaste: " + p.getPalvelupisteenKokonaisAika()/Kello.getInstance().getAika()));
+			ctrl.setTulostukset(String.valueOf("Käyttöaste: " + p.getAsiakasLkm()/Kello.getInstance().getAika()));
 
 			// Palvelupisteen suoritusteho: X=C(palveltujen asiakkaiden määrä)/T(simuloinnin kokoamisaika)
 			System.out.format("Suoritusteho: %.5f\n", (p.getAsiakasLkm()/Kello.getInstance().getAika()));
@@ -146,8 +146,6 @@ public class OmaMoottori extends Moottori{
 			// Palvelupisteen suurin jono
 			System.out.println("Suurin jono simun aikana: " + p.getSuurinJono());
 			ctrl.setTulostukset(String.valueOf("Suurin jono simun aikana: " + p.getSuurinJono()) + "\n");
-
-			System.out.println("\n");
 		}
 	}
 

@@ -4,11 +4,8 @@ import simu.framework.*;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.*;
-
 import eduni.distributions.ContinuousGenerator;
 
-// TODO:
-// Palvelupistekohtaiset toiminnallisuudet, laskutoimitukset (+ tarvittavat muuttujat) ja raportointi koodattava
 public class Palvelupiste {
 
 	private final LinkedList<Asiakas> jono = new LinkedList<>(); // Tietorakennetoteutus
@@ -17,10 +14,10 @@ public class Palvelupiste {
 	private final Tapahtumalista tapahtumalista;
 	private final TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
 	private final String palvelupisteNimi;
-	private final int maksimiAsiakasKapasiteetti; // kuinka monta asiakasta voi olla palvelupisteellä samaan aikaan
-	private int asiakasLkm; // kuinka monta asiakasta on käynyt palvelupisteellä
-	private int nykyisetAsiakkaat; // kuinka monta asiakasta on tällä hetkellä palvelupisteellä
-	private double palvelupisteenKokonaisAika; // kuinka kauan palvelupiste on ollut käytössä
+	private final int maksimiAsiakasKapasiteetti; // Kuinka monta asiakasta voi olla palvelupisteellä samaan aikaan
+	private int asiakasLkm; // Kuinka monta asiakasta on käynyt palvelupisteellä
+	private int nykyisetAsiakkaat; // Kuinka monta asiakasta on tällä hetkellä palvelupisteellä
+	private double palvelupisteenKokonaisAika; // Kuinka kauan palvelupiste on ollut käytössä
 
 	private boolean varattu = false;
 	private int suurinJono = 0;
