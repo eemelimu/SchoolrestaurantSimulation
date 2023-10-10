@@ -46,6 +46,16 @@ public class Visualisointi implements IVisualisointi {
 
         gc.fillText("Astioidenpalautus: ", 10, 150);
         gc.fillText("", 350, 120);
+
+        gc.fillText("Jono: ", 400, 30);
+
+        gc.fillText("Jono: ", 400, 60);
+
+        gc.fillText("Jono: ", 400, 90);
+
+        gc.fillText("Jono: ", 400, 120);
+
+        gc.fillText("Jono: ", 400, 150);
     }
 
     // Kutsutaan OmaMoottorin suoritaTapahtuma funktiossa.
@@ -61,6 +71,15 @@ public class Visualisointi implements IVisualisointi {
             gc.fillText(String.valueOf(palvelupisteet[2].getPalveltavienJonoSize()), 250, 90);
             gc.fillText(String.valueOf(palvelupisteet[3].getPalveltavienJonoSize()), 250, 120);
             gc.fillText(String.valueOf(palvelupisteet[4].getPalveltavienJonoSize()), 250, 150);
+
+            gc.fillText(String.valueOf(palvelupisteet[0].getJonoSize()), 460, 30);
+            gc.fillText(String.valueOf(palvelupisteet[1].getJonoSize()), 460, 60);
+            gc.fillText(String.valueOf(palvelupisteet[2].getJonoSize()), 460, 90);
+            gc.fillText(String.valueOf(palvelupisteet[3].getJonoSize()), 460, 120);
+            gc.fillText(String.valueOf(palvelupisteet[4].getJonoSize()), 460, 150);
+
+
+
 
             // Käydään läpi kaikki palvelupisteet ja lasketaan prosentteina kuinka täynnä palvelupiste on
             // Prosenttiarvoa käytetään valitsemaan kuva joka kuvastaa kuinka täynnä palvelupiste on

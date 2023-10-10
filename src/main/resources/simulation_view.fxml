@@ -250,12 +250,18 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="319.73198828472704" minHeight="10.0" prefHeight="77.18555868114152" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="709.6082793446715" minHeight="10.0" prefHeight="707.6185959726694" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="319.73198828472704" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="734.0" minHeight="10.0" prefHeight="716.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="709.6082793446715" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Tulokset" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <TextArea fx:id="tuloksetTextArea" editable="false" prefHeight="681.0" prefWidth="249.0" GridPane.rowIndex="1" />
+                  <TextArea fx:id="tuloksetTextArea" editable="false" prefHeight="654.0" prefWidth="249.0" GridPane.rowIndex="1" />
+                  <Button fx:id="edellisetTuloksetButton" mnemonicParsing="false" onAction="#openEdellisetTulokset" prefHeight="16.0" prefWidth="106.0" text="Edelliset tulokset" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
                <GridPane.margin>
                   <Insets />

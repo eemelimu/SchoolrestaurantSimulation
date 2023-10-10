@@ -106,6 +106,8 @@ public class Controller implements IControllerForV, IControllerForM{
     @FXML
     private Label viiveDisplay;
 
+    @FXML
+    private Button edellisetTuloksetButton;
 
     private IMoottori moottori;
     private ISimulaattoriUI ui = new SimulaattorinGUI();
@@ -289,6 +291,18 @@ public class Controller implements IControllerForV, IControllerForM{
         keskittymisStage.getIcons().add(new Image("/images/iconimage.png"));
         keskittymisStage.setScene(new Scene(root));
         keskittymisStage.show();
+    }
+
+    @FXML
+    public void openEdellisetTulokset() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tulokset_view.fxml"));
+        Parent root = loader.load();
+        Stage tuloksetStage = new Stage();
+        tuloksetStage.setTitle("Simulaattori");
+        TuloksetViewController TuloksetViewController = loader.getController();
+        tuloksetStage.getIcons().add(new Image("/images/iconimage.png"));
+        tuloksetStage.setScene(new Scene(root));
+        tuloksetStage.show();
     }
 
 }

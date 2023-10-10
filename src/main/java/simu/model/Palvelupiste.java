@@ -63,10 +63,6 @@ public class Palvelupiste {
 		return this.maksimiAsiakasKapasiteetti;
 	}
 
-	public int getNykyisetAsiakkaat() {
-		return this.nykyisetAsiakkaat;
-	}
-
 	public String getPalvelupisteNimi() {
 		return palvelupisteNimi;
 	}
@@ -98,7 +94,6 @@ public class Palvelupiste {
 			this.palvelupisteenKokonaisAika += palveluaika;
 			tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
 		} catch (NullPointerException e) {
-			//e.printStackTrace();
 			System.out.println("Jono tyhjä.");
 		}
 	}
@@ -123,5 +118,4 @@ public class Palvelupiste {
 			return 0;
 		}
 	}
-
 }

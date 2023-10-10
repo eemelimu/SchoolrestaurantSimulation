@@ -119,9 +119,12 @@ public class OmaMoottori extends Moottori{
 		// Asiakas määrä, suoritustehot jne. Kaikki mitä halutaan tutkia simulaatiossa.
 		System.out.println("\nSimulointi päättyi kello " + Kello.getInstance().getAika());
 		System.out.println("\nTulokset:");
+		int totalAsiakkaat = 0;
 		for (Palvelupiste p : palvelupisteet) {
 			System.out.println(p.getPalvelupisteNimi() + ":");
-			ctrl.setTulostukset(p.getPalvelupisteNimi() + ":");
+			ctrl.setTulostukset("                        " + p.getPalvelupisteNimi() + "\n");
+
+			totalAsiakkaat += p.getAsiakasLkm();
 
 			// Palveluaika
 			System.out.println("Palveluaika: " + p.getPalvelupisteenKokonaisAika());
@@ -145,8 +148,11 @@ public class OmaMoottori extends Moottori{
 
 			// Palvelupisteen suurin jono
 			System.out.println("Suurin jono simun aikana: " + p.getSuurinJono());
-			ctrl.setTulostukset(String.valueOf("Suurin jono simun aikana: " + p.getSuurinJono()) + "\n");
+			ctrl.setTulostukset(String.valueOf("Suurin jono simun aikana: " + p.getSuurinJono()) + "\n------------------------------------------------");
 		}
+
+		// Total asiakkaat
+		ctrl.setTulostukset("Asiakkaiden kokonaismäärä: " + String.valueOf(totalAsiakkaat) + "\n");
 	}
 
 
