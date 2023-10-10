@@ -151,9 +151,9 @@ public class Controller implements IControllerForV, IControllerForM{
 
     @FXML
     private void kaynnista(){
-        if (aikaTextField.getText().isEmpty() || viiveTextField.getText().isEmpty() || tavallinenJonoTextField.getText().isEmpty() || grillijonoTextField.getText().isEmpty() || maksupaateTextField.getText().isEmpty() || poytaTextField.getText().isEmpty() || astioidenpalautusTextField.getText().isEmpty()) {
+        if (aikaTextField.getText().isEmpty() || viiveTextField.getText().isEmpty() || tavallinenJonoTextField.getText().isEmpty() || grillijonoTextField.getText().isEmpty() || maksupaateTextField.getText().isEmpty() || poytaTextField.getText().isEmpty() || astioidenpalautusTextField.getText().isEmpty() || saapumisKeskiarvo.getText().isEmpty() || saapumisMuutos.getText().isEmpty() || tavallinenJonoKeskiarvo.getText().isEmpty() || tavallinenJonoMuutos.getText().isEmpty() || grillijonoKeskiarvo.getText().isEmpty() || grillijonoMuutos.getText().isEmpty() || maksupaateKeskiarvo.getText().isEmpty() || maksupaateMuutos.getText().isEmpty() || poytaKeskiarvo.getText().isEmpty() || poytaMuutos.getText().isEmpty() || astioidenpalautusKeskiarvo.getText().isEmpty() || astioidenpalautusMuutos.getText().isEmpty()) {
             errorLabel.setOpacity(1);
-            errorLabel.setText("Aika ja viive kentät eivät voi olla tyhjiä!");
+            errorLabel.setText("Täytä kaikki kentät!");
         } else {
             kaynnistaSimulointi();
             errorLabel.setOpacity(0);

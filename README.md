@@ -31,6 +31,7 @@ Sovelluksen käynnistäessä avautuu simulaation käyttöliittymän, jossa on er
 - **Aika**: Tällä toiminnolla asetetaan simulaatiolle aika.
 - **Viive**: Tällä toiminnolla asetetaan viive, mikä kuvaa asiakkaiden sisääntulofrekvenssiä simulaation.
 - **Palvelupisteiden kapasiteetit**: Tässä toiminnossa voidaan asettaa ja muokata palvelupisteiden kapasiteetteja.
+- **Palvelupisteiden palveluajat**: Tässä voidaan asettaa ja muokata palvelupisteiden palveluaikoja syöttämällä normaalin jakauman keskiarvo ja hajonta.
 - **Nopeuta ja hidasta**: Tällä toiminnolla voidaan nopeuttaa ja hidastaa simulaation kulkua (viivettä).
 - **Keskittymisavustaja**: Tämä toiminto auttaa käyttäjää keskittymään simulaation seuraamiseen.
 - **Tulostukset**: Tähän tulostuu simulaation lopputulokset simulaatioajan loputtua.
