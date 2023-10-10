@@ -72,8 +72,18 @@ public class Visualisointi implements IVisualisointi {
                 // Muuta arvo muotoon jolla sitä voi etsiä
                 double value = (double) Math.round((progress) * 10) / 10;
 
-                // Path kuvaan
-                String path = "/images/palkit/palkki" + value + ".png";
+                String path;
+
+                if (value == 0.9) {
+                    // Meillä ei oo tehty palkkia esittämään 90% täyttä palvelupistettä
+                    // Joten kuvataan silloin 100% täyttä palvelupistettä.
+
+                    // Path kuvaan
+                    path = "/images/palkit/palkki1.0.png";
+                } else {
+                    // Path kuvaan
+                    path = "/images/palkit/palkki" + value + ".png";
+                }
 
                 // Luo kuva ja päivitä näytölle
                 Image palkki = new Image(path);
