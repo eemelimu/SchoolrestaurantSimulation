@@ -56,7 +56,7 @@ public class OmaMoottori extends Moottori{
 					// Jos arvottu luku on yli 0.9 niin asiakas menee grilli jonoon, muuten tavalliseen jonoon
 					// Eli noin 10% asiakkaista simulaation aikana pitäisi mennä grilli jonoon
 					// Loppujen 90% pitäisi mennä tavalliseen.
-					if (randomNum >= 0.993) {    // grilli jonoon
+					if (randomNum >= 0.93) {    // grilli jonoon
 						palvelupisteet[1].lisaaJonoon(new Asiakas());
 						System.out.println("Asiakas menee grilli jonoon");
 					} else {

@@ -32,10 +32,10 @@ public class Visualisointi implements IVisualisointi {
 
         gc.setFill(Color.rgb(93, 173, 213));
         gc.setFont(javafx.scene.text.Font.font(20));
-        gc.fillText("Tavallinen jono: ", 10, 30);
+        gc.fillText("Tavallinen linjasto: ", 10, 30);
         gc.fillText("", 350, 0);
 
-        gc.fillText("Grillijono: ", 10, 60);
+        gc.fillText("Grillilinjasto: ", 10, 60);
         gc.fillText("", 350, 30);
 
         gc.fillText("Maksupääte: ", 10, 90);
