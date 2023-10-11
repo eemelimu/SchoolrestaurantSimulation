@@ -169,13 +169,13 @@ public class Controller implements IControllerForV, IControllerForM{
 
     @Override
     public void nopeuta() {
-        moottori.setViive((long) (moottori.getViive()*0.9));
+        moottori.setViive((long) (moottori.getViive() * 0.75));
         viewViive();
     }
 
     @Override
     public void hidasta() {
-        moottori.setViive((long) (moottori.getViive()*1.1));
+        moottori.setViive((long) (moottori.getViive() * 1.25));
         viewViive();
     }
 
