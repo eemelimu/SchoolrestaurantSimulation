@@ -54,7 +54,7 @@ public class PalvelupisteData {
     }
 
     public String toString() {
-        return "Nimi: " + this.nimi + "\nPalveluaika: " + this.palveluaika + "\nAsiakaslkm: " + this.asiakaslkm + "\nKäyttöaste: " + this.kayttoaste + "\nEi palvelleet asiakkaat: " + this.ei_palvelleet_asiakkaat + "\nMaksimi jono: " + this.maksimi_jono + "\nAsiakas kapasiteetti: " + this.asiakas_kapasiteetti + "\nEka parametri: " + this.eka_parametri + "\nToka parametri: " + this.toka_parametri + "\n";
+        return "Nimi: " + this.nimi + "\nPalveluaika: " + this.palveluaika + "\nAsiakaslkm: " + this.asiakaslkm + "\nKäyttöaste: " + this.kayttoaste + "\nEi palvelleet asiakkaat: " + this.ei_palvelleet_asiakkaat + "\nMaksimi jono: " + this.maksimi_jono + "\nAsiakas kapasiteetti: " + this.asiakas_kapasiteetti + "\nKeskiarvo: " + this.eka_parametri + "\nMuutos: " + this.toka_parametri + "\n";
     }
 
     public PalvelupisteData() {}
