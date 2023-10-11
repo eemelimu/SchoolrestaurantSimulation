@@ -19,6 +19,8 @@ import view.Visualisointi;
 import javafx.scene.canvas.Canvas;
 import eduni.distributions.ContinuousGenerator;
 import java.io.IOException;
+import entity.Simulointi;
+import entity.PalvelupisteData;
 
 public class Controller implements IControllerForV, IControllerForM{
 
