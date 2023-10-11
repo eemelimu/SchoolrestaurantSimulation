@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 public class Visualisointi implements IVisualisointi {
     private GraphicsContext gc;
     private Canvas canvas;
+    private int mallikuva = 1;
 
     public Visualisointi(Canvas canvas) {
         this.canvas = canvas;
@@ -18,8 +19,8 @@ public class Visualisointi implements IVisualisointi {
 
     // Resetoi tulokset, jotta uudet saadaan näkyviin
     public void tyhjennaNaytto() {
-        gc.setFill(Color.rgb(61,61,61));
-        Image image = new Image("/images/simulator_dark.png");
+        gc.setFill(Color.rgb(61, 61, 61));
+        Image image = new Image("/images/simulaatio_kuvaus/simulaatioKuvaus_bg.png");
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.drawImage(image, 0, 190, 800, 400);
 
@@ -65,6 +66,8 @@ public class Visualisointi implements IVisualisointi {
         try {
             // Tyhjennetään canva vanhoista tuloksista
             tyhjennaNaytto();
+            // Päivitetään mallin kuvaa
+            updateMallinkuva();
             // Asetetaan uudet tulokset
             gc.fillText(String.valueOf(palvelupisteet[0].getPalveltavienJonoSize()), 250, 30);
             gc.fillText(String.valueOf(palvelupisteet[1].getPalveltavienJonoSize()), 250, 60);
@@ -78,7 +81,15 @@ public class Visualisointi implements IVisualisointi {
             gc.fillText(String.valueOf(palvelupisteet[3].getJonoSize()), 460, 120);
             gc.fillText(String.valueOf(palvelupisteet[4].getJonoSize()), 460, 150);
 
-
+            // Päivitä ruokalan mallin asiakkaan liikkumista
+            /*String path2 = "/images/simulaatio_kuvas/simulaatioKuvaus_" + this.mallikuva  + ".png";
+            Image malli = new Image(path2);
+            gc.drawImage(malli, 0, 190, 800, 400);
+            if (this.mallikuva == 11) {
+                this.mallikuva = 1;
+            } else {
+                this.mallikuva++;
+            }*/
 
 
             // Käydään läpi kaikki palvelupisteet ja lasketaan prosentteina kuinka täynnä palvelupiste on
@@ -111,6 +122,18 @@ public class Visualisointi implements IVisualisointi {
 
         } catch (Exception e) {
             System.out.println("Error: " + e);
+        }
+    }
+
+    public void updateMallinkuva() {
+        String kuvausPath = "/images/simulaatio_kuvaus/simulaatioKuvaus_" + this.mallikuva + ".png";
+        Image malli = new Image(kuvausPath);
+        gc.drawImage(malli, 0, 190, 800, 400);
+        System.out.println("mallikuva: " + this.mallikuva);
+        if (this.mallikuva == 11) {
+            this.mallikuva = 1;
+        } else {
+            this.mallikuva++;
         }
     }
 }

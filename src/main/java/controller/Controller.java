@@ -175,9 +175,10 @@ public class Controller implements IControllerForV, IControllerForM{
 
     @Override
     public void hidasta() {
-        moottori.setViive((long) (moottori.getViive() * 1.25));
+        moottori.setViive(Math.max(2, (long) Math.ceil(moottori.getViive() * 1.1)));
         viewViive();
     }
+
 
     @Override
     public void naytaLoppuaika(double aika) {
