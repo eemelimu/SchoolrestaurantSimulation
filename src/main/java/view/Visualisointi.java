@@ -25,11 +25,11 @@ public class Visualisointi implements IVisualisointi {
         gc.drawImage(image, 0, 190, 800, 400);
 
         Image kehys = new Image("/images/palkit/palkki0.0.png");
-        gc.drawImage(kehys, 290,12, 100, 20);
-        gc.drawImage(kehys, 290,42, 100, 20);
-        gc.drawImage(kehys, 290,72, 100, 20);
-        gc.drawImage(kehys, 290,102, 100, 20);
-        gc.drawImage(kehys, 290,132, 100, 20);
+        gc.drawImage(kehys, 290, 12, 100, 20);
+        gc.drawImage(kehys, 290, 42, 100, 20);
+        gc.drawImage(kehys, 290, 72, 100, 20);
+        gc.drawImage(kehys, 290, 102, 100, 20);
+        gc.drawImage(kehys, 290, 132, 100, 20);
 
         gc.setFill(Color.rgb(93, 173, 213));
         gc.setFont(javafx.scene.text.Font.font(20));
