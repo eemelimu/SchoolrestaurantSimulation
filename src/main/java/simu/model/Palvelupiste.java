@@ -18,6 +18,8 @@ public class Palvelupiste {
 	private int asiakasLkm; // Kuinka monta asiakasta on käynyt palvelupisteellä
 	private int nykyisetAsiakkaat; // Kuinka monta asiakasta on tällä hetkellä palvelupisteellä
 	private double palvelupisteenKokonaisAika; // Kuinka kauan palvelupiste on ollut käytössä
+	private int eka_parametri;
+	private int toka_parametri;
 
 	private boolean varattu = false;
 	private int suurinJono = 0;
@@ -57,6 +59,22 @@ public class Palvelupiste {
 
 	public int getPalveltavienJonoSize() {
 		return this.palveltavienJono.size();
+	}
+
+	public void setEka_parametri(int eka_parametri) {
+		this.eka_parametri = eka_parametri;
+	}
+
+	public void setToka_parametri(int toka_parametri) {
+		this.toka_parametri = toka_parametri;
+	}
+
+	public int getEka_parametri() {
+		return this.eka_parametri;
+	}
+
+	public int getToka_parametri() {
+		return this.toka_parametri;
 	}
 
 	public int getMaksimiAsiakasKapasiteetti() {

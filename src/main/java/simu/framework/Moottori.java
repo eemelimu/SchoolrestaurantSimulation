@@ -1,6 +1,7 @@
 package simu.framework;
 
 import controller.IControllerForM;
+import dao.PalvelupisteDataDao;
 
 public abstract class Moottori extends Thread implements IMoottori {
 	
@@ -12,9 +13,12 @@ public abstract class Moottori extends Thread implements IMoottori {
 	
 	protected Tapahtumalista tapahtumalista;
 
+	private PalvelupisteDataDao palvelupisteDataDao;
+
 	public Moottori(IControllerForM controller) {
 
 		this.controller = controller;
+		palvelupisteDataDao = new PalvelupisteDataDao();
 
 		kello = Kello.getInstance(); // Otetaan kello muuttujaan yksinkertaistamaan koodia
 		
@@ -27,6 +31,10 @@ public abstract class Moottori extends Thread implements IMoottori {
 
 	public void setSimulointiaika(double aika) {
 		simulointiaika = aika;
+	}
+
+	public double getAika( ){
+		return this.simulointiaika;
 	}
 
 	@Override

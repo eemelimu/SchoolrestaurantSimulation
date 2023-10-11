@@ -308,6 +308,10 @@ public class Controller implements IControllerForV, IControllerForM{
         this.astioidenpalautusKeskiarvo.setText(String.valueOf(astioidenpalautusKeskiarvo));
     }
 
+    public double getAika() {
+        return Double.parseDouble(aikaTextField.getText());
+    }
+
     @FXML
     public void openKeskittymisNakyma() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/keskittymis_view.fxml"));

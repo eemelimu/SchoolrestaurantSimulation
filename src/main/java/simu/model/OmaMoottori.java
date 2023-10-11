@@ -13,8 +13,11 @@ import view.SimulaattorinGUI;
 public class OmaMoottori extends Moottori{
 
 	private Saapumisprosessi saapumisprosessi;
+	private PalvelupisteDataDao palvelupisteDataDao;
 
 	private Palvelupiste[] palvelupisteet;
+	private PalvelupisteData[] palvelupisteDatat;
+	private SimulointiDao simulointiDao;
 	private long viive;
 	private SimulaattorinGUI ui;
 	private Controller ctrl;
@@ -24,16 +27,27 @@ public class OmaMoottori extends Moottori{
 		this.ui = ui;
 		this.ctrl = ctrl;
 
+		palvelupisteDataDao = new PalvelupisteDataDao();
+		simulointiDao = new SimulointiDao();
+
 		palvelupisteet = new Palvelupiste[5];
 
 		// Tavallinen jono
 		palvelupisteet[0]=new Palvelupiste(new Normal(ctrl.getTavallinenJonoKeskiarvo(), ctrl.getTavallinenJonoMuutos()), tapahtumalista, TapahtumanTyyppi.DEP1, ctrl.tavallinenKapasiteetti(), "Tavallinen jono");
+		palvelupisteet[0].setEka_parametri(ctrl.getTavallinenJonoKeskiarvo());
+		palvelupisteet[0].setToka_parametri(ctrl.getTavallinenJonoMuutos());
 		// Grilli jono
 		palvelupisteet[1]=new Palvelupiste(new Normal(ctrl.getGrillijonoKeskiarvo(),ctrl.getGrillijonoMuutos()), tapahtumalista, TapahtumanTyyppi.DEP2, ctrl.grilliKapasiteetti(), "Grillijono");
+		palvelupisteet[1].setEka_parametri(ctrl.getTavallinenJonoKeskiarvo());
+		palvelupisteet[1].setToka_parametri(ctrl.getTavallinenJonoMuutos());
 		// Maksupääte
 		palvelupisteet[2]=new Palvelupiste(new Normal(ctrl.getMaksupaateKeskiarvo(), ctrl.getGrillijonoMuutos()), tapahtumalista, TapahtumanTyyppi.DEP3, ctrl.maksupaateKapasiteetti(), "Maksupääte");
+		palvelupisteet[2].setEka_parametri(ctrl.getTavallinenJonoKeskiarvo());
+		palvelupisteet[2].setToka_parametri(ctrl.getTavallinenJonoMuutos());
 		// Pöytä
 		palvelupisteet[3]=new Palvelupiste(new Normal(ctrl.getPoytaKeskiarvo(), ctrl.getPoytaMuutos()), tapahtumalista, TapahtumanTyyppi.DEP4, ctrl.poytaKapasiteetti(), "Pöytä");
+		palvelupisteet[3].setEka_parametri(ctrl.getTavallinenJonoKeskiarvo());
+		palvelupisteet[3].setToka_parametri(ctrl.getTavallinenJonoMuutos());
 		// Astioiden palautus
 		palvelupisteet[4]=new Palvelupiste(new Normal(ctrl.getAstioidenpalautusKeskiarvo(), ctrl.getAstioidenpalautusMuutos()), tapahtumalista, TapahtumanTyyppi.DEP5, ctrl.astioidenpalautusKapasiteetti(), "Astioidenpalautus");
 		palvelupisteet[4].setEka_parametri(ctrl.getTavallinenJonoKeskiarvo());
@@ -126,6 +140,10 @@ public class OmaMoottori extends Moottori{
 		System.out.println("\nSimulointi päättyi kello " + Kello.getInstance().getAika());
 		System.out.println("\nTulokset:");
 		int totalAsiakkaat = 0;
+
+		Simulointi simulointi = new Simulointi(ctrl.getAika(), getViive());
+		simulointiDao.persist(simulointi);
+
 		for (Palvelupiste p : palvelupisteet) {
 			System.out.println(p.getPalvelupisteNimi() + ":");
 			ctrl.setTulostukset("                        " + p.getPalvelupisteNimi() + "\n");
@@ -155,7 +173,13 @@ public class OmaMoottori extends Moottori{
 			// Palvelupisteen suurin jono
 			System.out.println("Suurin jono simun aikana: " + p.getSuurinJono());
 			ctrl.setTulostukset(String.valueOf("Suurin jono simun aikana: " + p.getSuurinJono()) + "\n------------------------------------------------");
+
+			PalvelupisteData palvelupisteData = new PalvelupisteData(simulointi.getId(), p.getPalvelupisteNimi(), p.getPalvelupisteenKokonaisAika(), p.getAsiakasLkm(), p.getAsiakasLkm()/Kello.getInstance().getAika()*100, p.getJonoSize(), p.getSuurinJono(), p.getMaksimiAsiakasKapasiteetti(), p.getEka_parametri(), p.getToka_parametri());
+			palvelupisteDataDao.persist(palvelupisteData);
 		}
+		// Lähetä simulaation tulokset tietokantaan
+		// Lähetä Simulointi
+
 
 		// Total asiakkaat
 		ctrl.setTulostukset("Asiakkaiden kokonaismäärä: " + String.valueOf(totalAsiakkaat) + "\n");
