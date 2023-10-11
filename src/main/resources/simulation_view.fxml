@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -188,13 +189,22 @@
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BASELINE">
                                        <children>
-                                          <TextField fx:id="saapumisKeskiarvo" alignment="CENTER" text="2" />
+                                          <ChoiceBox fx:id="jakaumaChoiceBox" prefWidth="150.0" />
+                                          <TextField fx:id="saapumisKeskiarvo" alignment="CENTER" onKeyTyped="#isNumeric" text="2" />
                                           <TextField fx:id="saapumisMuutos" alignment="CENTER" onKeyTyped="#isNumeric" text="1" />
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" GridPane.rowIndex="5">
                                        <children>
-                                          <Label prefHeight="18.0" prefWidth="127.0" text="Saapumisprosessi" />
+                                          <Label text="Jakauma">
+                                             <padding>
+                                                <Insets bottom="2.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label prefHeight="18.0" prefWidth="127.0" text="Saapumisprosessi">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin></Label>
                                           <Label alignment="CENTER" prefHeight="18.0" prefWidth="122.0" text="Muutos">
                                              <padding>
                                                 <Insets top="5.0" />

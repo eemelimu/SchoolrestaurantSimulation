@@ -81,17 +81,6 @@ public class Visualisointi implements IVisualisointi {
             gc.fillText(String.valueOf(palvelupisteet[3].getJonoSize()), 460, 120);
             gc.fillText(String.valueOf(palvelupisteet[4].getJonoSize()), 460, 150);
 
-            // Päivitä ruokalan mallin asiakkaan liikkumista
-            /*String path2 = "/images/simulaatio_kuvas/simulaatioKuvaus_" + this.mallikuva  + ".png";
-            Image malli = new Image(path2);
-            gc.drawImage(malli, 0, 190, 800, 400);
-            if (this.mallikuva == 11) {
-                this.mallikuva = 1;
-            } else {
-                this.mallikuva++;
-            }*/
-
-
             // Käydään läpi kaikki palvelupisteet ja lasketaan prosentteina kuinka täynnä palvelupiste on
             // Prosenttiarvoa käytetään valitsemaan kuva joka kuvastaa kuinka täynnä palvelupiste on
             for (int i = 0; i < palvelupisteet.length; i++) {
@@ -129,7 +118,6 @@ public class Visualisointi implements IVisualisointi {
         String kuvausPath = "/images/simulaatio_kuvaus/simulaatioKuvaus_" + this.mallikuva + ".png";
         Image malli = new Image(kuvausPath);
         gc.drawImage(malli, 0, 190, 800, 400);
-        System.out.println("mallikuva: " + this.mallikuva);
         if (this.mallikuva == 11) {
             this.mallikuva = 1;
         } else {

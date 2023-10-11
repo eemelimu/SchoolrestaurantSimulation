@@ -3,13 +3,13 @@
 }
 
 .text-area {
-    -fx-border-width: 0,5px;
+    -fx-border-width: 0, 5px;
     -fx-border-color: #ffffff;
     -fx-border-radius: 1px;
 }
 
 .text-field {
-    -fx-border-width: 0,5px;
+    -fx-border-width: 0, 5px;
     -fx-border-color: #ffffff;
     -fx-border-radius: 1px;
     -fx-control-inner-background: #303030;
@@ -19,15 +19,6 @@
 #tuloksetTextArea {
     -fx-control-inner-background: #303030;
     -fx-text-fill: white;
-}
-
-.combo-box .list-cell {
-    -fx-background-color: #303030;
-    -fx-text-fill: black;
-}
-
-.combo-box .list-cell:hover {
-    -fx-background-color: #888888;
 }
 
 .text {
@@ -49,6 +40,21 @@
 
 .button {
     -fx-border-width: 1px;
-    -fx-border-color: #ffffff;
+    -fx-border-color: #303030;
     -fx-border-radius: 3px;
+}
+
+.choice-box {
+    -fx-border-width: 1px;
+    -fx-border-color: #303030;
+    -fx-border-radius: 3px;
+    -fx-background-color: #303030;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: #303030;
+}
+
+.choice-box .menu-item:focused {
+    -fx-background-color: #0099ff;
 }

@@ -2,9 +2,12 @@ package simu.model;
 
 import controller.Controller;
 import controller.IControllerForM;
+import dao.PalvelupisteDataDao;
+import dao.SimulointiDao;
+import entity.PalvelupisteData;
+import entity.Simulointi;
 import simu.framework.*;
-import eduni.distributions.Negexp;
-import eduni.distributions.Normal;
+import eduni.distributions.*;
 import view.SimulaattorinGUI;
 
 public class OmaMoottori extends Moottori{
@@ -33,8 +36,10 @@ public class OmaMoottori extends Moottori{
 		palvelupisteet[3]=new Palvelupiste(new Normal(ctrl.getPoytaKeskiarvo(), ctrl.getPoytaMuutos()), tapahtumalista, TapahtumanTyyppi.DEP4, ctrl.poytaKapasiteetti(), "Pöytä");
 		// Astioiden palautus
 		palvelupisteet[4]=new Palvelupiste(new Normal(ctrl.getAstioidenpalautusKeskiarvo(), ctrl.getAstioidenpalautusMuutos()), tapahtumalista, TapahtumanTyyppi.DEP5, ctrl.astioidenpalautusKapasiteetti(), "Astioidenpalautus");
+		palvelupisteet[4].setEka_parametri(ctrl.getTavallinenJonoKeskiarvo());
+		palvelupisteet[4].setToka_parametri(ctrl.getTavallinenJonoMuutos());
 
-		saapumisprosessi = new Saapumisprosessi(new Normal(ctrl.getSaapumisKeskiarvo(),ctrl.getSaapumisMuutos()), tapahtumalista, TapahtumanTyyppi.ARR1);
+		saapumisprosessi = new Saapumisprosessi(ctrl.getJakauma(), tapahtumalista, TapahtumanTyyppi.ARR1);
 	}
 
 	@Override
@@ -56,7 +61,8 @@ public class OmaMoottori extends Moottori{
 					// Jos arvottu luku on yli 0.9 niin asiakas menee grilli jonoon, muuten tavalliseen jonoon
 					// Eli noin 10% asiakkaista simulaation aikana pitäisi mennä grilli jonoon
 					// Loppujen 90% pitäisi mennä tavalliseen.
-					if (randomNum >= 0.93) {    // grilli jonoon
+					if (randomNum >= 0.93) {
+						// grilli jonoon
 						palvelupisteet[1].lisaaJonoon(new Asiakas());
 						System.out.println("Asiakas menee grilli jonoon");
 					} else {

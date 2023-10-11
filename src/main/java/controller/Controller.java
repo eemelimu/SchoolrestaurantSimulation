@@ -1,13 +1,13 @@
 package controller;
 
+import eduni.distributions.Negexp;
+import eduni.distributions.Normal;
+import eduni.distributions.Uniform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import simu.framework.IMoottori;
@@ -17,7 +17,7 @@ import view.IVisualisointi;
 import view.SimulaattorinGUI;
 import view.Visualisointi;
 import javafx.scene.canvas.Canvas;
-
+import eduni.distributions.ContinuousGenerator;
 import java.io.IOException;
 
 public class Controller implements IControllerForV, IControllerForM{
@@ -109,12 +109,36 @@ public class Controller implements IControllerForV, IControllerForM{
     @FXML
     private Button edellisetTuloksetButton;
 
+    @FXML
+    private ChoiceBox jakaumaChoiceBox;
+
     private IMoottori moottori;
     private ISimulaattoriUI ui = new SimulaattorinGUI();
     private SimulaattorinGUI simuUI = new SimulaattorinGUI();
     private Visualisointi visualisointi1;
 
     public Controller() {
+    }
+
+    @FXML
+    public void initialize() {
+        try {
+            jakaumaChoiceBox.getItems().addAll("Normal", "Uniform", "Negexp");
+            jakaumaChoiceBox.setValue("Normal");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ContinuousGenerator getJakauma() {
+        if (jakaumaChoiceBox.getValue().equals("Normal")) {
+            return new Normal(getSaapumisKeskiarvo(), getSaapumisMuutos());
+        } else if (jakaumaChoiceBox.getValue().equals("Uniform")) {
+            return new Uniform(getSaapumisKeskiarvo(), getSaapumisMuutos());
+        } else if (jakaumaChoiceBox.getValue().equals("Negexp")) {
+            return new Negexp(getSaapumisKeskiarvo(), getSaapumisMuutos());
+        }
+        return null;
     }
 
     @FXML
@@ -142,7 +166,7 @@ public class Controller implements IControllerForV, IControllerForM{
 
     @FXML
     private void isNumeric() {
-        TextField[] textFields = new TextField[]{aikaTextField, viiveTextField, tavallinenJonoTextField, grillijonoTextField, maksupaateTextField, poytaTextField, astioidenpalautusTextField};
+        TextField[] textFields = new TextField[]{aikaTextField, viiveTextField, tavallinenJonoTextField, grillijonoTextField, maksupaateTextField, poytaTextField, astioidenpalautusTextField, saapumisKeskiarvo, saapumisMuutos, tavallinenJonoKeskiarvo, tavallinenJonoMuutos, grillijonoKeskiarvo, grillijonoMuutos, maksupaateKeskiarvo, maksupaateMuutos, poytaKeskiarvo, poytaMuutos, astioidenpalautusKeskiarvo, astioidenpalautusMuutos};
         for (TextField textField : textFields) {
             String character = textField.getText();
             if (!character.matches("\\d*")) {
@@ -150,6 +174,7 @@ public class Controller implements IControllerForV, IControllerForM{
             }
         }
     }
+
 
     @FXML
     private void kaynnista(){
@@ -173,13 +198,11 @@ public class Controller implements IControllerForV, IControllerForM{
         viewViive();
     }
 
-
     @Override
     public void hidasta() {
         moottori.setViive(Math.max(2, (long) Math.ceil(moottori.getViive() * 1.1)));
         viewViive();
     }
-
 
     @Override
     public void naytaLoppuaika(double aika) {
