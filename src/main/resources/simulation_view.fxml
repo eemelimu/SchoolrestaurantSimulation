@@ -267,7 +267,7 @@
                <children>
                   <Label text="Tulokset" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                   <TextArea fx:id="tuloksetTextArea" editable="false" prefHeight="654.0" prefWidth="249.0" GridPane.rowIndex="1" />
-                  <Button fx:id="edellisetTuloksetButton" mnemonicParsing="false" onAction="#openEdellisetTulokset" prefHeight="25.0" prefWidth="122.0" text="Tulos historia" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="edellisetTuloksetButton" mnemonicParsing="false" onAction="#openEdellisetTulokset" prefHeight="25.0" prefWidth="122.0" text="Tuloshistoria" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets top="5.0" />
                      </GridPane.margin>
