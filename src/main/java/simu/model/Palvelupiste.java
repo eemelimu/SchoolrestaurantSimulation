@@ -16,7 +16,6 @@ public class Palvelupiste {
 	private final String palvelupisteNimi;
 	private final int maksimiAsiakasKapasiteetti; // Kuinka monta asiakasta voi olla palvelupisteellä samaan aikaan
 	private int asiakasLkm; // Kuinka monta asiakasta on käynyt palvelupisteellä
-	private int nykyisetAsiakkaat; // Kuinka monta asiakasta on tällä hetkellä palvelupisteellä
 	private double palvelupisteenKokonaisAika; // Kuinka kauan palvelupiste on ollut käytössä
 	private int eka_parametri;
 	private int toka_parametri;
@@ -30,7 +29,6 @@ public class Palvelupiste {
 		this.skeduloitavanTapahtumanTyyppi = tyyppi;
 		this.maksimiAsiakasKapasiteetti = maksimiAsiakasKapasiteetti;
 		this.palvelupisteNimi = palvelupisteNimi;
-		this.nykyisetAsiakkaat = 0;
 	}
 
 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
