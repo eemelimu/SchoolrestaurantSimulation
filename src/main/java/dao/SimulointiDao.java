@@ -7,7 +7,9 @@ import jakarta.persistence.EntityTransaction;
 import entity.Simulointi;
 import java.util.List;
 
-
+/**
+ * SimulointiDao class for the application.
+ */
 public class SimulointiDao {
 
         public void persist(Simulointi simulointi) {

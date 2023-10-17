@@ -10,6 +10,9 @@ import simu.framework.*;
 import eduni.distributions.*;
 import view.SimulaattorinGUI;
 
+/**
+ * OmaMoottori luokka joka perii Moottori luokan
+ */
 public class OmaMoottori extends Moottori{
 
 	private Saapumisprosessi saapumisprosessi;
@@ -22,6 +25,12 @@ public class OmaMoottori extends Moottori{
 	private SimulaattorinGUI ui;
 	private Controller ctrl;
 
+	/**
+	 * Konstruktori
+	 * @param controller
+	 * @param ui
+	 * @param ctrl
+	 */
 	public OmaMoottori(IControllerForM controller, SimulaattorinGUI ui, Controller ctrl) {
 		super(controller);
 		this.ui = ui;
@@ -61,6 +70,10 @@ public class OmaMoottori extends Moottori{
 		saapumisprosessi.generoiSeuraava(); // Ensimmäinen saapuminen järjestelmään
 	}
 
+	/**
+	 * Simuloidaan kunnes simulointiaika on kulunut loppuun
+	 * @return
+	 */
 	@Override
 	protected void suoritaTapahtuma(Tapahtuma t){  // B-vaiheen tapahtumat
 		try {
@@ -124,6 +137,9 @@ public class OmaMoottori extends Moottori{
 		}
 	}
 
+	/**
+	 * Yritetään aloittaa palvelu jos palvelupiste ei ole varattu ja siellä on jonoa
+	 */
 	@Override
 	protected void yritaCTapahtumat(){
 		for (Palvelupiste p: palvelupisteet){
@@ -133,6 +149,9 @@ public class OmaMoottori extends Moottori{
 		}
 	}
 
+	/**
+	 * Tulokset
+	 */
 	@Override
 	protected void tulokset() {
 		// Tänne kaikki tulokset:
@@ -185,8 +204,6 @@ public class OmaMoottori extends Moottori{
 		ctrl.setTulostukset("Asiakkaiden kokonaismäärä: " + String.valueOf(totalAsiakkaat) + "\n");
 	}
 
-
-	// UUDET
 	@Override
 	public void setViive(long aika) {
 		this.viive = aika;

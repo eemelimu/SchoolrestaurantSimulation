@@ -1,7 +1,9 @@
 package entity;
 
 import jakarta.persistence.*;
-
+/**
+ * PalvelupisteData class for the application.
+ */
 @Entity
 @Table(name="palvelupiste")
 public class PalvelupisteData {

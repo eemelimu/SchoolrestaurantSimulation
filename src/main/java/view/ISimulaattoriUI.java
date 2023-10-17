@@ -1,5 +1,7 @@
 package view;
-
+/**
+ * ISimulaattoriUI interface for the application.
+ */
 public interface ISimulaattoriUI {
 
     // Kontrolleri tarvitsee syötteitä, jotka se välittää Moottorille

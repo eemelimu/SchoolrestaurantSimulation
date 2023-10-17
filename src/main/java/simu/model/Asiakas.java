@@ -1,7 +1,14 @@
 package simu.model;
 
 import simu.framework.*;
-
+/**
+ * Asiakas-luokka
+ *
+ * Luokka sisältää asiakkaan tiedot
+ *
+ * @version 1.0 1.4.2019
+ *
+ */
 public class Asiakas {
 	private double saapumisaika;
 	private double poistumisaika;
@@ -10,6 +17,9 @@ public class Asiakas {
 	private static int i = 1;
 	private static long sum = 0;
 
+	/**
+	 * Konstruktori
+	 */
 	public Asiakas(){
 	    id = i++;
 
@@ -17,6 +27,9 @@ public class Asiakas {
 		System.out.println("Uusi asiakas nro " + id + " saapui klo " + saapumisaika);
 	}
 
+	/**
+	 * @return the palvelunPaattymisAika
+	 */
 	public double getPoistumisaika() {
 		return poistumisaika;
 	}
@@ -37,6 +50,10 @@ public class Asiakas {
 		return id;
 	}
 
+	/**
+	 * Ohjelman loputtua tulostetaan asiakkaan tiedot
+	 * @return the palvelunPaattymisAika
+	 */
 	public void raportti(){
 		System.out.println("\nAsiakas "+id+" valmis!");
 		System.out.println("Asiakas "+id+ " saapui: " +saapumisaika);

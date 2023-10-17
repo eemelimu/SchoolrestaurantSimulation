@@ -3,6 +3,9 @@ package entity;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+/**
+ * Simulointi class for the application.
+ */
 @Entity
 @Table(name="simulointi")
 public class Simulointi {

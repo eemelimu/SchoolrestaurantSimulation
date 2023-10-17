@@ -5,6 +5,9 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import entity.PalvelupisteData;
 
+/**
+ * PalvelupisteDataDao class for the application.
+ */
 public class PalvelupisteDataDao {
 
     public void persist(PalvelupisteData palvelupisteData) {

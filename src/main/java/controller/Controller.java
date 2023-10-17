@@ -21,7 +21,9 @@ import eduni.distributions.ContinuousGenerator;
 import java.io.IOException;
 import entity.Simulointi;
 import entity.PalvelupisteData;
-
+/**
+ * Controller luokka joka toimii yhteytenä view ja model luokkien välillä
+ */
 public class Controller implements IControllerForV, IControllerForM{
 
     @FXML
@@ -122,6 +124,9 @@ public class Controller implements IControllerForV, IControllerForM{
     public Controller() {
     }
 
+    /**
+     * Metodi joka alustaa choiceboxin
+     */
     @FXML
     public void initialize() {
         try {
@@ -132,6 +137,10 @@ public class Controller implements IControllerForV, IControllerForM{
         }
     }
 
+    /**
+     * Metodi joka palauttaa jakauman
+     * @return
+     */
     public ContinuousGenerator getJakauma() {
         if (jakaumaChoiceBox.getValue().equals("Normal")) {
             return new Normal(getSaapumisKeskiarvo(), getSaapumisMuutos());
@@ -153,6 +162,9 @@ public class Controller implements IControllerForV, IControllerForM{
         tuloksetTextArea.appendText(tulostus + "\n");
     }
 
+    /**
+     * Metodi joka käynnistää simuloinnin
+     */
     @Override
     public void kaynnistaSimulointi() {
         clearTulostukset();
@@ -166,6 +178,9 @@ public class Controller implements IControllerForV, IControllerForM{
         ((Thread) moottori).start();
     }
 
+    /**
+     * Metodi joka tarkistaa onko tekstikenttien sisältö numeerista
+     */
     @FXML
     private void isNumeric() {
         TextField[] textFields = new TextField[]{aikaTextField, viiveTextField, tavallinenJonoTextField, grillijonoTextField, maksupaateTextField, poytaTextField, astioidenpalautusTextField, saapumisKeskiarvo, saapumisMuutos, tavallinenJonoKeskiarvo, tavallinenJonoMuutos, grillijonoKeskiarvo, grillijonoMuutos, maksupaateKeskiarvo, maksupaateMuutos, poytaKeskiarvo, poytaMuutos, astioidenpalautusKeskiarvo, astioidenpalautusMuutos};
@@ -177,7 +192,9 @@ public class Controller implements IControllerForV, IControllerForM{
         }
     }
 
-
+    /**
+     * Metodi joka tarkistaa onko tekstikenttien sisältö tyhjää ja käynnistää simuloinnin
+     */
     @FXML
     private void kaynnista(){
         if (aikaTextField.getText().isEmpty() || viiveTextField.getText().isEmpty() || tavallinenJonoTextField.getText().isEmpty() || grillijonoTextField.getText().isEmpty() || maksupaateTextField.getText().isEmpty() || poytaTextField.getText().isEmpty() || astioidenpalautusTextField.getText().isEmpty() || saapumisKeskiarvo.getText().isEmpty() || saapumisMuutos.getText().isEmpty() || tavallinenJonoKeskiarvo.getText().isEmpty() || tavallinenJonoMuutos.getText().isEmpty() || grillijonoKeskiarvo.getText().isEmpty() || grillijonoMuutos.getText().isEmpty() || maksupaateKeskiarvo.getText().isEmpty() || maksupaateMuutos.getText().isEmpty() || poytaKeskiarvo.getText().isEmpty() || poytaMuutos.getText().isEmpty() || astioidenpalautusKeskiarvo.getText().isEmpty() || astioidenpalautusMuutos.getText().isEmpty()) {
@@ -189,17 +206,26 @@ public class Controller implements IControllerForV, IControllerForM{
         }
     }
 
+    /**
+     * Metodi joka näyttää viiveen
+     */
     @FXML
     public void viewViive() {
     	viiveDisplay.setText(String.valueOf(moottori.getViive()));
     }
 
+    /**
+     * Metodi joka nopeuttaa simulointia
+     */
     @Override
     public void nopeuta() {
         moottori.setViive(Math.max(1, (long)(moottori.getViive() * 0.9)));
         viewViive();
     }
 
+    /**
+     * Metodi joka hidastaa simulointia
+     */
     @Override
     public void hidasta() {
         moottori.setViive(Math.max(2, (long) Math.ceil(moottori.getViive() * 1.1)));
@@ -312,6 +338,9 @@ public class Controller implements IControllerForV, IControllerForM{
         return Double.parseDouble(aikaTextField.getText());
     }
 
+    /**
+     * Metodi joka avaa keskittymis avustajan
+     */
     @FXML
     public void openKeskittymisNakyma() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/keskittymis_view.fxml"));
@@ -324,6 +353,9 @@ public class Controller implements IControllerForV, IControllerForM{
         keskittymisStage.show();
     }
 
+    /**
+     * Metodi joka avaa edelliset tulokset
+     */
     @FXML
     public void openEdellisetTulokset() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/tulokset_view.fxml"));
@@ -335,5 +367,4 @@ public class Controller implements IControllerForV, IControllerForM{
         tuloksetStage.setScene(new Scene(root));
         tuloksetStage.show();
     }
-
 }

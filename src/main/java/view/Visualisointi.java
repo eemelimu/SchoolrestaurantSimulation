@@ -5,7 +5,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import simu.model.Palvelupiste;
 import javafx.scene.image.Image;
-
+/**
+ * Visualisointi luokka joka toteuttaa IVisualisointi rajapinnan
+ */
 public class Visualisointi implements IVisualisointi {
     private GraphicsContext gc;
     private Canvas canvas;
@@ -17,7 +19,9 @@ public class Visualisointi implements IVisualisointi {
         tyhjennaNaytto();
     }
 
-    // Resetoi tulokset, jotta uudet saadaan näkyviin
+    /**
+     * Resetoi tulokset, jotta uudet saadaan näkyviin
+     */
     public void tyhjennaNaytto() {
         gc.setFill(Color.rgb(61, 61, 61));
         Image image = new Image("/images/simulaatio_kuvaus/simulaatioKuvaus_bg.png");
@@ -59,9 +63,13 @@ public class Visualisointi implements IVisualisointi {
         gc.fillText("Jono: ", 400, 150);
     }
 
-    // Kutsutaan OmaMoottorin suoritaTapahtuma funktiossa.
-    // Päivittää kuinka monta asiakasta on jokaisella palvelupisteellä
-    // Päivittää myös palkki visualisoinnin joka esittää kuinka täynnä kyseinen palvelupiste on
+    /**
+     * Kutsutaan OmaMoottorin suoritaTapahtuma funktiossa.
+     * Päivittää kuinka monta asiakasta on jokaisella palvelupisteellä
+     * Päivittää myös palkki visualisoinnin joka esittää kuinka täynnä kyseinen palvelupiste on
+     * Päivittää visualisoinnin
+     * @param palvelupisteet
+     */
     public void uusiAsiakas(Palvelupiste[] palvelupisteet) {
         try {
             // Tyhjennetään canva vanhoista tuloksista
@@ -114,6 +122,9 @@ public class Visualisointi implements IVisualisointi {
         }
     }
 
+    /**
+     * Päivittää mallin kuvaa
+     */
     public void updateMallinkuva() {
         String kuvausPath = "/images/simulaatio_kuvaus/simulaatioKuvaus_" + this.mallikuva + ".png";
         Image malli = new Image(kuvausPath);

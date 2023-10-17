@@ -7,6 +7,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
+/**
+ * Controller for the KeskittymisView.
+ */
 public class KeskittymisViewController {
 
     @FXML

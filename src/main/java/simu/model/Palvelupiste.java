@@ -5,7 +5,9 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.*;
 import eduni.distributions.ContinuousGenerator;
-
+/**
+ * Palvelupiste-luokka
+ */
 public class Palvelupiste {
 
 	private final LinkedList<Asiakas> jono = new LinkedList<>(); // Tietorakennetoteutus
@@ -23,6 +25,14 @@ public class Palvelupiste {
 	private boolean varattu = false;
 	private int suurinJono = 0;
 
+	/**
+	 * Konstruktori
+	 * @param generator
+	 * @param tapahtumalista
+	 * @param tyyppi
+	 * @param maksimiAsiakasKapasiteetti
+	 * @param palvelupisteNimi
+	 */
 	public Palvelupiste(ContinuousGenerator generator, Tapahtumalista tapahtumalista, TapahtumanTyyppi tyyppi, int maksimiAsiakasKapasiteetti, String palvelupisteNimi){
 		this.tapahtumalista = tapahtumalista;
 		this.generator = generator;
@@ -31,6 +41,10 @@ public class Palvelupiste {
 		this.palvelupisteNimi = palvelupisteNimi;
 	}
 
+	/**
+	 * Lisätään asiakas jonoon
+	 * @param a
+	 */
 	public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa
 		jono.add(a);
 		checkSuurinJono();
@@ -95,8 +109,10 @@ public class Palvelupiste {
 		return this.jono.size();
 	}
 
+	/**
+	 * Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
+	 */
 	public void aloitaPalvelu(){  // Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
-
 		try  {
 			palveltavienJono.add(otaJonosta());
             assert jono.peek() != null;
@@ -122,8 +138,10 @@ public class Palvelupiste {
 		return jono.size() != 0;
 	}
 
+	/**
+	 * Comparator for sorting the list by roll no
+	 */
 	class AsiakasComparator implements Comparator<Asiakas>{
-
 		// Overriding compare()method of Comparator
 		// for descending order of cgpa
 		public int compare(Asiakas a1, Asiakas a2) {

@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import java.io.IOException;
-
+/**
+ * SimulaattorinGUI luokka joka toteuttaa ISimulaattoriUI rajapinnan
+ */
 public class SimulaattorinGUI extends Application implements ISimulaattoriUI {
 
     @Override

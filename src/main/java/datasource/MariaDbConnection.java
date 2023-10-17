@@ -2,7 +2,9 @@ package datasource;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-
+/**
+ * MariaDbConnection class for the application.
+ */
 public class MariaDbConnection {
     public static EntityManagerFactory emf = null;
     public static EntityManager em = null;

@@ -10,6 +10,9 @@ import dao.SimulointiDao;
 import java.util.*;
 import entity.*;
 
+/**
+ * Controller for the TuloksetView.
+ */
 public class TuloksetViewController {
     private SimulointiDao simulointiDao = new SimulointiDao();
 
@@ -22,16 +25,25 @@ public class TuloksetViewController {
     @FXML
     private TextArea tulosHistoriaTulokset;
 
+    /**
+     * Closes the window.
+     */
     @FXML
     public void closeWindow() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Initializes the choice box with all the simulations.
+     */
     public void initialize() {
         simuloinnitChoiceBox.getItems().addAll(simulointiDao.getAllSimulointi());
     }
 
+    /**
+     * Sets the results of the selected simulation to the text area.
+     */
     @FXML
     public void setTulosHistoriaTulokset() {
         Simulointi s = (Simulointi) simuloinnitChoiceBox.getValue();
